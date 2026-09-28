@@ -96,6 +96,16 @@ the desktop app's built-in browser or Claude in Chrome.
 
 Then delete the `EXAMPLE-…` folder.
 
+### Using Codex, Cursor or another agent?
+It's built for Claude Code, but everything is plain Markdown, so other agents work too. They read
+[`AGENTS.md`](AGENTS.md), which points them at the same rules (`CLAUDE.md`) and tells them which skill file to follow
+for each request. What's Claude-specific, and what you'll need your own tool's equivalent for:
+- a **browser you can log in through** (for Moodle and the unit catalogue)
+- **web search** (for the job search)
+- **scheduling and approvals** (for the automatic twice-weekly search)
+
+The notes, Obsidian views and templates don't care which AI wrote them.
+
 ## Viewing it: use Obsidian (recommended)
 Everything is plain Markdown, so any editor works, but [Obsidian](https://obsidian.md) (free) is the nicest way
 to read and browse it yourself while Claude does the writing:
@@ -137,6 +147,7 @@ Tips:
 | Path | Purpose |
 |---|---|
 | `CLAUDE.md` | Rules Claude follows in every session (read automatically by Claude Code) |
+| `AGENTS.md` | Entry point for other agents (Codex, Cursor…): points to `CLAUDE.md` and maps requests to skill files |
 | `.claude/skills/setup-year/` | First-run setup: VLE + unit catalogue → module folders + deadlines |
 | `.claude/skills/add-module/` | Add a single module from a code, link, PDF or pasted spec |
 | `.claude/skills/whats-due/` | Deadline summary (coursework + applications) with priorities |
