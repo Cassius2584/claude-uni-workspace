@@ -66,6 +66,9 @@ views:
       - stage
       - fit
       - deadline
+    sort:
+      - property: fit
+        direction: DESC
   - type: table
     name: Filtered out
     filters:

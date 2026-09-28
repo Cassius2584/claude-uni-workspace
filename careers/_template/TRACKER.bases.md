@@ -13,7 +13,7 @@ and applications as described here instead of in ROLES.md / APPLICATIONS.md. Sou
 ## Properties (frontmatter), exact names and values
 | Property | Values |
 |---|---|
-| `kind` | always `role` (the view filters on it) |
+| `kind` | always `role` (the view filters on it; the template says `<role>` so it never shows up itself) |
 | `priority` | Now · Next · Later · Applied · Expired or N/A |
 | `company`, `role`, `location`, `start`, `next_step`, `link`, `source` | text |
 | `type` | Grad · Internship · Placement |

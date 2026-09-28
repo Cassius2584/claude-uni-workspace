@@ -1,5 +1,5 @@
 ---
-kind: assessment
+kind: <assessment>
 module: "[[projects/<CODE>-<short-name>/MODULE|<CODE>]]"
 code: <CODE>
 item: "<CW1: Business plan>"

@@ -63,6 +63,9 @@ views:
       - due
       - weight
       - status
+    sort:
+      - property: due
+        direction: ASC
   - type: table
     name: Done
     filters:

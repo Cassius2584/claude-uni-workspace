@@ -1,5 +1,5 @@
 ---
-kind: module
+kind: <module>
 code: <CODE>
 title: "<Module title>"
 semester: <Semester 1 | Semester 2 | Full year>

@@ -1,5 +1,5 @@
 ---
-kind: role
+kind: <role>
 priority: Now
 company: <Company>
 role: <Role title>
