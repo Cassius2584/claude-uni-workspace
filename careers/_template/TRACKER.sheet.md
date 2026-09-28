@@ -1,6 +1,6 @@
-# Spreadsheet tracker
+# Tracker: spreadsheet
 
-_Only needed if you track roles in a spreadsheet instead of ROLES.md / APPLICATIONS.md / SOURCES.md.
+_Copy to `careers/TRACKER.md` to track roles in a spreadsheet instead of ROLES.md / APPLICATIONS.md / SOURCES.md.
 When this file exists, the careers skills read and write the sheet described here._
 
 - **Sheet:** <name> · <link>

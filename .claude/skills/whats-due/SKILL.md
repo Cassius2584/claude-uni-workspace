@@ -6,7 +6,8 @@ description: Summarise upcoming uni and job-application deadlines from the works
 # What's due
 
 1. Read `projects/DEADLINES.md`, and `careers/APPLICATIONS.md` if it exists (or, if `careers/TRACKER.md`
-   exists, the roles in that spreadsheet with a deadline or next-step date that aren't expired or rejected) (closing dates and next steps
+   exists, the roles in that tracker, whether Obsidian role notes or a spreadsheet, with a deadline or
+   next-step date that aren't expired, rejected, withdrawn or filtered out) (closing dates and next steps
    for applications not yet submitted). Use today's date. Default window: the next 14 days, plus anything
    overdue and not marked Submitted. Use the window the student asks for if they give one.
 2. For each item in the window, open that module's `MODULE.md` and check the row still matches (MODULE.md

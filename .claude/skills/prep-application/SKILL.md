@@ -6,8 +6,9 @@ description: Prepare an application for one specific role. Saves the job descrip
 # Prep an application
 
 Inputs: a role (an ID from `careers/ROLES.md`, a link or pasted text), plus `careers/CV.md` and
-`careers/BRIEF.md`. If `careers/TRACKER.md` exists, roles and applications live in that spreadsheet
-instead of ROLES.md / APPLICATIONS.md, so read and update the role's row there (see TRACKER.md).
+`careers/BRIEF.md`. If `careers/TRACKER.md` exists, roles and applications live in that tracker (Obsidian
+role notes or a spreadsheet) instead of ROLES.md / APPLICATIONS.md, so read and update the role there (see
+TRACKER.md). With Obsidian notes, link the prep files from the role note's *Prep* heading.
 
 ## 1. Folder and job description
 Create `careers/roles/<id>/`. Save the full job description as `job.md` (title, employer, link, date
@@ -40,7 +41,7 @@ and 5–8 likely interview questions (technical and behavioural) for this role.
 - Set the role's status in ROLES.md to `shortlisted`.
 - Add a row to `careers/APPLICATIONS.md`: stage **To apply**, the closing date (or "rolling, aim for
   <date one week from today>"), and the folder.
-- With a spreadsheet tracker, do the equivalent on the role's row instead (TRACKER.md says which columns: e.g.
+- With a tracker (TRACKER.md), do the equivalent on the role's note or row instead (TRACKER.md says which columns: e.g.
   priority **Now**, stage **Not applied**, next step + date), adding the row first if the role came from a link.
 - Say what the student needs to do next, and by when.
 

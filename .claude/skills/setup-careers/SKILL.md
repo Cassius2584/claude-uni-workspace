@@ -5,8 +5,8 @@ description: Set up the careers section of the workspace for finding and applyin
 
 # Set up careers
 
-End state: `careers/` contains `CV.md`, `BRIEF.md`, `SOURCES.md`, `ROLES.md`, `APPLICATIONS.md`, empty
-`digests/` and `roles/` folders, and (if wanted) a scheduled search. Copy each file from
+End state: `careers/` contains `CV.md`, `BRIEF.md`, `SOURCES.md`, the chosen tracker (step 3b), empty
+`digests/` and `roles/` folders, and (if wanted) an approval-free scheduled search. Copy each file from
 `careers/_template/` and fill it in. Never overwrite a filled-in file without asking.
 
 ## 1. CV
@@ -43,14 +43,20 @@ Copy `careers/_template/SOURCES.md`. Adjust the defaults to the brief:
   revisiting into the target list, with a note on what happened then.
 - Ask whether their university has a careers portal. Add it as `browser` (live sessions only).
 
-## 3b. Spreadsheet tracker (optional)
-Markdown tables work, but a spreadsheet is nicer for sorting and filtering, colour coding and viewing on a phone.
-If the student wants one and a spreadsheet tool is available (a Google Sheets skill or connector, or Excel),
-create a sheet with tabs **Roles**, **Pipeline**, **Watchlist** (target employers), **Sites**, **Events**
-and **Filtered out**. Add dropdowns for priority, type and stage, and a live "Days left" column. If they already
-kept a tracker in an earlier year, read it first and reuse its columns and wording. Then write
-`careers/TRACKER.md` from `careers/_template/TRACKER.md` with the sheet's ID, link, tab names, column order and
-the exact commands for reading and adding rows, and don't create SOURCES/ROLES/APPLICATIONS.md.
+## 3b. Choose a tracker
+**Default to Obsidian Bases** and recommend it strongly: no accounts, nothing to install beyond Obsidian, sortable
+and filterable views, each role's prep notes right next to it, and scheduled runs that never need shell
+permissions. Offer Markdown only if they don't want Obsidian, and a spreadsheet only if they already run their
+applications from one **and** have a tool that can write to it.
+
+| Option | When | Set up |
+|---|---|---|
+| **Obsidian Bases** (default, strongly recommended) | Sortable, filterable table and card views; one note per role alongside its prep files; no accounts | Copy `_template/TRACKER.bases.md` → `careers/TRACKER.md` and `_template/Roles.base` → `careers/Roles.base`. Create `careers/roles/`. Keep `SOURCES.md`; skip ROLES/APPLICATIONS.md. Tell them to open `careers/Roles.base` in Obsidian (1.9+, Bases core plugin on). |
+| **Markdown tables** (fallback without Obsidian) | Simplest; works in any editor and on GitHub | Copy `ROLES.md` and `APPLICATIONS.md` from the template. No TRACKER.md. |
+| **Spreadsheet** (only if already used) | They want it on their phone, shared, or colour-coded, **and** this session has a tool that can write to their sheet (a Google Sheets skill, or Excel via a script). A read-only connector isn't enough: the search adds rows every run. | Build tabs **Roles**, **Pipeline**, **Watchlist**, **Sites**, **Events**, **Filtered out**, with dropdowns for priority, type and stage, and a live "Days left" column. Test each read/add/write command once. Then write `careers/TRACKER.md` from `_template/TRACKER.sheet.md` with the sheet's ID, link, columns and the exact commands that worked. Skip SOURCES/ROLES/APPLICATIONS.md. |
+
+If they kept a tracker in an earlier year, read it first and reuse its columns, wording and status values
+whichever option they pick.
 
 ## 4. Schedule (optional)
 Offer to run `find-roles` automatically at the frequency in the brief. Careers files are git-ignored and
@@ -65,9 +71,33 @@ stay on this computer, so the job has to run **locally**:
 - Each run starts with no memory, so the task prompt must be **self-contained**: absolute path to this
   workspace, where the brief, CV and tracker are, the priorities, digest location, and "scheduled mode: no
   questions, no logins, never apply".
-- Tell the student to click **Run now** on the task once and approve the tools it asks for (web search, the
-  spreadsheet tool, file writes). Otherwise the first unattended run stalls on approval prompts. Runs only
-  happen while the app is open. A missed run fires on next launch.
+- Runs only happen while the app is open. A missed run fires on next launch.
+
+### Make scheduled runs approval-free
+Unattended runs stall on permission prompts, and some prompts offer only "Allow once". That happens for
+compound shell commands (pipes, `&&`, heredocs, `cd`, variables) and for files outside the folder the run
+started in. Fix both:
+
+1. **Pre-approve the exact tools** the search needs. Show the student this list and, with their OK, merge it
+   into the `permissions.allow` array in their **user** settings (`~/.claude/settings.json`, because scheduled
+   runs may not start in this folder). Read the file first and keep existing entries. Use this workspace's
+   absolute path:
+   ```json
+   "WebSearch",
+   "WebFetch",
+   "Skill(find-roles)",
+   "Read(<workspace>/**)",
+   "Read(~/.claude/skills/**)",
+   "Edit(<workspace>/careers/**)"
+   ```
+   With a spreadsheet tracker, also add one narrow `Bash(...)` rule per command in TRACKER.md, e.g.
+   `"Bash(python3 /abs/path/to/sheets-tool.py sheet add-rows *)"`. Never add a bare `"Bash"` rule.
+2. **Put command rules in the task prompt** so every step matches those rules: read and write files only with
+   the file tools and only under `<workspace>/careers/`; no Bash for file I/O; write tool input (e.g. JSON rows)
+   to `<workspace>/careers/.tmp/` with the Write tool; run each tracker command on its own, with the full path
+   and no pipes, `&&`, `cd` or variables. The Obsidian Bases and Markdown trackers need no shell at all.
+3. Ask the student to click **Run now** once to confirm there are no prompts. If one appears, add a narrow rule
+   for exactly that call.
 
 ## 5. First run
 Offer to run `find-roles` now so they see a digest straight away.

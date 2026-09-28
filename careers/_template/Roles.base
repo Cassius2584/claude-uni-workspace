@@ -1,0 +1,79 @@
+filters:
+  and:
+    - kind == "role"
+views:
+  - type: table
+    name: Open roles
+    filters:
+      and:
+        - stage == "Not applied"
+        - priority != "Expired or N/A"
+    order:
+      - file.name
+      - priority
+      - company
+      - role
+      - type
+      - fit
+      - deadline
+      - location
+      - next_step
+      - next_date
+    sort:
+      - property: fit
+        direction: DESC
+  - type: table
+    name: By deadline
+    filters:
+      and:
+        - stage == "Not applied"
+        - priority != "Expired or N/A"
+    order:
+      - file.name
+      - deadline
+      - company
+      - role
+      - fit
+      - next_step
+    sort:
+      - property: deadline
+        direction: ASC
+  - type: table
+    name: Applications
+    filters:
+      and:
+        - stage != "Not applied"
+        - stage != "Filtered out"
+    order:
+      - file.name
+      - company
+      - role
+      - stage
+      - next_step
+      - next_date
+    sort:
+      - property: next_date
+        direction: ASC
+  - type: cards
+    name: Board
+    filters:
+      and:
+        - stage != "Filtered out"
+        - priority != "Expired or N/A"
+    order:
+      - company
+      - role
+      - stage
+      - fit
+      - deadline
+  - type: table
+    name: Filtered out
+    filters:
+      and:
+        - stage == "Filtered out"
+    order:
+      - file.name
+      - company
+      - role
+      - reason
+      - found

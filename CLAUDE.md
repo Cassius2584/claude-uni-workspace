@@ -19,9 +19,11 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
 │   ├── BRIEF.md               ← what I'm looking for: role types, titles, hard requirements, targets
 │   ├── SOURCES.md             ← job sites and employer pages to check
-│   ├── ROLES.md               ← every role seen (for de-duplication), with fit score and status
-│   ├── APPLICATIONS.md        ← application pipeline and closing dates
+│   ├── TRACKER.md             ← (optional) which tracker is in use: Obsidian Bases or a spreadsheet
+│   ├── ROLES.md, APPLICATIONS.md ← Markdown tracker (default, when there's no TRACKER.md)
+│   ├── Roles.base             ← Obsidian Bases view over the role notes (Bases tracker)
 │   ├── digests/               ← one dated search digest per run
+│   ├── roles/<id>.md          ← one note per role with properties (Bases tracker)
 │   └── roles/<id>/            ← per-application: job description, fit map, drafts, interview prep
 └── projects/
     ├── PROFILE.md             ← who I am: uni, degree, year, VLE link (private, git-ignored)

@@ -8,10 +8,15 @@ description: Search for graduate roles, internships or placements that match the
 Inputs: `careers/BRIEF.md`, `careers/CV.md`, `careers/SOURCES.md`, `careers/ROLES.md`,
 `careers/APPLICATIONS.md`. If BRIEF.md or CV.md is missing, stop and suggest `setup-careers`.
 
-**Spreadsheet tracker:** if `careers/TRACKER.md` exists, the spreadsheet it describes **replaces**
-SOURCES.md, ROLES.md and APPLICATIONS.md. Read sources, seen roles, target employers and applications from
-its tabs, and write new roles and filtered-out roles to its tabs, following the column order and commands in
-TRACKER.md. Everything below still applies; only the storage changes.
+**Tracker:** if `careers/TRACKER.md` exists, follow it for where roles, applications (and, for a spreadsheet,
+sources and target employers) live. It describes either an **Obsidian Bases** tracker (one note per role in
+`careers/roles/`) or a **spreadsheet**, and replaces ROLES.md / APPLICATIONS.md (and SOURCES.md for a
+spreadsheet). "Append to ROLES.md" and "Filtered out table" below then mean the equivalent in that tracker.
+Everything else still applies; only the storage changes.
+
+**Scheduled runs:** follow any command rules in the task prompt or TRACKER.md exactly. Use the file tools for
+file I/O, one tracker command per call, and no pipes, `&&`, `cd` or variables, so every call matches a
+pre-approved permission.
 
 **Scheduled mode** (the prompt says "scheduled", or nobody is there to answer): don't ask questions, skip
 `browser` sources, never log in to anything, write the digest, and end with a 3-line summary.

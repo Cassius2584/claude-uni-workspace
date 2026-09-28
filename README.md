@@ -53,13 +53,26 @@ careers/
 └── roles/acme-graduate-swe-2027/  job.md · fit.md · drafts.md · prep.md
 ```
 
-Prefer a spreadsheet? `setup-careers` can build a Google Sheet tracker instead (Roles, Pipeline, Watchlist, Sites,
-Events, with dropdowns and deadline colour coding, reusing last year's tracker if you had one). The skills then
-read and write the sheet, via `careers/TRACKER.md`.
+### Pick a tracker
+**Use Obsidian Bases.** It's the default, and the one this template is built around. Each role becomes a note, the
+views behave like a spreadsheet (sort, filter, board), prep files sit next to each role, it needs no accounts, and
+scheduled searches run with no shell permissions at all. The other two are fallbacks:
 
-**Scheduling tip:** after `setup-careers` creates the scheduled task, click **Run now** on it once and approve the
-tools it asks for. Otherwise the first unattended run waits on permission prompts. Scheduled runs happen while the
-Claude app is open. A missed run fires the next time you open it.
+| Tracker | What you get | Needs |
+|---|---|---|
+| **Obsidian Bases** (default, recommended) | One note per role; `careers/Roles.base` shows *Open roles · By deadline · Applications · Board · Filtered out* as sortable, filterable tables and cards | Obsidian 1.9+ with the Bases core plugin |
+| **Markdown tables** (fallback) | `ROLES.md` + `APPLICATIONS.md`, readable anywhere | Nothing |
+| **Spreadsheet** (only if you already live in one) | Google Sheet or Excel with tabs, dropdowns and deadline colour coding, great on a phone | A tool that can **write** to your sheet (e.g. a Google Sheets skill). A read-only Drive connector isn't enough, because the search adds rows every run |
+
+If you kept a tracker last year, `setup-careers` reads it and reuses your columns.
+
+### Scheduled runs without approval prompts
+Unattended runs stall on permission prompts, and chained shell commands only offer "Allow once". So
+`setup-careers` (with your OK) adds a **narrow** allow-list to `~/.claude/settings.json`: web search/fetch,
+reading this workspace, writing only under `careers/`, and (for a spreadsheet) the exact tracker commands, never
+a blanket shell rule. It also writes command rules into the task prompt so every step matches. Click **Run now**
+once to confirm it runs clean. Scheduled runs happen while the Claude app is open. A missed run fires the next
+time you open it.
 
 Claude never applies, fills in forms or logs in to job sites for you.
 
@@ -91,7 +104,7 @@ to read and browse it yourself while Claude does the writing:
 
 Tips:
 - Keep Claude Code and Obsidian open on the same folder. Obsidian picks up Claude's edits live.
-- Pin `projects/DEADLINES.md` and the latest digest in the sidebar for a one-glance dashboard.
+- Pin `projects/DEADLINES.md` and `careers/Roles.base` (your job tracker) in the sidebar for a one-glance dashboard.
 - Want it on your phone? Obsidian Sync or iCloud works, but your CV and course materials sync too, so keep it to
   services you trust.
 - Obsidian hides dot-folders, so `.claude/` (the skills) stays out of the way. Your Obsidian settings
@@ -127,7 +140,7 @@ Tips:
 | `.claude/skills/find-roles/` | Search → read descriptions → filter → score → ranked digest |
 | `.claude/skills/prep-application/` | Per-role fit map, tailored drafts, process and interview prep |
 | `projects/_template/` | `MODULE.md`, `DEADLINES.md` and `PROFILE.md` templates |
-| `careers/_template/` | `BRIEF.md`, `CV.md`, `SOURCES.md`, `ROLES.md`, `APPLICATIONS.md` templates |
+| `careers/_template/` | `BRIEF.md`, `CV.md`, `SOURCES.md`; Markdown tracker (`ROLES.md`, `APPLICATIONS.md`); Obsidian tracker (`role.md`, `Roles.base`, `TRACKER.bases.md`); spreadsheet tracker (`TRACKER.sheet.md`) |
 
 Built and tested against Moodle at the University of Bath. The skills are written for any Moodle-based
 university, and other VLEs (Canvas, Blackboard) should work with minor guidance. PRs welcome.
