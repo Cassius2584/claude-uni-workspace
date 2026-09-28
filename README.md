@@ -11,6 +11,18 @@ everything is.
 It also runs your **job hunt**: a scheduled search for grad roles, internships or placements that match your
 CV and brief, ranked by fit, plus per-role application prep. [Jump to careers ↓](#careers-grad-roles-internships-placements)
 
+## Quick start
+Open **Claude's desktop app (Code tab)**, **Codex** or **Gemini CLI** and paste:
+
+> Help me set up this uni workspace: github.com/Cassius2584/claude-uni-workspace
+
+It explains what it'll do, asks where to put the folder, and walks you through the rest. You log in to your
+university yourself. (A plain chat window like claude.ai or ChatGPT can explain it, but can't set it up, because
+it can't create files on your computer.)
+
+> **🤖 If you're an AI assistant asked to set this up:** follow
+> [AGENTS.md → "Setting this up for someone"](AGENTS.md#setting-this-up-for-someone) before doing anything else.
+
 ```
 projects/
 ├── DEADLINES.md                    ← every assessment across the year (a live Obsidian Bases view)
