@@ -1,3 +1,14 @@
+---
+kind: module
+code: MA30001
+title: "Linear Algebra (EXAMPLE)"
+semester: Semester 1
+credits: 10
+assessment: "Coursework 25% / Exam 75%"
+leader: "Dr A. Example"
+moodle: https://moodle.uni.example/course/view.php?id=12345
+---
+
 # MA30001 – Linear Algebra (EXAMPLE)
 
 > **This is a made-up example** showing what a filled-in module looks like after `setup-year`. The module,
@@ -25,12 +36,29 @@ _Source: unit catalogue 2026/27._
 4. Apply inner products, orthogonality and the spectral theorem.
 
 ## Assessments
-| # | Assessment | Type | Weight | Due | Status | Mark |
-|---|---|---|---|---|---|---|
-| 1 | CW1: Problem set | Individual coursework | 25% | Fri 6 Nov 2026, 20:00 | Draft in progress | |
-| 2 | Exam (closed book, **qualifying mark 40**) | Exam | 75% | Jan 2027 (exam period) | | |
+```base
+filters:
+  and:
+    - kind == "assessment"
+    - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
+views:
+  - type: table
+    name: Assessments
+    order:
+      - item
+      - type
+      - weight
+      - due
+      - due_note
+      - status
+      - mark
+    sort:
+      - property: due
+        direction: ASC
+```
+_Each assessment is a note in `assessments/`. Update status and marks there. All modules: [Deadlines.base](../Deadlines.base)._
 
-Briefs and marking criteria: `coursework/`.
+Briefs, drafts and feedback: `coursework/`.
 
 **Rules to remember**
 - CW1 is **closed lane**: no GenAI use permitted.

@@ -13,9 +13,11 @@ CV and brief, ranked by fit, plus per-role application prep. [Jump to careers �
 
 ```
 projects/
-├── DEADLINES.md                    ← every assessment across the year, in date order
+├── DEADLINES.md                    ← every assessment across the year (a live Obsidian Bases view)
+├── Deadlines.base  Modules.base    ← Due next · Graded only · By module · Board · Done; all modules
 ├── CM32032-reinforcement-learning/
-│   ├── MODULE.md                   ← credits, outcomes, assessments + weights, dates, staff, timetable, log
+│   ├── MODULE.md                   ← credits, outcomes, staff, timetable, log + this module's assessments
+│   ├── assessments/                ← one note per assessment: due, weight, status, mark
 │   ├── lectures/                   ← week-01-….md
 │   ├── coursework/
 │   │   ├── ga1-group-project/      ← brief, drafts, feedback, progress notes
@@ -104,7 +106,9 @@ to read and browse it yourself while Claude does the writing:
 
 Tips:
 - Keep Claude Code and Obsidian open on the same folder. Obsidian picks up Claude's edits live.
-- Pin `projects/DEADLINES.md` and `careers/Roles.base` (your job tracker) in the sidebar for a one-glance dashboard.
+- Pin `projects/DEADLINES.md` (coursework board) and `careers/Roles.base` (job tracker) in the sidebar for a
+  one-glance dashboard. Both are Obsidian Bases: every assessment and every role is a note with properties, so
+  you can sort, filter and switch to a card board.
 - Want it on your phone? Obsidian Sync or iCloud works, but your CV and course materials sync too, so keep it to
   services you trust.
 - Obsidian hides dot-folders, so `.claude/` (the skills) stays out of the way. Your Obsidian settings
@@ -139,7 +143,7 @@ Tips:
 | `.claude/skills/setup-careers/` | CV import, search brief interview, job sources, optional schedule |
 | `.claude/skills/find-roles/` | Search → read descriptions → filter → score → ranked digest |
 | `.claude/skills/prep-application/` | Per-role fit map, tailored drafts, process and interview prep |
-| `projects/_template/` | `MODULE.md`, `DEADLINES.md` and `PROFILE.md` templates |
+| `projects/_template/` | `MODULE.md`, `assessment.md`, `DEADLINES.md`, `PROFILE.md`, and the `Deadlines.base` / `Modules.base` views |
 | `careers/_template/` | `BRIEF.md`, `CV.md`, `SOURCES.md`; Markdown tracker (`ROLES.md`, `APPLICATIONS.md`); Obsidian tracker (`role.md`, `Roles.base`, `TRACKER.bases.md`); spreadsheet tracker (`TRACKER.sheet.md`) |
 
 Built and tested against Moodle at the University of Bath. The skills are written for any Moodle-based

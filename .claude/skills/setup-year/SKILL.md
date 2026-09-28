@@ -65,12 +65,18 @@ For each module:
 1. Create `projects/<CODE>-<short-kebab-name>/` with `lectures/`, `coursework/`, `resources/`.
 2. Inside `coursework/`, create one subfolder per assessment (e.g. `cw1-business-plan/`,
    `01-proposal/`). Exam-only modules get `coursework/problem-sheets/`.
-3. Write `MODULE.md` from `projects/_template/MODULE.md`. Fill every field you have evidence for. Use `_tbc_`
-   plus a note on where to find the rest. Add a dated `## Log` line saying where the data came from.
+3. Write `MODULE.md` from `projects/_template/MODULE.md`: fill the properties (`kind: module`, code, title,
+   semester, credits, assessment summary, leader, moodle) and every section you have evidence for. Set the
+   folder path in the embedded `base` block to this module's folder. Use `_tbc_` plus a note on where to find
+   the rest. Add a dated `## Log` line saying where the data came from.
+4. Create `assessments/` with **one note per dated or graded item**, from `projects/_template/assessment.md`:
+   graded coursework and exams, formative milestones, and admin deadlines (group registration, preference forms).
+   Name each `<CODE>-<slug>.md`. Use exact property values; leave `due` blank when there's no date yet and put
+   the approximate timing ("Jan 2027 exam period") in `due_note`.
 
-Then copy `projects/_template/DEADLINES.md` to `projects/DEADLINES.md` and list every dated item across all
-modules in date order: assessments, formative milestones, group-registration and preference-form
-deadlines. Add a **Busy spots** line for clusters.
+Then copy `projects/_template/Deadlines.base`, `Modules.base` and `DEADLINES.md` into `projects/`, and add a
+**Busy spots** line to DEADLINES.md for clusters. In Obsidian, `DEADLINES.md` shows every assessment across
+modules (Due next · Graded only · By module · Board · Done) and `Modules.base` shows all modules.
 
 ## 7. Files (optional; ask first)
 Offer to save the key course files (handbooks, lecture notes, formula books, past papers, templates) into

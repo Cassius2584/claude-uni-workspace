@@ -1,3 +1,14 @@
+---
+kind: module
+code: <CODE>
+title: "<Module title>"
+semester: <Semester 1 | Semester 2 | Full year>
+credits: <10>
+assessment: "<e.g. Coursework 30% / Exam 70%>"
+leader: "<name>"
+moodle: <link>
+---
+
 # <CODE> – <Module title>
 
 | | |
@@ -17,12 +28,29 @@ _Source: <unit catalogue / VLE>._
 1. <…>
 
 ## Assessments
-| # | Assessment | Type | Weight | Due | Status | Mark |
-|---|---|---|---|---|---|---|
-| 1 | <Coursework 1: …> | <report / exam / presentation> | <30%> | <Fri 10 Oct 2026, 20:00> | Not started | |
-| 2 | <Exam> | Exam | <70%> | <Jan 2027 (exam period)> | | |
+```base
+filters:
+  and:
+    - kind == "assessment"
+    - file.inFolder("projects/<CODE>-<short-name>")
+views:
+  - type: table
+    name: Assessments
+    order:
+      - item
+      - type
+      - weight
+      - due
+      - due_note
+      - status
+      - mark
+    sort:
+      - property: due
+        direction: ASC
+```
+_Each assessment is a note in `assessments/`. Update status and marks there. All modules: [Deadlines.base](../Deadlines.base)._
 
-Briefs and marking criteria: `coursework/` (one subfolder per assessment).
+Briefs, drafts and feedback: `coursework/` (one subfolder per assessment).
 
 **Rules to remember**
 - <GenAI policy for each assessment, group-work rules, qualifying marks, ethics approval…>

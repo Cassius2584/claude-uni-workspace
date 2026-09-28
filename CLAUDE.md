@@ -27,10 +27,13 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 │   └── roles/<id>/            ← per-application: job description, fit map, drafts, interview prep
 └── projects/
     ├── PROFILE.md             ← who I am: uni, degree, year, VLE link (private, git-ignored)
-    ├── DEADLINES.md           ← every assessment across modules, in date order (private)
-    ├── _template/             ← copied for each new module
+    ├── DEADLINES.md           ← deadlines page: embeds Deadlines.base (private)
+    ├── Deadlines.base         ← views over all assessment notes: Due next · Graded only · By module · Board · Done
+    ├── Modules.base           ← table / cards of all modules
+    ├── _template/             ← copied for each new module (MODULE.md, assessment.md, bases)
     └── <CODE>-<short-name>/   ← one folder per module (private), e.g. CM30001-machine-learning/
-        ├── MODULE.md          ← spec: outcomes, assessments, deadlines, timetable, readings, log
+        ├── MODULE.md          ← spec (properties + outcomes, timetable, readings, log); embeds its assessments
+        ├── assessments/       ← one note per assessment: <CODE>-<slug>.md with due, weight, status, mark
         ├── lectures/          ← notes, one file per week: week-03-sorting.md
         ├── coursework/        ← one subfolder per assessment: brief, drafts, feedback
         └── resources/         ← PDFs, slides, past papers, formula books
@@ -38,12 +41,14 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 
 ## Working with modules
 - **Before answering anything about a module**, read its `MODULE.md`, then the relevant lectures and
-  coursework files. Quote deadlines and weightings from MODULE.md. Never guess them.
+  coursework files. Quote deadlines and weightings from the assessment notes. Never guess them.
 - **New material I share** (lecture notes, briefs, feedback) goes into the right subfolder with a clear,
   lowercase-hyphenated filename. Add a one-line dated entry to the module's `## Log`.
-- **Keep MODULE.md and DEADLINES.md in step.** When an assessment is set, moved, submitted or marked, update
-  its row in both.
-- **What's due?** Read `projects/DEADLINES.md` (or use the `whats-due` skill).
+- **Assessments are notes.** Each assessment (coursework, exam, formative, admin deadline) is a note in the
+  module's `assessments/` folder, with the properties in `projects/_template/assessment.md`. These notes are the
+  **only** source of truth for dates, weights, status and marks. `DEADLINES.md` and MODULE.md just show views of
+  them. When something is set, moved, submitted or marked, edit that note and add a Log line.
+- **What's due?** Use the `whats-due` skill (it reads the assessment notes).
 - Mark anything unconfirmed as `_tbc_`, and say where it should come from (VLE, unit catalogue, lecturer).
 
 ## Careers

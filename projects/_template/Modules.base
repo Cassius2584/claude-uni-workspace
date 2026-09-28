@@ -1,0 +1,26 @@
+filters:
+  and:
+    - kind == "module"
+views:
+  - type: table
+    name: All modules
+    order:
+      - file.folder
+      - code
+      - title
+      - semester
+      - credits
+      - assessment
+      - leader
+      - moodle
+    sort:
+      - property: code
+        direction: ASC
+  - type: cards
+    name: Cards
+    order:
+      - code
+      - title
+      - semester
+      - credits
+      - assessment

@@ -1,10 +1,9 @@
 # Deadlines (<academic year>)
 
-Every assessed item and key admin date across modules, in date order. Each module's `MODULE.md` is the source
-of truth. Update both when something changes.
+Every assessment is a note in its module's `assessments/` folder. Those notes are the source of truth. This page
+shows them through [Deadlines.base](Deadlines.base) (views: *Due next · Graded only · By module · Board · Done*).
+All modules: [Modules.base](Modules.base).
 
-| Date | Module | Item | Weight | Status |
-|---|---|---|---|---|
-| <Fri 10 Oct 2026, 20:00> | <CODE> | <Coursework 1> | <30%> | Not started |
+![[Deadlines.base]]
 
 **Busy spots:** <weeks where several deadlines cluster>

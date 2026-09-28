@@ -13,10 +13,12 @@ description: Add one module to the uni workspace from whatever the student has, 
    login, the student signs in themselves.
 3. **Create the folder** `projects/<CODE>-<short-kebab-name>/` with `lectures/`, `coursework/` (one
    subfolder per assessment, or `problem-sheets/` for exam-only modules) and `resources/`.
-4. **Write `MODULE.md`** from `projects/_template/MODULE.md`. Mark gaps `_tbc_` with where to find them. Add
-   a dated log line naming the sources.
-5. **Update `projects/DEADLINES.md`**: add every dated item in date order. Exams with no date yet go in as
-   "<month> (exam period)".
+4. **Write `MODULE.md`** from `projects/_template/MODULE.md`: properties, sections, and the embedded `base`
+   block pointed at this module's folder. Mark gaps `_tbc_` with where to find them. Add a dated log line
+   naming the sources.
+5. **Create assessment notes** in `assessments/` from `projects/_template/assessment.md`, one per dated or
+   graded item. Exams with no date yet: blank `due`, `due_note: "<month> exam period"`. They appear in
+   `projects/DEADLINES.md` automatically. No table to update.
 6. **Check the credit total** for the year against PROFILE.md, and mention it if it's now complete or still
    short.
 
