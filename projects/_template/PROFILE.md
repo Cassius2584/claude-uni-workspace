@@ -1,0 +1,7 @@
+- **University:** <name>
+- **Degree:** <e.g. BSc (Hons) Computer Science and Mathematics>
+- **Year:** <e.g. Year 3 (final year), 2026/27>
+- **Credits this year:** <e.g. 60>
+- **VLE:** <e.g. https://moodle.example.ac.uk>
+- **Unit catalogue:** <e.g. https://www.example.ac.uk/catalogues/2026-2027/>
+- **Preferences:** <e.g. UK English, dates like "28 Sep 2026", lead with the point>

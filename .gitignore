@@ -1,0 +1,24 @@
+# Your own modules, profile and deadlines stay private.
+# Only the template and the fictional example are tracked.
+projects/*
+!projects/_template/
+!projects/EXAMPLE-*/
+
+# CV, job search and applications stay private too
+careers/*
+!careers/_template/
+
+# Never commit course materials, even inside tracked folders
+*.pdf
+*.pptx
+*.docx
+*.zip
+
+# Local Claude Code settings
+.claude/settings.local.json
+CLAUDE.local.md
+
+.DS_Store
+
+# Personal Obsidian vault settings
+.obsidian/
