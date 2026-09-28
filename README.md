@@ -106,6 +106,17 @@ for each request. What's Claude-specific, and what you'll need your own tool's e
 
 The notes, Obsidian views and templates don't care which AI wrote them.
 
+## Keeping it in sync with Moodle
+After setup, say **"refresh Moodle"** once a week (Sunday evening works well). `sync-moodle` checks every course
+page against what it saw last time and only reports what's new: changed dates first, then new deadlines,
+announcements, new files (downloaded only if you pick them) and the week's topics.
+
+Why it isn't automated:
+- **You log in yourself.** Moodle sits behind university single sign-on, usually with 2FA. Storing your password
+  for a script is unsafe, usually against IT rules, and wouldn't get past 2FA anyway.
+- **The calendar export isn't enough.** It only contains dates already set up as Moodle activities. It misses
+  assignments that are still hidden, dates written in page text or handbooks, exams, announcements and files.
+
 ## Viewing it: use Obsidian (recommended)
 Everything is plain Markdown, so any editor works, but [Obsidian](https://obsidian.md) (free) is the nicest way
 to read and browse it yourself while Claude does the writing:
@@ -131,6 +142,7 @@ Tips:
 | "Add module MA32054" / "I'm also taking Graph Theory" | Pulls the spec and adds the folder (`add-module`) |
 | "Here's the CW1 brief" + file | Filed in the right `coursework/` folder and logged |
 | "I submitted the business plan" | Status updated in MODULE.md and DEADLINES.md |
+| **"Refresh Moodle"** (weekly) | New/moved deadlines → assessment notes; announcements, new files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
 | "Update semester 2 modules from Moodle" | Fills in timetables, staff and dates once pages go live |
 | "Find me new roles" | Runs the job search now (`find-roles`) |
 | "Help me apply to #2 from today's digest" | Fit map, tailored drafts and interview prep (`prep-application`) |
@@ -150,6 +162,7 @@ Tips:
 | `AGENTS.md` | Entry point for other agents (Codex, Cursor…): points to `CLAUDE.md` and maps requests to skill files |
 | `.claude/skills/setup-year/` | First-run setup: VLE + unit catalogue → module folders + deadlines |
 | `.claude/skills/add-module/` | Add a single module from a code, link, PDF or pasted spec |
+| `.claude/skills/sync-moodle/` | On-demand Moodle refresh: new/changed deadlines, announcements, files, weekly topics |
 | `.claude/skills/whats-due/` | Deadline summary (coursework + applications) with priorities |
 | `.claude/skills/setup-careers/` | CV import, search brief interview, job sources, optional schedule |
 | `.claude/skills/find-roles/` | Search → read descriptions → filter → score → ranked digest |

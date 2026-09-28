@@ -14,7 +14,7 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 ```
 ./
 ├── CLAUDE.md                  ← this file (shared rules, safe to publish)
-├── .claude/skills/            ← setup-year, add-module, whats-due, setup-careers, find-roles, prep-application
+├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, setup-careers, find-roles, prep-application
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
 │   ├── BRIEF.md               ← what I'm looking for: role types, titles, hard requirements, targets
@@ -49,6 +49,8 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
   **only** source of truth for dates, weights, status and marks. `DEADLINES.md` and MODULE.md just show views of
   them. When something is set, moved, submitted or marked, edit that note and add a Log line.
 - **What's due?** Use the `whats-due` skill (it reads the assessment notes).
+- **New on Moodle?** "Refresh Moodle" runs `sync-moodle`: new or moved deadlines go into assessment notes, and
+  announcements, new files and weekly topics into a digest at `projects/updates/<date>.md`. I log in myself.
 - Mark anything unconfirmed as `_tbc_`, and say where it should come from (VLE, unit catalogue, lecturer).
 
 ## Careers

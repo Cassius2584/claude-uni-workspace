@@ -88,5 +88,8 @@ each module's `resources/` or `lectures/`. If the student agrees:
   module folders).
 
 ## 8. Wrap up
+Say the sync step last: after setup, "refresh Moodle" (`sync-moodle`) keeps it current, ideally weekly. The
+first run records a baseline. Offer to run it once now so the baseline exists.
+
 Reply with: a table of modules (credits, semester, assessment), the next three deadlines, anything
 `_tbc_`, and anything odd you spotted (broken links, credit shortfall, catalogue/VLE mismatch).
