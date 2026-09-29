@@ -14,11 +14,18 @@ CV and brief, ranked by fit, plus per-role application prep. [Jump to careers �
 ## Quick start
 Open **Claude's desktop app (Code tab)**, **Codex** or **Gemini CLI** and paste:
 
-> Help me set up this uni workspace: github.com/Cassius2584/claude-uni-workspace
+> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
 
-It explains what it'll do, asks where to put the folder, and walks you through the rest. You log in to your
-university yourself. (A plain chat window like claude.ai or ChatGPT can explain it, but can't set it up, because
-it can't create files on your computer.)
+It clones the template, asks what it needs (your university, degree and Moodle), and waits while **you** log in to
+your university yourself. Later sessions: open that **uni** folder in your AI app and just talk ("what's due?",
+"refresh Moodle", "set up careers").
+
+- **No git?** On this page click **Code → Download ZIP**, unzip it into a folder called `uni` in your home folder,
+  open that folder in a new Code session, and say "set up my year".
+- **Keep it out of cloud-synced folders** (iCloud "Desktop & Documents", OneDrive's Documents) unless you want your
+  CV and course notes in the cloud. Your home folder is a safe default.
+- A plain chat window (claude.ai, ChatGPT, the Gemini app) can explain the project but can't set it up, because it
+  can't create files on your computer.
 
 > **🤖 If you're an AI assistant asked to set this up:** follow
 > [AGENTS.md → "Setting this up for someone"](AGENTS.md#setting-this-up-for-someone) before doing anything else.

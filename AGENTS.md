@@ -4,25 +4,28 @@ This workspace was built for Claude Code, but it's plain Markdown, so any coding
 etc.) can run it. If you're an agent other than Claude Code, start here.
 
 ## Setting this up for someone
-Someone has asked you to "set up this uni workspace" (probably by pasting the repo link). Do this, in order:
+If the person gave you **only the repo link** (e.g. "help me set up this uni workspace: <link>"), don't try to
+carry out these steps from the web page. Instead, explain the project in 3–5 plain sentences (one folder per module
+from their Moodle and official specs, one deadline board, a weekly "refresh Moodle", an optional job search), and
+suggest they send you this exact message so the request comes from them:
 
-1. **Explain first, then wait.** In 3–5 plain, non-technical sentences, say what it does: one folder per
-   module built from their Moodle and official module specs, a single deadline board, a weekly "refresh Moodle",
-   and optionally a job search with application prep. Say what you'll need: their university and degree, about
-   10 minutes, and them logging in to Moodle themselves in a browser window. Mention that it works best viewed
-   in the free Obsidian app. **Ask if they'd like to go ahead.** Don't download or create anything before a yes.
-2. **If you can't touch their files** (a plain chat such as claude.ai, ChatGPT or the Gemini app), say so kindly
-   and tell them to paste the same message into Claude's desktop app (Code tab), Codex or Gemini CLI. Stop there.
-3. **Ask where to put it**, suggesting a new folder like `~/uni` (or `Documents/uni`). Then get the files:
-   `git clone https://github.com/Cassius2584/claude-uni-workspace <folder>`, or if git isn't available, download
-   `https://github.com/Cassius2584/claude-uni-workspace/archive/refs/heads/main.zip` and unzip it there. Then
-   delete the `.git` folder if they won't be contributing back, so their own notes never get pushed anywhere.
-4. **Work from that folder.** If your tool can switch its working folder, switch to it, so `CLAUDE.md` and the
-   skills load. Otherwise read `CLAUDE.md` and the skill files there directly.
-5. **Run setup-year**: follow `.claude/skills/setup-year/SKILL.md`. They sign in to their university themselves.
-   Never type their password.
-6. **Finish** with what they now have, how to open it in Obsidian ("Open folder as vault"), and the three
-   things they can say next: "what's due?", "refresh Moodle" (weekly), and "set up careers" (optional).
+> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
+
+When they've asked you to clone and set up:
+1. **If you can't touch their files** (a plain chat such as claude.ai, ChatGPT or the Gemini app), say so kindly and
+   tell them to paste that message into Claude's desktop app (Code tab), Codex or Gemini CLI. Stop there.
+2. **Get the files** into the folder they named (default: `uni` in their home folder; avoid iCloud/OneDrive-synced
+   folders such as a synced Documents): `git clone https://github.com/Cassius2584/claude-uni-workspace <folder>`, or
+   if git isn't available, download and unzip
+   `https://github.com/Cassius2584/claude-uni-workspace/archive/refs/heads/main.zip`. Then delete the `.git`
+   folder unless they plan to contribute back, so their own notes can't be pushed anywhere.
+3. **Work from that folder.** If your tool can switch its working folder, do it. Either way, **read `CLAUDE.md`
+   and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
+   load a folder's skills when they start there.
+4. **Run setup-year.** They sign in to their university themselves. Never type their password.
+5. **Finish** with what they now have, how to reopen it next time (open the `uni` folder in their AI app, and
+   optionally in Obsidian via "Open folder as vault"), and three things to say next: "what's due?", "refresh
+   Moodle" (weekly), and "set up careers" (optional).
 
 ## 1. Read the rules
 **[CLAUDE.md](CLAUDE.md) is the rulebook for every agent.** Read it at the start of every session and follow it.
