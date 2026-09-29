@@ -9,12 +9,12 @@ carry out these steps from the web page. Instead, explain the project in 3–5 p
 from their Moodle and official specs, one deadline board, a weekly "refresh Moodle", an optional job search), and
 suggest they send you this exact message so the request comes from them:
 
-> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
+> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
 
 When they've asked you to clone and set up:
 1. **If you can't touch their files** (a plain chat such as claude.ai, ChatGPT or the Gemini app), say so kindly and
    tell them to paste that message into Claude's desktop app (Code tab), Codex or Gemini CLI. Stop there.
-2. **Get the files** into the folder they named (default: `uni` in their home folder; avoid iCloud/OneDrive-synced
+2. **Get the files** into the folder they named (default: `uni-workspace` in their home folder; avoid iCloud/OneDrive-synced
    folders such as a synced Documents): `git clone https://github.com/Cassius2584/claude-uni-workspace <folder>`, or
    if git isn't available, download and unzip
    `https://github.com/Cassius2584/claude-uni-workspace/archive/refs/heads/main.zip`. Then delete the `.git`
@@ -23,7 +23,7 @@ When they've asked you to clone and set up:
    and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
    load a folder's skills when they start there.
 4. **Run setup-year.** They sign in to their university themselves. Never type their password.
-5. **Finish** with what they now have, how to reopen it next time (open the `uni` folder in their AI app, and
+5. **Finish** with what they now have, how to reopen it next time (open the `uni-workspace` folder in their AI app, and
    optionally in Obsidian via "Open folder as vault"), and three things to say next: "what's due?", "refresh
    Moodle" (weekly), and "set up careers" (optional).
 

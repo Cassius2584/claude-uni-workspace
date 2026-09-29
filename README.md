@@ -14,13 +14,13 @@ CV and brief, ranked by fit, plus per-role application prep. [Jump to careers �
 ## Quick start
 Open **Claude's desktop app (Code tab)**, **Codex** or **Gemini CLI** and paste:
 
-> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
+> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
 
 It clones the template, asks what it needs (your university, degree and Moodle), and waits while **you** log in to
-your university yourself. Later sessions: open that **uni** folder in your AI app and just talk ("what's due?",
+your university yourself. Later sessions: open that **uni-workspace** folder in your AI app and just talk ("what's due?",
 "refresh Moodle", "set up careers").
 
-- **No git?** On this page click **Code → Download ZIP**, unzip it into a folder called `uni` in your home folder,
+- **No git?** On this page click **Code → Download ZIP**, unzip it into a folder called `uni-workspace` in your home folder,
   open that folder in a new Code session, and say "set up my year".
 - **Keep it out of cloud-synced folders** (iCloud "Desktop & Documents", OneDrive's Documents) unless you want your
   CV and course notes in the cloud. Your home folder is a safe default.
@@ -107,7 +107,7 @@ You need **Claude Code**, either the desktop app's Code tab or the terminal, plu
 the desktop app's built-in browser or Claude in Chrome.
 
 1. **Get the workspace.** Click **Use this template** on GitHub (or fork/clone), and put it somewhere
-   permanent, e.g. `~/uni`.
+   permanent, e.g. `~/uni-workspace`.
 2. **Open it in Claude Code.** In the desktop app, start a Code session with this folder selected. In the
    terminal, run `claude` inside the folder.
 3. **Say "set up my year".** Claude asks for your uni, degree and VLE, opens the VLE, and waits while **you**
