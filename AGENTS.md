@@ -9,7 +9,7 @@ carry out these steps from the web page. Instead, explain the project in 3–5 p
 from their Moodle and official specs, one deadline board, a weekly "refresh Moodle", an optional job search), and
 suggest they send you this exact message so the request comes from them:
 
-> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
+> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
 
 When they've asked you to clone and set up:
 1. **If you can't touch their files** (a plain chat such as claude.ai, ChatGPT or the Gemini app), say so kindly and
@@ -22,7 +22,8 @@ When they've asked you to clone and set up:
 3. **Work from that folder.** If your tool can switch its working folder, do it. Either way, **read `CLAUDE.md`
    and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
    load a folder's skills when they start there.
-4. **Run setup-year.** They sign in to their university themselves. Never type their password.
+4. **Run setup-obsidian, then setup-year** (read `.claude/skills/setup-obsidian/SKILL.md` directly too). They click
+   Install for each plugin and sign in to their university themselves. Never install plugins or type their password.
 5. **Finish** with what they now have, how to reopen it next time (open the `uni-workspace` folder in their AI app, and
    in Obsidian via "Open folder as vault", which is needed for the boards, calendar and flashcards, plus the Spaced
    Repetition and Full Calendar Remastered community plugins), and three things to say next: "what's due?", "refresh

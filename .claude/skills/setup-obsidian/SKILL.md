@@ -12,6 +12,7 @@ Assets (in this skill's folder):
 - `assets/dashboard.css`: the card layout for dashboard pages (HOME, DEADLINES, TASKS, the tracker, module pages,
   the timetable). It only affects notes with `cssclasses: dashboard`. It uses the
   theme's Catppuccin colours and falls back to fixed colours in any other theme.
+- `assets/homepage.json`: Homepage plugin preset (open `HOME` on startup, in Reading view).
 - `assets/style-settings-anuppuccin.json`: the AnuPpuccin preset (Mocha, mauve accent, card layout, depth tabs,
   floating status bar, rainbow folders, coloured headings, styled tables, custom checkboxes).
 
@@ -19,16 +20,35 @@ Assets (in this skill's folder):
 only writes settings files inside the vault's `.obsidian/` folder, after the student says yes, and backs up
 any file before changing it.
 
-## 1. The student installs (one message, with these steps)
-1. Install Obsidian if needed (https://obsidian.md/download), then **Open folder as vault** → this workspace.
-2. Settings → Community plugins → **Turn on community plugins** → Browse, then install **and enable**:
-   - **Spaced Repetition** (Stephen Mwangi): flashcards (`create-flashcards`)
-   - **Full Calendar Remastered** (Jovi Koikkara): study timetable and HOME's week agenda (`create-study-timetable`)
-   - **Style Settings** (mgmeyers): applies the theme preset
-   - *Optional:* **Homepage**: opens HOME on startup
-3. Settings → Appearance → Themes → Manage → install and use **AnuPpuccin**. (They can skip this and keep another
-   theme: the dashboard still works, and only the preset in step 2 below is skipped.)
-4. Tell Claude when it's done.
+## 1. Install the plugins and theme (the student clicks; one click each)
+Obsidian can't be installed into or configured by Claude directly: community plugins stay off until the student
+turns off Restricted mode, and installs go through Obsidian's own reviewed directory. **Never download plugin or
+theme files yourself.** Instead, make it one click per item:
+
+1. **Obsidian installed and the vault open:** https://obsidian.md/download, then **Open folder as vault** → this
+   workspace. Obsidian should be running with this vault open before the links below.
+2. **Turn on community plugins.** It's the student's decision; explain it simply: it allows plugins from Obsidian's
+   community directory. The first install link below does this for you: while Restricted mode is on, it lands on the
+   Community plugins page with a button to turn it off. After they turn it off, open the same link again and it goes
+   straight to the plugin. (Or: Settings → Community plugins → **Turn on community plugins**.)
+3. **Open each install page.** If you can run commands on their computer, open the links one at a time (macOS
+   `open "<link>"`, Windows `start "" "<link>"`, Linux `xdg-open "<link>"`), waiting for them to press
+   **Install** then **Enable** (for the theme: **Install and use**) before the next. Otherwise give them the links to click.
+
+   | Item | Link | For |
+   |---|---|---|
+   | Spaced Repetition | `obsidian://show-plugin?id=obsidian-spaced-repetition` | flashcards (`create-flashcards`) |
+   | Full Calendar Remastered | `obsidian://show-plugin?id=full-calendar-remastered` | timetable, HOME's week agenda |
+   | Style Settings | `obsidian://show-plugin?id=obsidian-style-settings` | applies the theme preset |
+   | Homepage | `obsidian://show-plugin?id=homepage` | opens HOME on startup |
+   | AnuPpuccin (theme) | `obsidian://show-theme?name=AnuPpuccin` | the Catppuccin look |
+
+   If a link doesn't open the page (older Obsidian), fall back to Settings → Community plugins → Browse, or
+   Appearance → Themes → Manage, and search by name.
+4. Check it worked: each plugin has a folder in `.obsidian/plugins/<id>/` and is listed in
+   `.obsidian/community-plugins.json`, and `.obsidian/appearance.json` has `"cssTheme": "AnuPpuccin"`. Ask them to
+   finish anything that's missing. They can keep another theme if they prefer: the dashboard works with any, and
+   only the preset below is skipped.
 
 ## 2. Apply the settings (after they confirm)
 Check what's installed (`.obsidian/plugins/<id>/manifest.json`, `.obsidian/themes/`, `.obsidian/appearance.json`),
@@ -46,7 +66,8 @@ then, backing up each existing file to `<file>.bak` first:
 5. **HOME:** if `HOME.md` isn't at the workspace root, copy `projects/_template/HOME.md` there. Delete the cards for
    features they haven't set up, plus header pills pointing at pages that don't exist yet (the note at the bottom of the
    template lists them), and remove that note.
-6. **Homepage plugin** (if installed): tell them to set it to open `HOME` in Reading view.
+6. **Homepage plugin** (if installed): if `.obsidian/plugins/homepage/data.json` doesn't exist yet or still has the
+   defaults, copy `assets/homepage.json` there: HOME opens on startup, in Reading view.
 
 Then ask them to **reload Obsidian**: Cmd/Ctrl+P → "Reload app without saving". Plugins read their settings at
 startup. Warn them not to open those plugins' settings before reloading, or the plugin may save over the file.

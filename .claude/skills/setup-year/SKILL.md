@@ -11,6 +11,12 @@ sitting.
 
 Work through the steps in order. Tell the student briefly what you're on, and put findings in files, not chat.
 
+## 0. Obsidian first
+Everything this workspace builds is viewed in Obsidian (boards, calendar, flashcards, dashboards). If
+`.obsidian/snippets/dashboard.css` doesn't exist, run **`setup-obsidian`** before step 1. It takes a few minutes of
+clicking while you have their attention. Then carry on with step 1. (If they'd rather skip it, carry on and offer it
+again at the end.)
+
 ## 1. Profile
 If `projects/PROFILE.md` is missing, ask in one message:
 - University, degree, year of study, academic year.
@@ -95,7 +101,7 @@ Ask once, in one message, which of these the student wants now. Each can also be
   `tasks/_template/TASKS.md` into `tasks/`. Remove HOME cards for anything not set up, and header pills (on HOME and TASKS) that
   point at pages that don't exist yet, e.g. Timetable, Roles, Reviews or Moodle updates before the first sync. HOME
   shows the week's agenda, priorities, the next 14 days of deadlines, graded work, tasks and roles.
-- **Obsidian look** (recommended): run `setup-obsidian` for the plugins, theme and dashboard styling.
+- **Obsidian look**: if it was skipped in step 0, offer `setup-obsidian` again.
 - **Flashcards** for exam-heavy modules: run `create-flashcards` for each one they pick.
 - **Study timetable**: run `create-study-timetable`. It needs their lecture timetable (an `.ics` export is best).
 - **Weekly review** every Sunday evening: follow `weekly-review`'s "Schedule it" section.
