@@ -10,7 +10,7 @@ plain Markdown on your own computer, so the files are the memory rather than a c
 | | Say | You get |
 |---|---|---|
 | **Modules and deadlines** | "set up my year" · "refresh Moodle" · "what's due?" | One folder per module (spec, outcomes, timetable, log), every assessment as a note, a year-wide deadline board, weekly Moodle updates |
-| **Tasks and home dashboard** | "task: email my supervisor by Fri" | Task notes, plus a HOME page showing the next 7 days across coursework, tasks and applications |
+| **Home dashboard and tasks** | "task: email my supervisor by Fri" | A HOME page with this week's calendar, your priorities, deadlines in the next 14 days, graded work and roles to apply to, plus task notes |
 | **Study timetable** | "make me a study timetable" | Study blocks fitted around lectures and your commitments, shown in Obsidian's calendar, clash-checked |
 | **Flashcards** | "make flashcards for MA32064" | Definitions, theorem statements and proof ideas from your notes, one subdeck per chapter, plus a page saying which proofs to learn |
 | **Exam practice** | "quiz me on MA32064" | Past-paper and exam-style questions; send a photo of your handwritten answer and it's marked like an exam |
@@ -91,8 +91,9 @@ dates written in page text, and announcements.
 
 ### Tasks and home dashboard
 "task: book a supervisor meeting by Friday" creates a note in `tasks/` (status, area, priority, due date), and
-"done with …" closes it. `HOME.md` is the page to pin in Obsidian: everything with a date in the next 7 days, across
-coursework, tasks and applications, plus what you're doing now. When a coursework brief arrives, Claude can split it
+"done with …" closes it. `HOME.md` is the page to pin in Obsidian: today's schedule next to this week's agenda (lectures and
+study blocks), this week's 3 priorities from the latest weekly review, everything due in the next 14 days, graded
+coursework and exams ahead, tasks, and the roles to apply to now. When a coursework brief arrives, Claude can split it
 into dated steps counted back from the deadline.
 
 ### Study timetable

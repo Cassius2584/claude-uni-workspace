@@ -43,6 +43,9 @@ dated things, short bullets for the rest. Use relative links from `reviews/` (e.
 Anything from email or elsewhere that looks like a to-do without a note goes under **Suggested tasks**. Don't
 create the notes: the student decides.
 
+Then write the same content to **`reviews/latest.md`**, with `kind: review-latest` in the frontmatter. `HOME.md`
+embeds its `## 3 priorities` section, so keep that heading exactly.
+
 ## 4. Reply
 Give the 3 priorities and the file path. In an interactive session, offer the obvious next steps: turn suggested
 tasks into task notes, "refresh Moodle" if it's been more than a week, and, if the timetable has one-offs that no
@@ -64,5 +67,5 @@ Offer a weekly run on **Sunday evening**, before the student's planning slot if 
   "<calendar connector>__list_calendars", "<calendar connector>__list_events",
   "<email connector>__search_threads", "<email connector>__get_thread"
   ```
-  Never add write tools for calendar or email, and never a bare `"Bash"` rule. Ask the student to click **Run now**
+  (`reviews/**` covers `reviews/latest.md` too.) Never add write tools for calendar or email, and never a bare `"Bash"` rule. Ask the student to click **Run now**
   once to confirm there are no prompts.

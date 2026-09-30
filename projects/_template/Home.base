@@ -37,6 +37,55 @@ views:
       - property: formula.when
         direction: ASC
   - type: table
+    name: Next 14 days
+    filters:
+      and:
+        - formula.when <= today() + "14d"
+    order:
+      - formula.when
+      - kind
+      - formula.what
+      - code
+      - area
+      - weight
+      - status
+      - stage
+    sort:
+      - property: formula.when
+        direction: ASC
+  - type: table
+    name: Graded work
+    filters:
+      and:
+        - kind == "assessment"
+        - weight > 0
+    order:
+      - formula.when
+      - code
+      - item
+      - weight
+      - due_note
+      - status
+    sort:
+      - property: formula.when
+        direction: ASC
+  - type: table
+    name: Apply now
+    filters:
+      and:
+        - kind == "role"
+        - priority == "Now"
+        - stage == "Not applied"
+    order:
+      - company
+      - role
+      - fit
+      - deadline
+      - next_step
+    sort:
+      - property: fit
+        direction: DESC
+  - type: table
     name: Next 30 days
     filters:
       and:
