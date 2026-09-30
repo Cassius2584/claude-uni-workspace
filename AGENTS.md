@@ -10,7 +10,7 @@ from their Moodle and official specs, a deadline board and HOME dashboard in Obs
 flashcards and exam practice from their own notes, a weekly review, and an optional job search), and
 suggest they send you this exact message so the request comes from them:
 
-> Set up github.com/Cassius2584/claude-uni-workspace for me: install git if I don't have it, clone it into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
+> Install git if I don't have it, then clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, and tell me how to start a new session there.
 
 When they've asked you to clone and set up:
 1. **If you can't touch their files** (a plain chat such as claude.ai, ChatGPT or the Gemini app), say so kindly and
@@ -25,11 +25,14 @@ When they've asked you to clone and set up:
      `sudo apt install git`) to run themselves. Never type their password.
    They don't need a GitHub account: the repo is public, and cloning and `git pull` work without one. **Keep the `.git` folder:** it's how they `git pull` new skills and fixes later.
    Their own notes are git-ignored, and they can't push to this repo, so nothing of theirs can leak.
-3. **Work from that folder.** If your tool can switch its working folder, do it. Either way, **read `CLAUDE.md`,
-   `.claude/skills/setup-obsidian/SKILL.md` and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
-   load a folder's skills when they start there.
-4. **Run setup-obsidian, then setup-year.** They click
-   Install for each plugin and sign in to their university themselves. Never install plugins or type their password.
+3. **Hand over to a new session in that folder.** Skills load when a session starts in the workspace, so don't
+   try to run setup from here or read skill files by hand. Tell them to open a new session with `uni-workspace` as
+   its folder (Claude app: new Code session and pick the folder; terminal: `cd ~/uni-workspace` then start your CLI),
+   open the folder in Obsidian (**Open folder as vault**), and say **"set up"**.
+4. **In that new session, "set up" runs `setup-workspace`,** which invokes setup-obsidian, setup-year and the extras
+   in order. (Agents without skill support: follow `.claude/skills/setup-workspace/SKILL.md` and, for each step,
+   the skill file it names.) They click Install for each plugin and sign in to their university themselves. Never
+   install plugins or type their password.
 5. **Finish** with what they now have, how to reopen it next time (open the `uni-workspace` folder in their AI app, and
    in Obsidian via "Open folder as vault", which opens on HOME), and what to say next: "what's due?", "refresh
    Moodle" (weekly), "make me a study timetable", "make flashcards for <module>", and "set up careers" (optional).
@@ -47,6 +50,7 @@ that task:
 
 | When the student says… | Follow |
 |---|---|
+| "set up", "get started", "finish setting up" | [.claude/skills/setup-workspace/SKILL.md](.claude/skills/setup-workspace/SKILL.md) |
 | "set up my year", "import my modules" | [.claude/skills/setup-year/SKILL.md](.claude/skills/setup-year/SKILL.md) |
 | "refresh Moodle", "anything new on Moodle?" | [.claude/skills/sync-moodle/SKILL.md](.claude/skills/sync-moodle/SKILL.md) |
 | "add module X", "I'm also taking X" | [.claude/skills/add-module/SKILL.md](.claude/skills/add-module/SKILL.md) |

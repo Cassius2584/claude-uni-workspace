@@ -9,7 +9,7 @@ plain Markdown on your own computer, so the files are the memory rather than a c
 ## What it does
 | | Say | You get |
 |---|---|---|
-| **Modules and deadlines** | "set up my year" · "refresh Moodle" · "what's due?" | One folder per module (spec, outcomes, timetable, log), every assessment as a note, a year-wide deadline board, weekly Moodle updates |
+| **Modules and deadlines** | "set up" · "refresh Moodle" · "what's due?" | One folder per module (spec, outcomes, timetable, log), every assessment as a note, a year-wide deadline board, weekly Moodle updates |
 | **Obsidian dashboards** | "set up Obsidian" | Card-style pages in the AnuPpuccin theme, opening in Reading view: HOME (priorities, week agenda, deadlines, graded work, roles), plus DEADLINES, TASKS, careers, the timetable and every module page |
 | **Home dashboard and tasks** | "task: email my supervisor by Fri" | A HOME page with this week's calendar, your priorities, deadlines in the next 14 days, graded work and roles to apply to, plus task notes |
 | **Study timetable** | "make me a study timetable" | Study blocks fitted around lectures and your commitments, shown in Obsidian's calendar, clash-checked |
@@ -36,21 +36,23 @@ university, and other VLEs (Canvas, Blackboard) should work with minor guidance.
 
 ## Setup (about 15 minutes)
 1. **Install [Obsidian](https://obsidian.md/download)** and the **[Claude desktop app](https://claude.com/download)**.
-2. **Open the Claude app's Code tab** (any folder is fine to start in) and paste this message:
+2. **Download the workspace.** Open the Claude app's **Code** tab (any folder is fine) and paste:
 
-   > Set up github.com/Cassius2584/claude-uni-workspace for me: install git if I don't have it, clone it into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
+   > Install git if I don't have it, then clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, and tell me how to start a new session there.
 
-3. **Follow along.** Claude will:
-   - check for git and, if it's missing, set it up (you click Install or approve the installer);
-   - download the workspace into `~/uni-workspace` (your home folder, not iCloud or OneDrive, so your CV and course
-     notes stay on your computer);
-   - ask you to open that folder in Obsidian (**Open folder as vault** → `uni-workspace`);
-   - **set up Obsidian:** you turn on community plugins once, then Claude opens each install page and you press
-     **Install** and **Enable** (nothing is installed without your click);
-   - **set up your year:** it asks for your university, degree and VLE, opens Moodle, and waits while **you** log in
-     (it never types your password), shows you the modules it found, and builds everything once you confirm. At the
-     end it offers the extras: tasks, flashcards, study timetable, weekly review.
-4. **Next time**, open the `uni-workspace` folder in the Code tab and in Obsidian, and just talk ("what's due?",
+   If git is missing, Claude sets it up (on a Mac you click **Install** in Apple's dialog; on Windows you approve the
+   installer). The folder goes in your home folder, not iCloud or OneDrive, so your CV and course notes stay on your computer.
+3. **Start a new Code session in `uni-workspace`.** This matters: Claude loads the workspace's skills when a session
+   starts in that folder. Also open the folder in Obsidian (**Open folder as vault** → `uni-workspace`).
+4. **Say "set up".** One skill, `setup-workspace`, runs the rest in order:
+   - **Obsidian:** you turn on community plugins once, then Claude opens each install page and you press **Install**
+     and **Enable** (nothing is installed without your click);
+   - **your year:** it asks for your university, degree and VLE, opens Moodle, and waits while **you** log in (it
+     never types your password), shows you the modules it found, and builds everything once you confirm;
+   - **extras**, if you want them: HOME dashboard and tasks, study timetable, flashcards, weekly review, careers.
+
+   Interrupted? Say "set up" again and it carries on where it stopped.
+5. **Next time**, open the `uni-workspace` folder in the Code tab and in Obsidian, and just talk ("what's due?",
    "refresh Moodle").
 
 What gets installed in Obsidian:
@@ -75,7 +77,7 @@ as a reference (deleting it would make `git pull` complain later).
    ```
 2. Open `~/uni-workspace` in Obsidian (**Open folder as vault**) and in the Claude app's Code tab (or run `claude`
    inside it in a terminal).
-3. Say **"set up Obsidian"**, then **"set up my year"**.
+3. Start a new session in that folder and say **"set up"**.
 </details>
 
 ## Staying up to date
@@ -206,6 +208,7 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 |---|---|
 | `CLAUDE.md` | Rules Claude follows in every session |
 | `AGENTS.md` | Entry point for other agents: points to `CLAUDE.md` and maps requests to skills |
+| `.claude/skills/setup-workspace/` | "Set up": runs setup-obsidian, setup-year and the extras in order, resuming if interrupted |
 | `.claude/skills/setup-year/` | First-run setup: VLE + unit catalogue → module folders, deadlines, optional extras |
 | `.claude/skills/add-module/` | Add one module from a code, link, PDF or pasted spec |
 | `.claude/skills/sync-moodle/` | Weekly Moodle refresh, including predicted recurring hand-ins |
