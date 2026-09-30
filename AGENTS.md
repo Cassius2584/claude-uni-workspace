@@ -6,7 +6,8 @@ etc.) can run it. If you're an agent other than Claude Code, start here.
 ## Setting this up for someone
 If the person gave you **only the repo link** (e.g. "help me set up this uni workspace: <link>"), don't try to
 carry out these steps from the web page. Instead, explain the project in 3–5 plain sentences (one folder per module
-from their Moodle and official specs, one deadline board, a weekly "refresh Moodle", an optional job search), and
+from their Moodle and official specs, a deadline board and HOME dashboard in Obsidian, a study timetable,
+flashcards and exam practice from their own notes, a weekly review, and an optional job search), and
 suggest they send you this exact message so the request comes from them:
 
 > Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
@@ -19,15 +20,14 @@ When they've asked you to clone and set up:
    If git isn't installed, help them install it first (macOS: `xcode-select --install`; otherwise
    https://git-scm.com/downloads). **Keep the `.git` folder:** it's how they `git pull` new skills and fixes later.
    Their own notes are git-ignored, and they can't push to this repo, so nothing of theirs can leak.
-3. **Work from that folder.** If your tool can switch its working folder, do it. Either way, **read `CLAUDE.md`
-   and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
+3. **Work from that folder.** If your tool can switch its working folder, do it. Either way, **read `CLAUDE.md`,
+   `.claude/skills/setup-obsidian/SKILL.md` and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
    load a folder's skills when they start there.
-4. **Run setup-obsidian, then setup-year** (read `.claude/skills/setup-obsidian/SKILL.md` directly too). They click
+4. **Run setup-obsidian, then setup-year.** They click
    Install for each plugin and sign in to their university themselves. Never install plugins or type their password.
 5. **Finish** with what they now have, how to reopen it next time (open the `uni-workspace` folder in their AI app, and
-   in Obsidian via "Open folder as vault", which is needed for the boards, calendar and flashcards, plus the Spaced
-   Repetition and Full Calendar Remastered community plugins), and three things to say next: "what's due?", "refresh
-   Moodle" (weekly), and "set up careers" (optional).
+   in Obsidian via "Open folder as vault", which opens on HOME), and what to say next: "what's due?", "refresh
+   Moodle" (weekly), "make me a study timetable", "make flashcards for <module>", and "set up careers" (optional).
 
 ## 1. Read the rules
 **[CLAUDE.md](CLAUDE.md) is the rulebook for every agent.** Read it at the start of every session and follow it.
@@ -60,9 +60,22 @@ that task:
   see and sign in to themselves. Without one, ask the student to paste the pages or export them, and work from that.
   Never type the student's credentials.
 - **Web research** (`find-roles`) needs web search and page-fetch tools.
-- **Scheduling** (`setup-careers` step 4) describes the Claude desktop app's scheduled tasks and Claude Code
-  permission settings. Use your own tool's scheduler (or cron running your CLI non-interactively) and its own
-  permission/approval config. Keep the same command rules: file tools for file I/O, no chained shell commands,
-  writes only under `careers/`.
-- **Obsidian Bases** (`*.base` files, and `base` code blocks in MODULE.md) are Obsidian views over note properties.
-  You never edit them. Keep the note properties exact, as listed in the templates and `careers/TRACKER.md`.
+- **Scheduling** (`setup-careers` step 4 and `weekly-review`'s "Schedule it") describes the Claude desktop app's
+  scheduled tasks and Claude Code permission settings. Use your own tool's scheduler (or cron running your CLI
+  non-interactively) and its own permission/approval config. Keep the same command rules: file tools for file I/O,
+  no chained shell commands, and writes only under `careers/` (job search) or `reviews/` (weekly review).
+- **Scripts:** `create-flashcards` and `create-study-timetable` run small Python 3 scripts from their `scripts/`
+  folders (the Anki builder also needs `pip install genanki`). You need a shell tool for these.
+- **Photos:** `exam-practice` marks photos of handwritten answers, so your tool must accept images. If it can't,
+  ask the student to type their answer.
+- **Obsidian links:** `setup-obsidian` opens `obsidian://` install pages with the OS `open` command. Without a
+  shell, give the student the links to click. Never download plugin or theme files yourself.
+- **Calendar and email** in `weekly-review` are optional, read-only connectors. Skip those sections if you don't have them.
+- **Obsidian views:** the tables are Bases views over note properties. Most are inline ```` ```base ```` blocks in
+  dashboard pages (HOME, DEADLINES, TASKS, module pages); the careers views are in `careers/Roles.base`. You never
+  need to edit them. Keep note properties exact, as listed in the templates and `careers/TRACKER.md`.
+- **Dashboard pages** (`cssclasses: dashboard`) are built from `> [!dash-…]` callout cards. When you edit inside a
+  card, keep every line's `> ` prefix. Sections that skills append to (Log, Weekly plan, the timetable's
+  `<!-- week:start -->` block) are deliberately outside the cards, so append there as plain Markdown.
+- **Study blocks** in `timetable/blocks/` are Full Calendar notes: keep their frontmatter keys and formats exactly
+  (see `create-study-timetable`).

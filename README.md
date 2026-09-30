@@ -207,7 +207,6 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 | `projects/_template/` | `MODULE.md`, `assessment.md`, `PROFILE.md`, and the `DEADLINES.md` and `HOME.md` dashboards (tables inline) |
 | `tasks/_template/` | `TASKS.md` (dashboard with inline views, plus the rules) and `task.md` |
 | `careers/_template/` | Brief, CV and sources templates, and the Bases, Markdown and spreadsheet trackers |
-| [`BACKLOG.md`](BACKLOG.md) | What's planned next. PRs welcome |
 
 ## Licence
 MIT
