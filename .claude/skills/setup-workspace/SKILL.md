@@ -23,7 +23,9 @@ Check, and tell the student in one short list what's done and what's next:
 
 ## 1. Open the vault in Obsidian
 If `.obsidian/` doesn't exist, ask them to open Obsidian → **Open folder as vault** → this folder, and wait until they
-say it's open. (Obsidian creates `.obsidian/` then.) If Obsidian isn't installed: https://obsidian.md/download.
+say it's open. (Obsidian creates `.obsidian/` then.) Don't hunt for the app or install it yourself (no Homebrew,
+winget or downloads): if they don't have it, give them https://obsidian.md/download and wait. That's the student's
+install, like the plugins.
 
 ## 2. Obsidian setup
 If `dashboard.css` isn't installed yet, **invoke the `setup-obsidian` skill** and let it finish (plugins, theme,
