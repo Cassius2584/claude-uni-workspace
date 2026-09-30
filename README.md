@@ -21,50 +21,62 @@ plain Markdown on your own computer, so the files are the memory rather than a c
 Built and tested against Moodle at the University of Bath. The skills are written for any Moodle-based
 university, and other VLEs (Canvas, Blackboard) should work with minor guidance.
 
-## Requirements
-- **[Claude Code](https://claude.com/claude-code):** the Claude desktop app's **Code** tab (easiest) or the
-  terminal. You also need a browser Claude can use to open Moodle while you log in: the desktop app's built-in
-  browser, or Claude in Chrome. (Codex and Gemini CLI also work. See [Other agents](#other-agents).)
-- **[Git](https://git-scm.com/downloads)**, so you can pull updates to the template later. On a Mac, run
-  `xcode-select --install` if `git --version` doesn't work.
-- **[Obsidian](https://obsidian.md/download)** (free). The deadline boards, dashboard, calendar and flashcards are
-  all Obsidian views. Version 1.9 or later, for Bases.
+## What you need
+- **The [Claude desktop app](https://claude.com/download)**, signed in, using its **Code** tab. Claude uses the app's
+  built-in browser to open Moodle while you log in. (The terminal version of Claude Code, Codex and Gemini CLI also
+  work. See [Other agents](#other-agents).)
+- **[Obsidian](https://obsidian.md/download)** (free). The deadline boards, dashboards, calendar and flashcards are
+  all Obsidian views. Just install it; Claude sets up the rest.
+- **Git:** you don't need to install it yourself. Claude checks, and sets it up if it's missing (on a Mac you click
+  **Install** in Apple's dialog; on Windows you approve the installer).
+- **A GitHub account is not needed.** The template is public, so downloading it and getting updates work without one.
+  You'd only need an account to report an issue or suggest a change.
 - *Optional:* Google Calendar and Gmail connectors in Claude, if you want the weekly review to include your
   calendar and email. Both are read-only.
 
 ## Setup (about 15 minutes)
-1. **Clone the workspace** into your home folder (not an iCloud- or OneDrive-synced folder, unless you want your
-   notes and CV in the cloud):
+1. **Install [Obsidian](https://obsidian.md/download)** and the **[Claude desktop app](https://claude.com/download)**.
+2. **Open the Claude app's Code tab** (any folder is fine to start in) and paste this message:
+
+   > Set up github.com/Cassius2584/claude-uni-workspace for me: install git if I don't have it, clone it into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
+
+3. **Follow along.** Claude will:
+   - check for git and, if it's missing, set it up (you click Install or approve the installer);
+   - download the workspace into `~/uni-workspace` (your home folder, not iCloud or OneDrive, so your CV and course
+     notes stay on your computer);
+   - ask you to open that folder in Obsidian (**Open folder as vault** → `uni-workspace`);
+   - **set up Obsidian:** you turn on community plugins once, then Claude opens each install page and you press
+     **Install** and **Enable** (nothing is installed without your click);
+   - **set up your year:** it asks for your university, degree and VLE, opens Moodle, and waits while **you** log in
+     (it never types your password), shows you the modules it found, and builds everything once you confirm. At the
+     end it offers the extras: tasks, flashcards, study timetable, weekly review.
+4. **Next time**, open the `uni-workspace` folder in the Code tab and in Obsidian, and just talk ("what's due?",
+   "refresh Moodle").
+
+What gets installed in Obsidian:
+
+| Install | For |
+|---|---|
+| **Spaced Repetition** (Stephen Mwangi) | Flashcards, reviewed from the Flashcards button in the sidebar |
+| **Full Calendar Remastered** (Jovi Koikkara) | The study timetable as a week view, plus HOME's agenda. You add your university timetable's subscribe link as an *ICS* calendar |
+| **Style Settings** (mgmeyers) | Applies the theme preset |
+| **Homepage** (novov) | Opens HOME when Obsidian starts, in Reading view |
+| **AnuPpuccin** theme | The Catppuccin look: Mocha, mauve accent, card layout, rainbow folders |
+
+`projects/EXAMPLE-MA30001-linear-algebra/` is a fictional sample module. It's kept out of your boards, so leave it
+as a reference (deleting it would make `git pull` complain later).
+
+<details>
+<summary><b>Prefer to do it by hand?</b></summary>
+
+1. Install [git](https://git-scm.com/downloads) (on a Mac: `xcode-select --install`), then clone the workspace:
    ```bash
    git clone https://github.com/Cassius2584/claude-uni-workspace.git ~/uni-workspace
    ```
-2. **Open it in Obsidian:** **Open folder as vault** → `~/uni-workspace`. Keep it open alongside Claude: Obsidian
-   picks up Claude's edits live.
-3. **Open it in Claude Code.** In the desktop app, start a Code session with `~/uni-workspace` selected. In the
-   terminal, run `claude` inside the folder.
-4. **Say "set up Obsidian" first.** Turn on community plugins when asked, then Claude opens each install page for
-   you, and you just press **Install** and **Enable**. Nothing is installed without your click. It then applies the
-   dashboard styling, theme preset and calendar settings:
-
-   | Install | For |
-   |---|---|
-   | **Spaced Repetition** (Stephen Mwangi) | Flashcards, reviewed from the Flashcards button in the sidebar |
-   | **Full Calendar Remastered** (Jovi Koikkara) | The study timetable as a week view, plus HOME's agenda. You add your university timetable's subscribe link as an *ICS* calendar |
-   | **Style Settings** (mgmeyers) | Applies the theme preset |
-   | **Homepage** (novov) | Opens HOME when Obsidian starts, in Reading view |
-   | **AnuPpuccin** theme | The Catppuccin look: Mocha, mauve accent, card layout, rainbow folders |
-
-   Bases (deadline boards, dashboards, trackers) is built into Obsidian. Prefer another theme? The dashboards work
-   with any of them.
-5. **Say "set up my year".** Claude asks for your university, degree and VLE, opens Moodle, and waits while **you**
-   log in (it never types your password). It shows you the modules it found, then builds everything once you
-   confirm. At the end it offers the optional extras: dashboard and tasks, flashcards, study timetable, weekly review.
-6. `projects/EXAMPLE-MA30001-linear-algebra/` is a fictional sample module. It's kept out of your boards, so leave
-   it as a reference (deleting it would make `git pull` complain later).
-
-**Or do it in one message.** In the Claude desktop app's Code tab, paste:
-
-> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
+2. Open `~/uni-workspace` in Obsidian (**Open folder as vault**) and in the Claude app's Code tab (or run `claude`
+   inside it in a terminal).
+3. Say **"set up Obsidian"**, then **"set up my year"**.
+</details>
 
 ## Staying up to date
 Keep the `.git` folder: it's how you get new skills and fixes. From time to time, run:

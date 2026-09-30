@@ -10,15 +10,20 @@ from their Moodle and official specs, a deadline board and HOME dashboard in Obs
 flashcards and exam practice from their own notes, a weekly review, and an optional job search), and
 suggest they send you this exact message so the request comes from them:
 
-> Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
+> Set up github.com/Cassius2584/claude-uni-workspace for me: install git if I don't have it, clone it into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up Obsidian and then my year by following its CLAUDE.md and the setup-obsidian and setup-year skills (read the files directly if the skills don't load).
 
 When they've asked you to clone and set up:
 1. **If you can't touch their files** (a plain chat such as claude.ai, ChatGPT or the Gemini app), say so kindly and
    tell them to paste that message into Claude's desktop app (Code tab), Codex or Gemini CLI. Stop there.
 2. **Get the files** into the folder they named (default: `uni-workspace` in their home folder; avoid iCloud/OneDrive-synced
    folders such as a synced Documents): `git clone https://github.com/Cassius2584/claude-uni-workspace <folder>`.
-   If git isn't installed, help them install it first (macOS: `xcode-select --install`; otherwise
-   https://git-scm.com/downloads). **Keep the `.git` folder:** it's how they `git pull` new skills and fixes later.
+   **Check `git --version` first, and set git up if it's missing.** Don't send a beginner to a terminal:
+   - macOS: run `xcode-select --install`. Apple's dialog opens; they click **Install** and wait a few minutes.
+   - Windows: run `winget install --id Git.Git -e --source winget`, and they approve the installer prompt. (No winget:
+     send them to https://git-scm.com/download/win and wait.)
+   - Linux: installing needs their password, so give them the one command for their distro (e.g.
+     `sudo apt install git`) to run themselves. Never type their password.
+   They don't need a GitHub account: the repo is public, and cloning and `git pull` work without one. **Keep the `.git` folder:** it's how they `git pull` new skills and fixes later.
    Their own notes are git-ignored, and they can't push to this repo, so nothing of theirs can leak.
 3. **Work from that folder.** If your tool can switch its working folder, do it. Either way, **read `CLAUDE.md`,
    `.claude/skills/setup-obsidian/SKILL.md` and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
