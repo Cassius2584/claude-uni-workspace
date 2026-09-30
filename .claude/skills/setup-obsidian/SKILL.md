@@ -12,7 +12,8 @@ Assets (in this skill's folder):
 - `assets/dashboard.css`: the card layout for dashboard pages (HOME, DEADLINES, TASKS, the tracker, module pages,
   the timetable). It only affects notes with `cssclasses: dashboard`. It uses the
   theme's Catppuccin colours and falls back to fixed colours in any other theme.
-- `assets/homepage.json`: Homepage plugin preset (open `HOME` on startup, in Reading view).
+- `assets/homepage.json`: Homepage plugin preset: on startup, open the saved `Home` workspace layout (HOME in the main
+  area, in Reading view, and the local graph in the sidebar).
 - `assets/hide-template-files.css`: hides the template folders, the example module and the repo's own files
   (README, AGENTS, LICENSE, CLAUDE.md) from the file list, so the vault shows only the student's own notes.
 - `assets/graph.json`: graph view preset: hides admin notes (timetable blocks, templates, digests, HOME and other hubs)
@@ -73,10 +74,12 @@ then, backing up each existing file to `<file>.bak` first:
    template lists them), and remove that note.
 6. **Homepage plugin** (required: without it Obsidian reopens whatever was last open, not HOME). Check it's
    installed **and enabled** (`"homepage"` is in `.obsidian/community-plugins.json`); if not, send them back to its
-   install link. Then write `.obsidian/plugins/homepage/data.json`: if it doesn't exist, copy
-   `assets/homepage.json`; if it does (the plugin writes its own defaults, which point at "Home"), set these keys
-   under `homepages["Main Homepage"]` from the asset and keep the rest: `value: "HOME"`, `kind: "File"`,
-   `openOnStartup: true`, `openMode`, `view`. `HOME.md` must exist at the root (step 5).
+   install link. `HOME.md` must exist at the root (step 5). Homepage opens a **saved workspace layout**, not the HOME
+   note directly: in note mode it opens HOME in whichever pane has focus at startup, which is often a sidebar panel,
+   so HOME ends up hidden in the right sidebar with an empty main area. The layout itself is saved in step 10.
+   Write `.obsidian/plugins/homepage/data.json`: copy `assets/homepage.json` if it doesn't exist; otherwise set these
+   keys under `homepages["Main Homepage"]` from the asset and keep the rest: `kind: "Workspace"`, `value: "Home"`,
+   `openOnStartup: true`, `openMode`.
 7. **Graph view:** start from `assets/graph.json`, keeping any colour groups the student already has. Add one
    colour group per module folder, `path:projects/<CODE>`, before the careers and tasks groups, using these colours
    in order (convert the hex to the decimal `rgb` value): `#F76B15`, `#E54666`, `#8E4EC6`, `#3E63DD`, `#12A594`,
@@ -90,16 +93,23 @@ then, backing up each existing file to `<file>.bak` first:
      `tasks/_template/`, `careers/_template/`, `projects/EXAMPLE-MA30001-linear-algebra/`, `README.md`,
      `AGENTS.md`, `LICENSE`, `CLAUDE.md`. This hides them from search, the graph and link suggestions.
    Tell the student they can see them again by turning off the snippet.
-9. **Local graph sidebar:** in `.obsidian/workspace.json`, make the right sidebar (`right`) hold **only** the leaf
-   from `assets/local-graph-leaf.json` (give it a fresh 16-hex-digit `id`), copy the module colour groups into its
-   `options.colorGroups`, and set `"collapsed": false`. Don't move the other panels anywhere: the student gets them back
-   with Cmd/Ctrl+P → "Show backlinks" / "Show outline". Remove any note (`markdown`) leaf in the right sidebar. It's a
-   stray copy of HOME, opened there when the sidebar had focus. Skip this step if the student would rather keep
-   their sidebar. The sidebar is collapsible (icon at top right).
+9. **Local graph sidebar:** in `.obsidian/workspace.json`, put the leaf from `assets/local-graph-leaf.json` (give it a
+   fresh 16-hex-digit `id`, and copy the module colour groups into its `options.colorGroups`) first in the right
+   sidebar's tab group, make it the current tab, and set `"collapsed": false`. Remove any note (`markdown`) leaf in
+   the right sidebar: it's a stray copy of HOME. Obsidian and some plugins re-add their own panels (Backlinks, Outline,
+   the flashcard queue) as tabs behind it on startup. That's fine, because the graph stays in front. Skip this step
+   if the student would rather keep their sidebar as it is. The sidebar is collapsible (icon at top right).
+10. **Save the Home layout** (for step 6): turn on the core Workspaces plugin (`"workspaces": true` in
+   `.obsidian/core-plugins.json`) and write `.obsidian/workspaces.json` as
+   `{"workspaces": {"Home": <layout>}, "active": "Home"}`. `<layout>` is `main`, `left`, `right` and `left-ribbon`
+   copied from `workspace.json`, with `main` holding a single leaf
+   `{"type": "markdown", "state": {"file": "HOME.md", "mode": "preview", "source": false}}`, `active` set to that
+   leaf's `id`, no `markdown` leaves in `right`, and `mtime` set to now (ISO 8601). If the student changes their sidebar
+   later and wants to keep it, re-save: Cmd/Ctrl+P → "Manage workspace layouts" → save as `Home`.
 
 Then ask them to **reload Obsidian**: Cmd/Ctrl+P → "Reload app without saving". Plugins read their settings at
 startup. Warn them not to open those plugins' settings before reloading, or the plugin may save over the file.
-Obsidian also rewrites `workspace.json` and `graph.json` as it runs, so for steps 7–9 either use "Reload app without
+Obsidian also rewrites `workspace.json` and `graph.json` as it runs, so for steps 7–10 either use "Reload app without
 saving" straight after writing, or ask the student to quit Obsidian first (the safest option).
 
 The graph only becomes useful once notes link by idea rather than by folder. `create-flashcards` offers
@@ -119,9 +129,10 @@ Then the graph view (Cmd/Ctrl+G): each module in its own colour, and no timetabl
 list shows no `_template` folders, example module or README.
 
 Finally, check HOME opens by itself: ask them to **quit Obsidian completely and reopen it**. ("Reload app" isn't
-the same as a cold start.) If another note opens instead, check in order: Homepage is enabled
-(`community-plugins.json`), its `data.json` has `value: "HOME"` and `openOnStartup: true`, and `HOME.md` exists
-at the root.
+the same as a cold start.) If another note opens, or HOME appears in the right sidebar with an empty
+main area, check in order: Homepage is enabled (`community-plugins.json`); its `data.json` has `kind: "Workspace"`,
+`value: "Home"` and `openOnStartup: true`; the Workspaces core plugin is on; `workspaces.json` has a `Home` layout whose
+main leaf is `HOME.md`; and `HOME.md` exists at the root.
 
 ## Undo
 Every changed file has a `.bak` next to it. To remove the look, turn off the snippet and restore the backups.
