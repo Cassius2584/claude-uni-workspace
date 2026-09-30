@@ -14,10 +14,10 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 ```
 ./
 ├── CLAUDE.md                  ← this file (shared rules, safe to publish)
-├── HOME.md, Home.base         ← (optional) dashboard: next 7 days across coursework, tasks and applications (private)
+├── HOME.md                    ← (optional) card dashboard: priorities, week agenda, deadlines, graded work, roles (private)
 ├── tasks/                     ← (optional) one note per non-assessment task; TASKS.md explains (private)
 ├── reviews/                   ← (optional) weekly reviews, <date>.md, written by weekly-review (private)
-├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, weekly-review, create-flashcards, exam-practice, create-study-timetable, setup-careers, find-roles, prep-application
+├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, weekly-review, setup-obsidian, create-flashcards, exam-practice, create-study-timetable, setup-careers, find-roles, prep-application
 ├── timetable/                 ← (optional) study timetable: TIMETABLE.md + blocks/ calendar notes (private, git-ignored)
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
@@ -66,7 +66,7 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 ## Tasks
 - If `tasks/` exists: "task: …" creates a task note following `tasks/TASKS.md`, and "done with …" sets it Done
   and logs it. If it doesn't exist and I add a task, offer to set it up (copy `tasks/_template/` files into
-  `tasks/`, and `projects/_template/HOME.md` + `Home.base` to the root).
+  `tasks/`, and `projects/_template/HOME.md` to the root).
 - Assessments stay assessment notes; tasks are for everything else (admin, project steps, life).
 
 ## Careers

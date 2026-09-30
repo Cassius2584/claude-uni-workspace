@@ -10,6 +10,7 @@ plain Markdown on your own computer, so the files are the memory rather than a c
 | | Say | You get |
 |---|---|---|
 | **Modules and deadlines** | "set up my year" · "refresh Moodle" · "what's due?" | One folder per module (spec, outcomes, timetable, log), every assessment as a note, a year-wide deadline board, weekly Moodle updates |
+| **Obsidian dashboard** | "set up Obsidian" | A card-style HOME in the AnuPpuccin theme: gradient header, this week's priorities and agenda, deadlines, graded work, roles to apply to |
 | **Home dashboard and tasks** | "task: email my supervisor by Fri" | A HOME page with this week's calendar, your priorities, deadlines in the next 14 days, graded work and roles to apply to, plus task notes |
 | **Study timetable** | "make me a study timetable" | Study blocks fitted around lectures and your commitments, shown in Obsidian's calendar, clash-checked |
 | **Flashcards** | "make flashcards for MA32064" | Definitions, theorem statements and proof ideas from your notes, one subdeck per chapter, plus a page saying which proofs to learn |
@@ -44,15 +45,19 @@ university, and other VLEs (Canvas, Blackboard) should work with minor guidance.
    confirm. At the end it offers the optional extras: dashboard and tasks, flashcards, study timetable, weekly review.
 4. **Open it in Obsidian:** **Open folder as vault** → `~/uni-workspace`. Keep Obsidian and Claude open on the same
    folder. Obsidian picks up Claude's edits live.
-5. **Turn on the plugins.** Go to Settings → Community plugins → **Turn on community plugins** → Browse, then install
-   and enable:
+5. **Say "set up Obsidian".** `setup-obsidian` walks you through installing the plugins and theme (you click
+   install, Claude never does), then applies the dashboard styling, the theme preset and calendar settings:
 
-   | Plugin | Needed for |
+   | Install | For |
    |---|---|
-   | **Spaced Repetition** (Stephen Mwangi) | Flashcards: review from the Flashcards button in the sidebar |
-   | **Full Calendar Remastered** (Jovi Koikkara) | Study timetable as a week view. Add a *Full Note* calendar for `timetable/blocks`, and your university's timetable subscribe link as an *ICS* calendar |
+   | **Spaced Repetition** (Stephen Mwangi) | Flashcards, reviewed from the Flashcards button in the sidebar |
+   | **Full Calendar Remastered** (Jovi Koikkara) | The study timetable as a week view, plus HOME's agenda. You add your university timetable's subscribe link as an *ICS* calendar |
+   | **Style Settings** (mgmeyers) | Applies the theme preset |
+   | **AnuPpuccin** theme | The Catppuccin look: Mocha, mauve accent, card layout, rainbow folders |
+   | *Homepage* (optional) | Opens HOME when Obsidian starts |
 
-   Bases (deadline boards, dashboard, trackers) is built into Obsidian and needs nothing extra.
+   Bases (deadline boards, dashboard, trackers) is built into Obsidian. Prefer another theme? The dashboard works with
+   any of them.
 6. `projects/EXAMPLE-MA30001-linear-algebra/` is a fictional sample module. It's kept out of your boards, so leave
    it as a reference (deleting it would make `git pull` complain later).
 
@@ -192,12 +197,13 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 | `.claude/skills/add-module/` | Add one module from a code, link, PDF or pasted spec |
 | `.claude/skills/sync-moodle/` | Weekly Moodle refresh, including predicted recurring hand-ins |
 | `.claude/skills/whats-due/` | Deadlines, tasks and applications with priorities |
+| `.claude/skills/setup-obsidian/` | Plugins and theme checklist, plus the dashboard CSS snippet and AnuPpuccin preset (`assets/`) applied to your vault |
 | `.claude/skills/create-study-timetable/` | Study blocks as calendar notes; clash check and `.ics` export in `scripts/timetable.py` |
 | `.claude/skills/create-flashcards/` | Flashcards (Spaced Repetition, Anki optional) and proof tiers; builders in `scripts/` |
 | `.claude/skills/exam-practice/` | Exam-style questions, photo answers marked against a pre-written scheme, practice log |
 | `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md` |
 | `.claude/skills/setup-careers/`, `find-roles/`, `prep-application/` | Careers brief, scheduled role search, per-application prep |
-| `projects/_template/` | `MODULE.md`, `assessment.md`, `PROFILE.md`, `DEADLINES.md` + Bases, and the `HOME.md` dashboard |
+| `projects/_template/` | `MODULE.md`, `assessment.md`, `PROFILE.md`, `DEADLINES.md` + Bases, and the `HOME.md` dashboard (tables inline) |
 | `tasks/_template/` | `TASKS.md` rules, `Tasks.base` views and `task.md` |
 | `careers/_template/` | Brief, CV and sources templates, and the Bases, Markdown and spreadsheet trackers |
 | [`BACKLOG.md`](BACKLOG.md) | What's planned next. PRs welcome |

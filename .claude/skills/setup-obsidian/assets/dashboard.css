@@ -1,0 +1,138 @@
+/* HOME dashboard: card layout for notes with `cssclasses: dashboard`.
+   Colours follow AnuPpuccin/Catppuccin (--ctp-*) and fall back to fixed colours in other themes.
+   Turn on in Settings → Appearance → CSS snippets → dashboard. Works with any theme. */
+
+.dashboard {
+  --file-line-width: 1100px;
+  --dash-radius: 16px;
+  --dash-gap: 18px;
+}
+
+/* No duplicate title: the hero card is the header */
+.dashboard .inline-title,
+.dashboard .frontmatter-container,
+.dashboard .metadata-container,
+.dashboard .metadata-properties-heading,
+.markdown-source-view.dashboard .metadata-container,
+.markdown-preview-view.dashboard .metadata-container,
+.dashboard .cm-embed-block.cm-callout ~ .metadata-container {
+  display: none !important;
+}
+
+/* ---------- Cards ---------- */
+.dashboard .callout[data-callout^="dash-"] {
+  --callout-color: 139, 124, 246;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--dash-radius);
+  padding: 16px 22px 18px;
+  margin: 0 0 var(--dash-gap);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18), 0 10px 28px rgba(0, 0, 0, 0.14);
+  mix-blend-mode: normal;
+}
+.dashboard .callout[data-callout^="dash-"] .callout-title {
+  gap: 8px;
+  padding: 0 0 10px;
+  color: rgb(var(--callout-color));
+}
+.dashboard .callout[data-callout^="dash-"] .callout-title-inner {
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.dashboard .callout[data-callout^="dash-"] .callout-icon .svg-icon {
+  width: 16px;
+  height: 16px;
+}
+.dashboard .callout[data-callout^="dash-"] .callout-content {
+  padding: 0;
+  font-size: 0.95em;
+}
+.dashboard .callout[data-callout^="dash-"] .callout-content em {
+  color: var(--text-faint);
+  font-size: 0.88em;
+}
+
+/* Accent colour and icon per card (Lucide icon names) */
+.dashboard .callout[data-callout="dash-priorities"] { --callout-color: var(--ctp-peach, 245, 158, 11);  --callout-icon: lucide-target; }
+.dashboard .callout[data-callout="dash-week"]       { --callout-color: var(--ctp-lavender, 99, 102, 241);  --callout-icon: lucide-calendar-days; }
+.dashboard .callout[data-callout="dash-due"]        { --callout-color: var(--ctp-red, 239, 68, 68);   --callout-icon: lucide-alarm-clock; }
+.dashboard .callout[data-callout="dash-graded"]     { --callout-color: var(--ctp-mauve, 168, 85, 247);  --callout-icon: lucide-graduation-cap; }
+.dashboard .callout[data-callout="dash-careers"]    { --callout-color: var(--ctp-teal, 16, 185, 129);  --callout-icon: lucide-briefcase; }
+.dashboard .callout[data-callout="dash-tasks"]      { --callout-color: var(--ctp-blue, 59, 130, 246);  --callout-icon: lucide-check-square; }
+.dashboard .callout[data-callout="dash-revision"]   { --callout-color: var(--ctp-pink, 236, 72, 153);  --callout-icon: lucide-brain; }
+.dashboard .callout[data-callout="dash-money"]      { --callout-color: var(--ctp-green, 34, 197, 94);   --callout-icon: lucide-wallet; }
+
+/* ---------- Hero header ---------- */
+.dashboard .callout[data-callout="dash-hero"] {
+  --callout-icon: lucide-sparkles;
+  --callout-color: 255, 255, 255;
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(var(--ctp-mauve, 99, 102, 241), 0.55), transparent 60%),
+    radial-gradient(120% 140% at 100% 100%, rgba(var(--ctp-blue, 236, 72, 153), 0.45), transparent 60%),
+    var(--background-secondary);
+  border: none;
+  padding: 26px 26px 22px;
+}
+.dashboard .callout[data-callout="dash-hero"] .callout-title-inner {
+  font-size: 1.7em;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: #fff;
+}
+.dashboard .callout[data-callout="dash-hero"] a {
+  display: inline-block;
+  margin: 8px 6px 0 0;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+}
+.dashboard .callout[data-callout="dash-hero"] a:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ---------- Embeds inside cards ---------- */
+/* The review's priorities: no side bar, no repeated heading */
+.dashboard .callout .markdown-embed {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.dashboard .callout .markdown-embed h2,
+.dashboard .callout .markdown-embed .markdown-embed-link {
+  display: none;
+}
+.dashboard .callout .markdown-embed ol {
+  margin-top: 0;
+}
+
+/* Bases tables: blend into the card, hide the toolbar clutter */
+.dashboard .callout .bases-toolbar,
+.dashboard .callout .bases-header {
+  display: none;
+}
+.dashboard .callout .bases-view,
+.dashboard .callout .bases-embed,
+.dashboard .callout .bases-table-container {
+  background: transparent;
+  border: none;
+  font-size: 0.93em;
+}
+
+/* Full Calendar agenda: blend into the card */
+.dashboard .callout .fc {
+  --fc-border-color: var(--background-modifier-border);
+  --fc-page-bg-color: transparent;
+  --fc-list-event-hover-bg-color: var(--background-modifier-hover);
+  font-size: 0.92em;
+}
+.dashboard .callout .fc .fc-list {
+  border: none;
+}

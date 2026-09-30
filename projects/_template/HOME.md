@@ -1,46 +1,154 @@
-# Home
+---
+cssclasses:
+  - dashboard
+---
 
-## This week
-```fc-calendar
-defaultDate: today
-height: 480px
-layout:
-  orientation: horizontal
-  views:
-    - view: timeGridDay
-      width: 40%
-      header: false
-    - view: listWeek
-      width: 60%
-      header: true
-```
-Lectures and study blocks, from the Full Calendar plugin (the [timetable](timetable/TIMETABLE.md) blocks plus your
-university timetable feed). Drag a block to move it.
+> [!dash-hero] <Semester 1 · 2026/27>
+> [Deadlines](projects/DEADLINES.md) [Timetable](timetable/TIMETABLE.md) [Tasks](tasks/TASKS.md) [Roles](careers/Roles.base) [Reviews](reviews/) [Moodle](projects/updates/)
 
-## Priorities
-![[reviews/latest#3 priorities]]
+> [!dash-priorities] This week's priorities
+> ![[reviews/latest#3 priorities]]
+> *From the latest [weekly review](reviews/latest.md), refreshed every Sunday*
 
-_From the latest [weekly review](reviews/latest.md), refreshed every Sunday._
+> [!dash-week] Next 7 days
+> ```fc-calendar
+> defaultDate: today
+> startOffset: 0d
+> endOffset: +6d
+> height: fit
+> weather: false
+> layout:
+>   orientation: horizontal
+>   views:
+>     - view: listWeek
+>       width: 100%
+>       header: true
+>       weather: false
+> ```
 
-## Due in the next 14 days
-![[Home.base#Next 14 days]]
+> [!dash-due] Due in the next 14 days
+> ```base
+> filters:
+>   or:
+>     - and:
+>         - kind == "assessment"
+>         - status != "Submitted"
+>         - status != "Marked"
+>         - due <= today() + "14d"
+>         - not:
+>             - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
+>     - and:
+>         - kind == "task"
+>         - status != "Done"
+>         - due <= today() + "14d"
+>     - and:
+>         - kind == "role"
+>         - stage != "Rejected"
+>         - stage != "Withdrawn"
+>         - stage != "Filtered out"
+>         - stage != "Offer"
+>         - formula.when <= today() + "14d"
+> formulas:
+>   when: if(kind == "role", if(deadline, deadline, next_date), due)
+>   due_label: formula.when.format("ddd D MMM")
+>   what: if(kind == "assessment", item, if(kind == "task", title, company + " – " + role))
+>   where: if(kind == "assessment", code, if(kind == "task", area, "Careers"))
+> properties:
+>   formula.due_label:
+>     displayName: Due
+>   formula.what:
+>     displayName: What
+>   formula.where:
+>     displayName: Module / area
+>   note.status:
+>     displayName: Status
+> views:
+>   - type: table
+>     name: Next 14 days
+>     order:
+>       - formula.due_label
+>       - formula.what
+>       - formula.where
+>       - status
+>     sort:
+>       - property: formula.when
+>         direction: ASC
+> ```
 
-## Graded work ahead
-![[Home.base#Graded work]]
+> [!dash-graded] Graded work ahead
+> ```base
+> filters:
+>   and:
+>     - kind == "assessment"
+>     - weight > 0
+>     - status != "Submitted"
+>     - status != "Marked"
+>     - not:
+>         - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
+> formulas:
+>   due_label: if(due, due.format("ddd D MMM YYYY"), due_note)
+> properties:
+>   formula.due_label:
+>     displayName: Due
+>   note.code:
+>     displayName: Module
+>   note.item:
+>     displayName: Assessment
+>   note.weight:
+>     displayName: Weight %
+>   note.status:
+>     displayName: Status
+> views:
+>   - type: table
+>     name: Graded work
+>     order:
+>       - formula.due_label
+>       - code
+>       - item
+>       - weight
+>       - status
+>     sort:
+>       - property: due
+>         direction: ASC
+> ```
 
-## Tasks
-![[tasks/Tasks.base#Today]]
+> [!dash-careers] Apply now
+> ```base
+> filters:
+>   and:
+>     - kind == "role"
+>     - priority == "Now"
+>     - stage == "Not applied"
+> properties:
+>   note.company:
+>     displayName: Company
+>   note.role:
+>     displayName: Role
+>   note.fit:
+>     displayName: Fit
+>   note.next_step:
+>     displayName: Next step
+> views:
+>   - type: table
+>     name: Apply now
+>     order:
+>       - company
+>       - role
+>       - fit
+>       - next_step
+>     sort:
+>       - property: fit
+>         direction: DESC
+> ```
+> *[All roles](careers/Roles.base)*
 
-## Careers: apply now
-![[Home.base#Apply now]]
+> [!dash-tasks] Tasks
+> ![[tasks/Tasks.base#Today]]
 
-## Revision
-- **Flashcards:** the Flashcards button in Obsidian's left sidebar. Unlock each chapter once it's been lectured.
-- **Exam practice:** say "quiz me on <CODE>". Each module's `practice.md` has the log and weak spots.
+> [!dash-revision] Revision
+> **Flashcards:** the Flashcards button in the sidebar. Unlock each chapter once it's been lectured.
+> **Exam practice:** say "quiz me on <CODE>". Each module's `practice.md` has the log and weak spots.
 
-## Everything
-[DEADLINES](projects/DEADLINES.md) · [Modules](projects/Modules.base) · [TASKS](tasks/TASKS.md) · [TIMETABLE](timetable/TIMETABLE.md) · [Roles](careers/Roles.base) · [Moodle updates](projects/updates/) · [Reviews](reviews/)
-
-_Setup copies this to the workspace root as `HOME.md` (with `Home.base`). Delete any section whose feature isn't
-set up yet (no timetable → drop "This week"; no weekly review → drop "Priorities"; no careers → drop "Careers"),
-and add it back when it is. Pin HOME in Obsidian as the page you open first._
+_Template note (setup removes this): delete any card whose feature isn't set up yet, and add it back later.
+No timetable → "Next 7 days"; no weekly review → "priorities"; no careers → "Apply now"; no tasks → "Tasks";
+no flashcards or practice → "Revision". Styling comes from `setup-obsidian` (the `dashboard` CSS snippet)._
