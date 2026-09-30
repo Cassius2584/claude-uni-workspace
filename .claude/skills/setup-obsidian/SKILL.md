@@ -96,9 +96,10 @@ then, backing up each existing file to `<file>.bak` first:
    Tell the student they can see them again by turning off the snippet.
 9. **Local graph sidebar:** in `.obsidian/workspace.json`, put the leaf from `assets/local-graph-leaf.json` (give it a
    fresh 16-hex-digit `id`, and copy the module colour groups into its `options.colorGroups`) first in the right
-   sidebar's tab group, make it the current tab, and set `"collapsed": true`, so Obsidian opens on just HOME and the graph is one click away. Remove any note (`markdown`) leaf in
-   the right sidebar: it's a stray copy of HOME. Obsidian and some plugins re-add their own panels (Backlinks, Outline,
-   the flashcard queue) as tabs behind it on startup. That's fine, because the graph stays in front. Skip this step
+   sidebar's tab group, make it the current tab, and set `"collapsed": true`, so Obsidian opens on just HOME and the
+   graph is one click away. Remove any note (`markdown`) leaf in the right sidebar: it's a stray copy of HOME.
+   Obsidian re-adds its own panels (Backlinks, Outline) as tabs behind the graph on startup. That's fine, because the
+   graph stays in front. Skip this step
    if the student would rather keep their sidebar as it is. The sidebar is collapsible (icon at top right).
 
 Then ask them to **reload Obsidian**: Cmd/Ctrl+P → "Reload app without saving". Plugins read their settings at
