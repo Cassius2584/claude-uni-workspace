@@ -2,8 +2,8 @@
   "version": 4,
   "homepages": {
     "Main Homepage": {
-      "value": "Home",
-      "kind": "Workspace",
+      "value": "HOME",
+      "kind": "File",
       "openOnStartup": true,
       "openMode": "Replace all open notes",
       "manualOpenMode": "Keep open notes",
