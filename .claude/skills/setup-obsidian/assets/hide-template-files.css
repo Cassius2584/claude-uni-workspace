@@ -1,0 +1,13 @@
+/* Hides the workspace's own template, example and repo files from Obsidian's file list.
+   They stay on disk: skills copy from the _template folders, and git updates them.
+   Turn this snippet off (Settings → Appearance → CSS snippets) to see them again. */
+.nav-files-container .tree-item:has(> .tree-item-self[data-path="projects/_template"]),
+.nav-files-container .tree-item:has(> .tree-item-self[data-path="tasks/_template"]),
+.nav-files-container .tree-item:has(> .tree-item-self[data-path="careers/_template"]),
+.nav-files-container .tree-item:has(> .tree-item-self[data-path^="projects/EXAMPLE-"]),
+.nav-files-container .tree-item:has(> .tree-item-self[data-path="README.md"]),
+.nav-files-container .tree-item:has(> .tree-item-self[data-path="AGENTS.md"]),
+.nav-files-container .tree-item:has(> .tree-item-self[data-path="LICENSE"]),
+.nav-files-container .tree-item:has(> .tree-item-self[data-path="CLAUDE.md"]) {
+  display: none;
+}

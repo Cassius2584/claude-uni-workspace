@@ -1,6 +1,6 @@
 ---
 name: setup-obsidian
-description: Set up Obsidian for this workspace so it looks and works as intended. Walks the student through installing the community plugins (Spaced Repetition, Full Calendar Remastered, Style Settings, optional Homepage) and the AnuPpuccin theme, then applies the dashboard styling, theme preset, calendar settings and a colour-coded graph (plus a local-graph sidebar) from this skill's assets, and makes HOME the first page. Use when the student says "set up Obsidian", "make Obsidian look nice", "style my vault", after setup-year, when HOME looks like plain callouts (pencil icons, no gradient header), or when they ask to make the graph view nicer or more useful.
+description: Set up Obsidian for this workspace so it looks and works as intended. Walks the student through installing the community plugins (Spaced Repetition, Full Calendar Remastered, Style Settings, Homepage) and the AnuPpuccin theme, then applies the dashboard styling, theme preset, calendar settings and a colour-coded graph (plus a local-graph sidebar) from this skill's assets, and makes HOME the first page. Use when the student says "set up Obsidian", "make Obsidian look nice", "style my vault", after setup-year, when HOME looks like plain callouts (pencil icons, no gradient header), or when they ask to make the graph view nicer or more useful.
 ---
 
 # Set up Obsidian
@@ -13,6 +13,8 @@ Assets (in this skill's folder):
   the timetable). It only affects notes with `cssclasses: dashboard`. It uses the
   theme's Catppuccin colours and falls back to fixed colours in any other theme.
 - `assets/homepage.json`: Homepage plugin preset (open `HOME` on startup, in Reading view).
+- `assets/hide-template-files.css`: hides the template folders, the example module and the repo's own files
+  (README, AGENTS, LICENSE, CLAUDE.md) from the file list, so the vault shows only the student's own notes.
 - `assets/graph.json`: graph view preset: hides admin notes (timetable blocks, templates, digests, HOME and other hubs)
   and orphans, tighter layout, arrows, and colour groups for concepts, careers and tasks. Module colours are added per student.
 - `assets/local-graph-leaf.json`: a Local graph panel for the right sidebar (two links out from the open note).
@@ -69,14 +71,26 @@ then, backing up each existing file to `<file>.bak` first:
 5. **HOME:** if `HOME.md` isn't at the workspace root, copy `projects/_template/HOME.md` there. Delete the cards for
    features they haven't set up, plus header pills pointing at pages that don't exist yet (the note at the bottom of the
    template lists them), and remove that note.
-6. **Homepage plugin** (if installed): if `.obsidian/plugins/homepage/data.json` doesn't exist yet or still has the
-   defaults, copy `assets/homepage.json` there: HOME opens on startup, in Reading view.
+6. **Homepage plugin** (required: without it Obsidian reopens whatever was last open, not HOME). Check it's
+   installed **and enabled** (`"homepage"` is in `.obsidian/community-plugins.json`); if not, send them back to its
+   install link. Then write `.obsidian/plugins/homepage/data.json`: if it doesn't exist, copy
+   `assets/homepage.json`; if it does (the plugin writes its own defaults, which point at "Home"), set these keys
+   under `homepages["Main Homepage"]` from the asset and keep the rest: `value: "HOME"`, `kind: "File"`,
+   `openOnStartup: true`, `openMode`, `view`. `HOME.md` must exist at the root (step 5).
 7. **Graph view:** start from `assets/graph.json`, keeping any colour groups the student already has. Add one
    colour group per module folder, `path:projects/<CODE>`, before the careers and tasks groups, using these colours
    in order (convert the hex to the decimal `rgb` value): `#F76B15`, `#E54666`, `#8E4EC6`, `#3E63DD`, `#12A594`,
    `#46A758`, `#E2A336`, `#D6409F`, `#0090FF`, `#978365`. Drop filters for folders that don't exist. Write it to
    `.obsidian/graph.json`.
-8. **Local graph sidebar:** in `.obsidian/workspace.json`, make the right sidebar (`right`) hold **only** the leaf
+8. **Tidy the file list:** the templates, example module and repo files have to stay (skills copy from the
+   `_template/` folders, and git updates them), so hide them rather than delete them. **Never delete them.**
+   - Copy `assets/hide-template-files.css` to `.obsidian/snippets/` and add `"hide-template-files"` to
+     `enabledCssSnippets` in `appearance.json`. This hides them in the file list.
+   - Add them to `userIgnoreFilters` in `.obsidian/app.json` (merge, keep existing entries): `projects/_template/`,
+     `tasks/_template/`, `careers/_template/`, `projects/EXAMPLE-MA30001-linear-algebra/`, `README.md`,
+     `AGENTS.md`, `LICENSE`, `CLAUDE.md`. This hides them from search, the graph and link suggestions.
+   Tell the student they can see them again by turning off the snippet.
+9. **Local graph sidebar:** in `.obsidian/workspace.json`, make the right sidebar (`right`) hold **only** the leaf
    from `assets/local-graph-leaf.json` (give it a fresh 16-hex-digit `id`), copy the module colour groups into its
    `options.colorGroups`, and set `"collapsed": false`. Don't move the other panels anywhere: the student gets them back
    with Cmd/Ctrl+P → "Show backlinks" / "Show outline". Remove any note (`markdown`) leaf in the right sidebar. It's a
@@ -85,7 +99,7 @@ then, backing up each existing file to `<file>.bak` first:
 
 Then ask them to **reload Obsidian**: Cmd/Ctrl+P → "Reload app without saving". Plugins read their settings at
 startup. Warn them not to open those plugins' settings before reloading, or the plugin may save over the file.
-Obsidian also rewrites `workspace.json` and `graph.json` as it runs, so for steps 7–8 either use "Reload app without
+Obsidian also rewrites `workspace.json` and `graph.json` as it runs, so for steps 7–9 either use "Reload app without
 saving" straight after writing, or ask the student to quit Obsidian first (the safest option).
 
 The graph only becomes useful once notes link by idea rather than by folder. `create-flashcards` offers
@@ -101,7 +115,13 @@ it appears in). Mention it.
 Ask for a screenshot of HOME. It should show a gradient header with pill links, cards with coloured icon labels,
 no title or Properties box at the top, and inline tables without toolbars. If it still shows pencil icons, the
 snippet isn't enabled (Settings → Appearance → CSS snippets → dashboard). Reading view looks best.
-Then the graph view (Cmd/Ctrl+G): each module in its own colour, and no timetable blocks or orphans.
+Then the graph view (Cmd/Ctrl+G): each module in its own colour, and no timetable blocks or orphans. The file
+list shows no `_template` folders, example module or README.
+
+Finally, check HOME opens by itself: ask them to **quit Obsidian completely and reopen it**. ("Reload app" isn't
+the same as a cold start.) If another note opens instead, check in order: Homepage is enabled
+(`community-plugins.json`), its `data.json` has `value: "HOME"` and `openOnStartup: true`, and `HOME.md` exists
+at the root.
 
 ## Undo
 Every changed file has a `.bak` next to it. To remove the look, turn off the snippet and restore the backups.

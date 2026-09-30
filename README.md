@@ -67,8 +67,10 @@ What gets installed in Obsidian:
 | **Homepage** (novov) | Opens HOME when Obsidian starts, in Reading view |
 | **AnuPpuccin** theme | The Catppuccin look: Mocha, mauve accent, card layout, rainbow folders |
 
-`projects/EXAMPLE-MA30001-linear-algebra/` is a fictional sample module. It's kept out of your boards, so leave it
-as a reference (deleting it would make `git pull` complain later).
+`projects/EXAMPLE-MA30001-linear-algebra/` is a fictional sample module. Setup hides it from Obsidian, along with the
+`_template` folders and the repo's own files (README, AGENTS, LICENSE, CLAUDE.md), so your vault shows only your own
+notes. They stay on disk because skills copy from the templates and `git pull` updates them, so don't delete them.
+To see them again, turn off the `hide-template-files` CSS snippet.
 
 <details>
 <summary><b>Prefer to do it by hand?</b></summary>
@@ -220,7 +222,7 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 | `.claude/skills/add-module/` | Add one module from a code, link, PDF or pasted spec |
 | `.claude/skills/sync-moodle/` | Weekly Moodle refresh, including predicted recurring hand-ins |
 | `.claude/skills/whats-due/` | Deadlines, tasks and applications with priorities |
-| `.claude/skills/setup-obsidian/` | Plugins and theme checklist, plus the dashboard CSS snippet, AnuPpuccin preset and graph presets (`assets/`) applied to your vault |
+| `.claude/skills/setup-obsidian/` | Plugins and theme checklist, plus the dashboard and hide-template-files CSS snippets, AnuPpuccin preset and graph presets (`assets/`) applied to your vault |
 | `.claude/skills/create-study-timetable/` | Study blocks as calendar notes; clash check and `.ics` export in `scripts/timetable.py` |
 | `.claude/skills/create-flashcards/` | Flashcards (Spaced Repetition, Anki optional), proof tiers and concept notes; builders in `scripts/` |
 | `.claude/skills/exam-practice/` | Exam-style questions, photo answers marked against a pre-written scheme, practice log |
