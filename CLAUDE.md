@@ -17,7 +17,7 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 ├── HOME.md, Home.base         ← (optional) dashboard: next 7 days across coursework, tasks and applications (private)
 ├── tasks/                     ← (optional) one note per non-assessment task; TASKS.md explains (private)
 ├── reviews/                   ← (optional) weekly reviews, <date>.md, written by weekly-review (private)
-├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, weekly-review, create-flashcards, create-study-timetable, setup-careers, find-roles, prep-application
+├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, weekly-review, create-flashcards, exam-practice, create-study-timetable, setup-careers, find-roles, prep-application
 ├── timetable/                 ← (optional) study timetable: TIMETABLE.md + blocks/ calendar notes (private, git-ignored)
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
@@ -40,6 +40,7 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
         ├── assessments/       ← one note per assessment: <CODE>-<slug>.md with due, weight, status, mark
         ├── lectures/          ← notes, one file per week: week-03-sorting.md
         ├── coursework/        ← one subfolder per assessment: brief, drafts, feedback
+        ├── practice.md        ← (optional) exam practice log: attempts, weak spots, past papers used (exam-practice)
         ├── flashcards/        ← (optional) cards.md source → Obsidian flashcard notes (+ Anki deck) (create-flashcards)
         └── resources/         ← PDFs, slides, past papers, formula books
 ```

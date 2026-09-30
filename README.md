@@ -143,6 +143,17 @@ area, priority and due date. `HOME.md` is the page to open first in Obsidian: ev
 "what's due?" too. When a coursework brief arrives, Claude can split it into dated steps counted back from
 the deadline. `setup-year` offers this as an optional extra, or just ask for it later.
 
+## Exam practice
+Say **"quiz me on MA32064"** and `exam-practice` sets an exam-style question: a real past-paper question when one
+fits, otherwise one written in the same style on results you're expected to know, with marks per part. It writes
+the mark scheme **before** you answer (hidden, so the marking can't bend to your answer). Answer by hand under exam
+conditions, **send a photo**, and it marks you like an examiner would: exact definitions, key proof steps,
+method and accuracy marks. Each part gets a score, what you lost and why, and one line to remember.
+- `practice.md` in the module folder logs every attempt and keeps a **weak-spots** list with review dates:
+  2 days after a poor score, a week after a middling one, 3 weeks after a good one. The weekly review reminds you.
+- In the revision period, ask for a **timed mock**: the relevant questions from a past paper in one sitting.
+- It's for practice only: it won't mark work you're submitting for credit.
+
 ## Weekly review
 Say **"weekly review"** (or let it run every Sunday evening as a scheduled task) and `weekly-review` writes one
 page to `reviews/<date>.md`, covering the week ahead:
@@ -210,6 +221,7 @@ Tips:
 | **"Refresh Moodle"** (weekly) | New/moved deadlines → assessment notes; announcements, new files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
 | "Update semester 2 modules from Moodle" | Fills in timetables, staff and dates once pages go live |
 | "task: book a supervisor meeting by Fri" / "done with the ethics form" | Task note created / marked Done; shows on HOME and in "what's due?" |
+| "Quiz me on MA32064" → photo of your answer | Exam-style question, strict marking, weak spots logged in `practice.md` (`exam-practice`) |
 | "Weekly review" (or Sundays, scheduled) | Next week's calendar, timetable, deadlines, tasks and 3 priorities in `reviews/<date>.md` (`weekly-review`) |
 | "Make flashcards for MA32064" / "add cards for week 3" | Obsidian (or Anki) flashcards per chapter, plus proof tiers (`create-flashcards`) |
 | "Make me a study timetable" / "I've joined X on Wednesdays" | Study blocks around lectures and commitments, in Obsidian's calendar (`create-study-timetable`) |
@@ -233,6 +245,7 @@ Tips:
 | `.claude/skills/add-module/` | Add a single module from a code, link, PDF or pasted spec |
 | `.claude/skills/sync-moodle/` | On-demand Moodle refresh: new/changed deadlines, announcements, files, weekly topics |
 | `.claude/skills/whats-due/` | Deadline summary (coursework + applications) with priorities |
+| `.claude/skills/exam-practice/` | Past-paper and exam-style questions, photo answers marked against a pre-written scheme, practice log with weak spots |
 | `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md`; optional approval-free schedule |
 | `.claude/skills/create-flashcards/` | Flashcards from a module's notes (Obsidian by default, Anki optional; one subdeck per chapter) and a proof-tiers page; build scripts in `scripts/` |
 | `.claude/skills/create-study-timetable/` | Weekly study plan as calendar notes (Full Calendar plugin), clash check and `.ics` export in `scripts/timetable.py` |

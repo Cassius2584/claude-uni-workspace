@@ -44,6 +44,7 @@ that task:
 | "refresh Moodle", "anything new on Moodle?" | [.claude/skills/sync-moodle/SKILL.md](.claude/skills/sync-moodle/SKILL.md) |
 | "add module X", "I'm also taking X" | [.claude/skills/add-module/SKILL.md](.claude/skills/add-module/SKILL.md) |
 | "what's due?", "what should I work on?" | [.claude/skills/whats-due/SKILL.md](.claude/skills/whats-due/SKILL.md) |
+| "quiz me on X", "exam practice", "mark my answer", "mock exam" | [.claude/skills/exam-practice/SKILL.md](.claude/skills/exam-practice/SKILL.md) |
 | "weekly review", "plan my week", "what does next week look like?" | [.claude/skills/weekly-review/SKILL.md](.claude/skills/weekly-review/SKILL.md) |
 | "make flashcards for X", "add cards for week N", "which proofs do I need?" | [.claude/skills/create-flashcards/SKILL.md](.claude/skills/create-flashcards/SKILL.md) |
 | "make me a study timetable", "when should I study?", "I've joined X on Wednesdays" | [.claude/skills/create-study-timetable/SKILL.md](.claude/skills/create-study-timetable/SKILL.md) |

@@ -36,6 +36,7 @@ week_of: <Monday YYYY-MM-DD>
 
 ## Revision
 - <MA32064>: unlock <Ch2> in the flashcards (lectured last week). <MA32025>: lectures are ahead of the cards, so say "add cards for week 2".
+- **Exam practice:** <MA32064> weak spots due: <Euler's criterion (Tue)>. Say "quiz me on <MA32064>" in <Tuesday's> block.
 
 ## Email
 | From | Subject | What's needed | By when | Link |
