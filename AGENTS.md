@@ -45,6 +45,7 @@ that task:
 | "add module X", "I'm also taking X" | [.claude/skills/add-module/SKILL.md](.claude/skills/add-module/SKILL.md) |
 | "what's due?", "what should I work on?" | [.claude/skills/whats-due/SKILL.md](.claude/skills/whats-due/SKILL.md) |
 | "make flashcards for X", "add cards for week N", "which proofs do I need?" | [.claude/skills/create-flashcards/SKILL.md](.claude/skills/create-flashcards/SKILL.md) |
+| "make me a study timetable", "when should I study?", "I've joined X on Wednesdays" | [.claude/skills/create-study-timetable/SKILL.md](.claude/skills/create-study-timetable/SKILL.md) |
 | "set up careers", "help me find grad jobs" | [.claude/skills/setup-careers/SKILL.md](.claude/skills/setup-careers/SKILL.md) |
 | "find roles", "run my job search" | [.claude/skills/find-roles/SKILL.md](.claude/skills/find-roles/SKILL.md) |
 | "help me apply to X", "cover letter for X" | [.claude/skills/prep-application/SKILL.md](.claude/skills/prep-application/SKILL.md) |

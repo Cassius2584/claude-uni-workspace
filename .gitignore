@@ -4,6 +4,10 @@ projects/*
 !projects/_template/
 !projects/EXAMPLE-*/
 
+# Your study timetable and calendar exports stay private
+timetable/
+*.ics
+
 # CV, job search and applications stay private too
 careers/*
 !careers/_template/

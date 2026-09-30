@@ -1,0 +1,37 @@
+# TIMETABLE.md template
+
+Create `timetable/TIMETABLE.md` from this. Replace `<…>`. Keep the two `week:` markers exactly as they are:
+`timetable.py` writes the week grid and hours between them.
+
+```markdown
+# Study timetable
+
+**<Semester 1 2026/27>** · teaching <28 Sep – 11 Dec 2026> · <reading week w/c 2 Nov>
+
+Each block is a note in [blocks/](blocks). The Full Calendar plugin shows them as a week view (calendar
+source: *Full Note*, folder `timetable/blocks`). To change the plan, drag a block in the calendar, edit its
+note, or ask Claude ("move my Friday blocks to the morning"). Claude reruns the clash check afterwards.
+
+## Preferences
+| | |
+|---|---|
+| Study days | <Mon–Fri, Sat morning> |
+| Hours | <09:00–18:00> |
+| Best focus | <mornings> |
+| Free | <Sunday, and Saturday afternoon> |
+| Independent study target | <20 h/week> |
+| Regular commitments | <Climbing club Wed 18:00–20:00 (15 min walk each way); job Sat 12:00–17:00> |
+| Extras | <daily flashcards 08:45; weekly planning Sun 19:30> |
+
+## This week
+<!-- week:start -->
+<!-- week:end -->
+
+## How the hours are split
+| Module | Credits | Hours/week | Why |
+|---|---|---|---|
+| <MA32064> | <5 ECTS> | <3> | <exam-only module; steady weekly practice> |
+
+## Log
+- <date>: Timetable created from <the uni timetable feed / screenshot> and a short interview.
+```

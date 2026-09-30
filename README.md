@@ -151,6 +151,19 @@ saying how well to know each proof: **A** write it out from memory, **B** rebuil
 **C** just state it. It's calibrated against past papers, and worth checking with your lecturer.
 After each lecture, say **"add cards for week 3"** and the new cards are added without touching your review history.
 
+## Planning your week: study timetable
+Say **"make me a study timetable"** and share your lecture timetable (the calendar-feed link from your
+university's timetable site works best, or a screenshot). `create-study-timetable` asks a few quick questions
+(clubs, sport or a job, when you like to work, a day off, how many hours you're aiming for), then fits study
+blocks into the gaps. It weights them by credits and upcoming deadlines, and adds review time after lectures and a
+daily flashcards slot.
+- Each block is a note in `timetable/blocks/`, shown as a week view by Obsidian's **Full Calendar
+  Remastered** plugin (which can also show your uni timetable feed next to it). Drag a block to move it.
+- A clash check and a week overview (grid plus hours per module) go in `timetable/TIMETABLE.md`.
+- If you want it on your phone's calendar, it exports an `.ics` file to import into Google or Apple
+  Calendar, or adds the events through a Google Calendar connector (only after you say yes).
+- Later: "I've joined the climbing club on Wednesdays" and the plan adjusts.
+
 ## Viewing it: use Obsidian (recommended)
 Everything is plain Markdown, so any editor works, but [Obsidian](https://obsidian.md) (free) is the nicest way
 to read and browse it yourself while Claude does the writing:
@@ -179,6 +192,7 @@ Tips:
 | **"Refresh Moodle"** (weekly) | New/moved deadlines → assessment notes; announcements, new files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
 | "Update semester 2 modules from Moodle" | Fills in timetables, staff and dates once pages go live |
 | "Make flashcards for MA32064" / "add cards for week 3" | Obsidian (or Anki) flashcards per chapter, plus proof tiers (`create-flashcards`) |
+| "Make me a study timetable" / "I've joined X on Wednesdays" | Study blocks around lectures and commitments, in Obsidian's calendar (`create-study-timetable`) |
 | "Find me new roles" | Runs the job search now (`find-roles`) |
 | "Help me apply to #2 from today's digest" | Fit map, tailored drafts and interview prep (`prep-application`) |
 | "I got through to the assessment centre at X" | Application stage updated |
@@ -200,6 +214,7 @@ Tips:
 | `.claude/skills/sync-moodle/` | On-demand Moodle refresh: new/changed deadlines, announcements, files, weekly topics |
 | `.claude/skills/whats-due/` | Deadline summary (coursework + applications) with priorities |
 | `.claude/skills/create-flashcards/` | Flashcards from a module's notes (Obsidian by default, Anki optional; one subdeck per chapter) and a proof-tiers page; build scripts in `scripts/` |
+| `.claude/skills/create-study-timetable/` | Weekly study plan as calendar notes (Full Calendar plugin), clash check and `.ics` export in `scripts/timetable.py` |
 | `.claude/skills/setup-careers/` | CV import, search brief interview, job sources, optional schedule |
 | `.claude/skills/find-roles/` | Search → read descriptions → filter → score → ranked digest |
 | `.claude/skills/prep-application/` | Per-role fit map, tailored drafts, process and interview prep |

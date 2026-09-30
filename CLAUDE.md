@@ -14,7 +14,8 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 ```
 ./
 ├── CLAUDE.md                  ← this file (shared rules, safe to publish)
-├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, create-flashcards, setup-careers, find-roles, prep-application
+├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, create-flashcards, create-study-timetable, setup-careers, find-roles, prep-application
+├── timetable/                 ← (optional) study timetable: TIMETABLE.md + blocks/ calendar notes (private, git-ignored)
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
 │   ├── BRIEF.md               ← what I'm looking for: role types, titles, hard requirements, targets
@@ -54,6 +55,8 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
   announcements, new files and weekly topics into a digest at `projects/updates/<date>.md`. I log in myself.
 - **Revision:** "make flashcards for X" or "add cards for week N" runs `create-flashcards`. `flashcards/cards.md`
   is the source; never rename a card's `###` title (it's the card's ID and holds its review history).
+- **Study timetable:** `create-study-timetable` builds and updates `timetable/`. The block notes are the source of
+  truth (the calendar plugin edits them), and a university calendar feed link is private: never write it into a file.
 - Mark anything unconfirmed as `_tbc_`, and say where it should come from (VLE, unit catalogue, lecturer).
 
 ## Careers
