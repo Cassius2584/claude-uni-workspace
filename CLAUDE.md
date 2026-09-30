@@ -14,7 +14,7 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 ```
 ./
 ├── CLAUDE.md                  ← this file (shared rules, safe to publish)
-├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, setup-careers, find-roles, prep-application
+├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, create-flashcards, setup-careers, find-roles, prep-application
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
 │   ├── BRIEF.md               ← what I'm looking for: role types, titles, hard requirements, targets
@@ -36,6 +36,7 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
         ├── assessments/       ← one note per assessment: <CODE>-<slug>.md with due, weight, status, mark
         ├── lectures/          ← notes, one file per week: week-03-sorting.md
         ├── coursework/        ← one subfolder per assessment: brief, drafts, feedback
+        ├── flashcards/        ← (optional) cards.md source → Obsidian flashcard notes (+ Anki deck) (create-flashcards)
         └── resources/         ← PDFs, slides, past papers, formula books
 ```
 
@@ -51,6 +52,8 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 - **What's due?** Use the `whats-due` skill (it reads the assessment notes).
 - **New on Moodle?** "Refresh Moodle" runs `sync-moodle`: new or moved deadlines go into assessment notes, and
   announcements, new files and weekly topics into a digest at `projects/updates/<date>.md`. I log in myself.
+- **Revision:** "make flashcards for X" or "add cards for week N" runs `create-flashcards`. `flashcards/cards.md`
+  is the source; never rename a card's `###` title (it's the card's ID and holds its review history).
 - Mark anything unconfirmed as `_tbc_`, and say where it should come from (VLE, unit catalogue, lecturer).
 
 ## Careers

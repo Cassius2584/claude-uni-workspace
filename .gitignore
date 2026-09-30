@@ -13,12 +13,14 @@ careers/*
 *.pptx
 *.docx
 *.zip
+*.apkg
 
 # Local Claude Code settings
 .claude/settings.local.json
 CLAUDE.local.md
 
 .DS_Store
+__pycache__/
 
 # Personal Obsidian vault settings
 .obsidian/

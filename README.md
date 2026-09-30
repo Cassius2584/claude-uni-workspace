@@ -136,6 +136,21 @@ Why it isn't automated:
 - **The calendar export isn't enough.** It only contains dates already set up as Moodle activities. It misses
   assignments that are still hidden, dates written in page text or handbooks, exams, announcements and files.
 
+## Revising: flashcards and proof tiers
+Say **"make flashcards for MA32064"**. The `create-flashcards` skill reads that module's lecture notes and past
+papers and writes one source file, `flashcards/cards.md`, with:
+- **definitions** word for word, **fill-in-the-blank statements** for every theorem, **"name the result"** cards
+  and **worked examples**, all from your own notes;
+- a **proof card** for each proof worth learning, with a one-sentence key idea first;
+- **one subdeck per chapter**, so you only study what's been lectured.
+
+By default it builds notes for Obsidian's **Spaced Repetition** plugin, so everything stays in your vault
+(review from the Flashcards button in the sidebar). If you'd rather use a dedicated phone app, it can also
+build an **Anki deck** from the same file. Next to the deck goes a **tiers page**
+saying how well to know each proof: **A** write it out from memory, **B** rebuild it from the key idea,
+**C** just state it. It's calibrated against past papers, and worth checking with your lecturer.
+After each lecture, say **"add cards for week 3"** and the new cards are added without touching your review history.
+
 ## Viewing it: use Obsidian (recommended)
 Everything is plain Markdown, so any editor works, but [Obsidian](https://obsidian.md) (free) is the nicest way
 to read and browse it yourself while Claude does the writing:
@@ -163,6 +178,7 @@ Tips:
 | "I submitted the business plan" | Status updated in MODULE.md and DEADLINES.md |
 | **"Refresh Moodle"** (weekly) | New/moved deadlines → assessment notes; announcements, new files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
 | "Update semester 2 modules from Moodle" | Fills in timetables, staff and dates once pages go live |
+| "Make flashcards for MA32064" / "add cards for week 3" | Obsidian (or Anki) flashcards per chapter, plus proof tiers (`create-flashcards`) |
 | "Find me new roles" | Runs the job search now (`find-roles`) |
 | "Help me apply to #2 from today's digest" | Fit map, tailored drafts and interview prep (`prep-application`) |
 | "I got through to the assessment centre at X" | Application stage updated |
@@ -183,6 +199,7 @@ Tips:
 | `.claude/skills/add-module/` | Add a single module from a code, link, PDF or pasted spec |
 | `.claude/skills/sync-moodle/` | On-demand Moodle refresh: new/changed deadlines, announcements, files, weekly topics |
 | `.claude/skills/whats-due/` | Deadline summary (coursework + applications) with priorities |
+| `.claude/skills/create-flashcards/` | Flashcards from a module's notes (Obsidian by default, Anki optional; one subdeck per chapter) and a proof-tiers page; build scripts in `scripts/` |
 | `.claude/skills/setup-careers/` | CV import, search brief interview, job sources, optional schedule |
 | `.claude/skills/find-roles/` | Search → read descriptions → filter → score → ranked digest |
 | `.claude/skills/prep-application/` | Per-role fit map, tailored drafts, process and interview prep |
