@@ -15,16 +15,17 @@ When they've asked you to clone and set up:
 1. **If you can't touch their files** (a plain chat such as claude.ai, ChatGPT or the Gemini app), say so kindly and
    tell them to paste that message into Claude's desktop app (Code tab), Codex or Gemini CLI. Stop there.
 2. **Get the files** into the folder they named (default: `uni-workspace` in their home folder; avoid iCloud/OneDrive-synced
-   folders such as a synced Documents): `git clone https://github.com/Cassius2584/claude-uni-workspace <folder>`, or
-   if git isn't available, download and unzip
-   `https://github.com/Cassius2584/claude-uni-workspace/archive/refs/heads/main.zip`. Then delete the `.git`
-   folder unless they plan to contribute back, so their own notes can't be pushed anywhere.
+   folders such as a synced Documents): `git clone https://github.com/Cassius2584/claude-uni-workspace <folder>`.
+   If git isn't installed, help them install it first (macOS: `xcode-select --install`; otherwise
+   https://git-scm.com/downloads). **Keep the `.git` folder:** it's how they `git pull` new skills and fixes later.
+   Their own notes are git-ignored, and they can't push to this repo, so nothing of theirs can leak.
 3. **Work from that folder.** If your tool can switch its working folder, do it. Either way, **read `CLAUDE.md`
    and `.claude/skills/setup-year/SKILL.md` directly** rather than relying on skills having loaded: sessions only
    load a folder's skills when they start there.
 4. **Run setup-year.** They sign in to their university themselves. Never type their password.
 5. **Finish** with what they now have, how to reopen it next time (open the `uni-workspace` folder in their AI app, and
-   optionally in Obsidian via "Open folder as vault"), and three things to say next: "what's due?", "refresh
+   in Obsidian via "Open folder as vault", which is needed for the boards, calendar and flashcards, plus the Spaced
+   Repetition and Full Calendar Remastered community plugins), and three things to say next: "what's due?", "refresh
    Moodle" (weekly), and "set up careers" (optional).
 
 ## 1. Read the rules

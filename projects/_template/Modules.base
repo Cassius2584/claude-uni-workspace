@@ -1,6 +1,8 @@
 filters:
   and:
     - kind == "module"
+    - not:
+        - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
 views:
   - type: table
     name: All modules

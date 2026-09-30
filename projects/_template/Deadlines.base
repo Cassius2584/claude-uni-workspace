@@ -1,6 +1,8 @@
 filters:
   and:
     - kind == "assessment"
+    - not:
+        - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
 views:
   - type: table
     name: Due next

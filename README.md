@@ -1,263 +1,205 @@
 # claude-uni-workspace
 
-A university workspace that [Claude Code](https://claude.com/claude-code) sets up and maintains for you.
+**Your university year, run by [Claude Code](https://claude.com/claude-code) in an [Obsidian](https://obsidian.md) vault.**
+Claude reads your Moodle and your university's official module specs, builds one folder per module with every
+deadline as a note, then keeps it all current: a study timetable around your lectures, flashcards and exam practice
+from your own lecture notes, a weekly review of the week ahead, and a scheduled graduate job search. Everything is
+plain Markdown on your own computer, so the files are the memory rather than a chat history.
 
-Say **"set up my year"**. Claude opens your Moodle, you log in, and it finds your modules, pulls each
-module's official spec from your university's unit catalogue, and builds one organised folder per module.
-It also produces one deadline list for the whole year. After that, every session starts with context:
-ask "what's due?", "help me plan the RL coursework" or "here's the CW1 brief" and Claude knows where
-everything is.
+## What it does
+| | Say | You get |
+|---|---|---|
+| **Modules and deadlines** | "set up my year" · "refresh Moodle" · "what's due?" | One folder per module (spec, outcomes, timetable, log), every assessment as a note, a year-wide deadline board, weekly Moodle updates |
+| **Tasks and home dashboard** | "task: email my supervisor by Fri" | Task notes, plus a HOME page showing the next 7 days across coursework, tasks and applications |
+| **Study timetable** | "make me a study timetable" | Study blocks fitted around lectures and your commitments, shown in Obsidian's calendar, clash-checked |
+| **Flashcards** | "make flashcards for MA32064" | Definitions, theorem statements and proof ideas from your notes, one subdeck per chapter, plus a page saying which proofs to learn |
+| **Exam practice** | "quiz me on MA32064" | Past-paper and exam-style questions; send a photo of your handwritten answer and it's marked like an exam |
+| **Weekly review** | "weekly review" (or every Sunday, automatically) | The week ahead on one page: calendar, study blocks, deadlines, tasks, email needing action, 3 priorities |
+| **Careers** | "set up careers" · "find roles" · "help me apply to X" | A scheduled search for grad roles, internships or placements, ranked by fit to your CV, with per-application prep |
 
-It also runs your **job hunt**: a scheduled search for grad roles, internships or placements that match your
-CV and brief, ranked by fit, plus per-role application prep. [Jump to careers ↓](#careers-grad-roles-internships-placements)
+Built and tested against Moodle at the University of Bath. The skills are written for any Moodle-based
+university, and other VLEs (Canvas, Blackboard) should work with minor guidance.
 
-## Quick start
-Open **Claude's desktop app (Code tab)**, **Codex** or **Gemini CLI** and paste:
+## Requirements
+- **[Claude Code](https://claude.com/claude-code):** the Claude desktop app's **Code** tab (easiest) or the
+  terminal. You also need a browser Claude can use to open Moodle while you log in: the desktop app's built-in
+  browser, or Claude in Chrome. (Codex and Gemini CLI also work. See [Other agents](#other-agents).)
+- **[Git](https://git-scm.com/downloads)**, so you can pull updates to the template later. On a Mac, run
+  `xcode-select --install` if `git --version` doesn't work.
+- **[Obsidian](https://obsidian.md/download)** (free). The deadline boards, dashboard, calendar and flashcards are
+  all Obsidian views. Version 1.9 or later, for Bases.
+- *Optional:* Google Calendar and Gmail connectors in Claude, if you want the weekly review to include your
+  calendar and email. Both are read-only.
+
+## Setup (about 15 minutes)
+1. **Clone the workspace** into your home folder (not an iCloud- or OneDrive-synced folder, unless you want your
+   notes and CV in the cloud):
+   ```bash
+   git clone https://github.com/Cassius2584/claude-uni-workspace.git ~/uni-workspace
+   ```
+2. **Open it in Claude Code.** In the desktop app, start a Code session with `~/uni-workspace` selected. In the
+   terminal, run `claude` inside the folder.
+3. **Say "set up my year".** Claude asks for your university, degree and VLE, opens Moodle, and waits while **you**
+   log in (it never types your password). It shows you the modules it found, then builds everything once you
+   confirm. At the end it offers the optional extras: dashboard and tasks, flashcards, study timetable, weekly review.
+4. **Open it in Obsidian:** **Open folder as vault** → `~/uni-workspace`. Keep Obsidian and Claude open on the same
+   folder. Obsidian picks up Claude's edits live.
+5. **Turn on the plugins.** Go to Settings → Community plugins → **Turn on community plugins** → Browse, then install
+   and enable:
+
+   | Plugin | Needed for |
+   |---|---|
+   | **Spaced Repetition** (Stephen Mwangi) | Flashcards: review from the Flashcards button in the sidebar |
+   | **Full Calendar Remastered** (Jovi Koikkara) | Study timetable as a week view. Add a *Full Note* calendar for `timetable/blocks`, and your university's timetable subscribe link as an *ICS* calendar |
+
+   Bases (deadline boards, dashboard, trackers) is built into Obsidian and needs nothing extra.
+6. `projects/EXAMPLE-MA30001-linear-algebra/` is a fictional sample module. It's kept out of your boards, so leave
+   it as a reference (deleting it would make `git pull` complain later).
+
+**Or do it in one message.** In the Claude desktop app's Code tab, paste:
 
 > Clone github.com/Cassius2584/claude-uni-workspace into a new folder called uni-workspace in my home folder, switch to working in that folder, then set up my year by following its CLAUDE.md and setup-year skill (read the files directly if the skill doesn't load).
 
-It clones the template, asks what it needs (your university, degree and Moodle), and waits while **you** log in to
-your university yourself. Later sessions: open that **uni-workspace** folder in your AI app and just talk ("what's due?",
-"refresh Moodle", "set up careers").
+## Staying up to date
+Keep the `.git` folder: it's how you get new skills and fixes. From time to time, run:
+```bash
+cd ~/uni-workspace && git pull
+```
+It's safe because `.gitignore` keeps **your** files (modules, profile, deadlines, tasks, timetable, reviews, CV,
+applications) out of git, so pulling only touches the template and skills. You can't push to this repo, so
+nothing of yours can leak. If you change a skill yourself, commit it on your own branch so pulls merge cleanly.
 
-- **No git?** On this page click **Code → Download ZIP**, unzip it into a folder called `uni-workspace` in your home folder,
-  open that folder in a new Code session, and say "set up my year".
-- **Keep it out of cloud-synced folders** (iCloud "Desktop & Documents", OneDrive's Documents) unless you want your
-  CV and course notes in the cloud. Your home folder is a safe default.
-- A plain chat window (claude.ai, ChatGPT, the Gemini app) can explain the project but can't set it up, because it
-  can't create files on your computer.
+## Features
 
-> **🤖 If you're an AI assistant asked to set this up:** follow
-> [AGENTS.md → "Setting this up for someone"](AGENTS.md#setting-this-up-for-someone) before doing anything else.
-
+### Modules, deadlines and Moodle
+`setup-year` builds, for each module:
 ```
 projects/
-├── DEADLINES.md                    ← every assessment across the year (a live Obsidian Bases view)
-├── Deadlines.base  Modules.base    ← Due next · Graded only · By module · Board · Done; all modules
-├── CM32032-reinforcement-learning/
-│   ├── MODULE.md                   ← credits, outcomes, staff, timetable, log + this module's assessments
-│   ├── assessments/                ← one note per assessment: due, weight, status, mark
-│   ├── lectures/                   ← week-01-….md
-│   ├── coursework/
-│   │   ├── ga1-group-project/      ← brief, drafts, feedback, progress notes
-│   │   └── ga2-group-research-project/
-│   └── resources/                  ← notes, slides, past papers (never committed)
-└── MA32025-medical-statistics/
-    └── …
+├── DEADLINES.md  Deadlines.base  Modules.base   ← every assessment across the year: Due next · Graded only · By module · Board · Done
+└── CM32032-reinforcement-learning/
+    ├── MODULE.md          ← credits, outcomes, staff, timetable, log; embeds this module's assessments
+    ├── assessments/       ← one note per assessment: due, weight, status, mark
+    ├── lectures/  coursework/  resources/        ← your notes, briefs and drafts, and course files (never committed)
+    └── flashcards/  practice.md  proof-tiers.md  ← revision (optional, see below)
 ```
+See [`projects/EXAMPLE-MA30001-linear-algebra/`](projects/EXAMPLE-MA30001-linear-algebra/MODULE.md) for a filled-in
+(fictional) module. Say **"refresh Moodle"** once a week and `sync-moodle` reports only what changed: moved dates first,
+then new deadlines, announcements, files (downloaded only if you pick them) and the week's topics. It also predicts
+recurring hand-ins such as fortnightly problem sheets before they're posted. It isn't automated on purpose: Moodle
+sits behind single sign-on and 2FA, so you log in yourself, and Moodle's calendar export misses hidden assignments,
+dates written in page text, and announcements.
 
-See [`projects/EXAMPLE-MA30001-linear-algebra/`](projects/EXAMPLE-MA30001-linear-algebra/MODULE.md) for a
-filled-in (fictional) module.
+### Tasks and home dashboard
+"task: book a supervisor meeting by Friday" creates a note in `tasks/` (status, area, priority, due date), and
+"done with …" closes it. `HOME.md` is the page to pin in Obsidian: everything with a date in the next 7 days, across
+coursework, tasks and applications, plus what you're doing now. When a coursework brief arrives, Claude can split it
+into dated steps counted back from the deadline.
 
-## Careers: grad roles, internships, placements
-Say **"set up careers"**. Claude imports your CV and interviews you for a brief: role types, what you
-want to do, deal-breakers and dream employers. It then picks the job boards to check. After that:
+### Study timetable
+Share your lecture timetable (a downloaded `.ics` export is best) and say **"make me a study timetable"**.
+`create-study-timetable` asks a few questions (sport, clubs, a job, when you like to work, days off, weekly hours),
+then fits study blocks into the gaps. The blocks are weighted by credits and deadlines, with review time after
+lectures and extra blocks before each deadline. Every week of term is clash-checked against the real timetable,
+including one-off events. Each block is a note in `timetable/blocks/`, so Full Calendar shows it and you can drag
+it to move it. `timetable/TIMETABLE.md` shows the week grid and hours per module. It can also export an `.ics` for
+Google or Apple Calendar, or add the events through a calendar connector (only if you say yes).
 
-- **`find-roles`** runs daily or weekly as a scheduled task, or on demand. It checks your chosen boards (Bright
-  Network, Prospects, TARGETjobs, Gradcracker, RateMyPlacement, LinkedIn, Indeed…) and your target employers'
-  careers pages, plus a broad web search. It then reads every new job description and filters out roles you
-  aren't eligible for (grade, right to work, location, salary). It scores the rest for fit against your CV
-  and brief, and writes a ranked digest: **Apply now / Worth a look / Stretch**, with the why, the gaps, the
-  closing date and the recruitment process.
-- **`prep-application`** takes one role, saves the job description (before it disappears), maps each
-  requirement to evidence in your CV, drafts tailored CV bullets, a cover letter and STAR answers (real
-  experience only), and lists the tests and likely interview questions.
-- **`APPLICATIONS.md`** tracks every application from *To apply* to *Offer*. Closing dates show up in
-  "what's due?" alongside your coursework.
+### Flashcards and proof tiers
+**"Make flashcards for MA32064"** turns that module's notes and past papers into one source file,
+`flashcards/cards.md`:
+- definitions word for word, fill-in-the-blank theorem statements, "name the result" cards and worked examples;
+- a proof card with a one-sentence key idea for every proof worth learning.
 
-```
-careers/
-├── BRIEF.md  CV.md  SOURCES.md
-├── ROLES.md             ← everything seen, so digests only show new roles
-├── APPLICATIONS.md      ← pipeline + deadlines
-├── digests/2026-09-28.md
-└── roles/acme-graduate-swe-2027/  job.md · fit.md · drafts.md · prep.md
-```
+It's built into Spaced Repetition notes with one subdeck per chapter, so you only study what's been lectured. Anki is
+also available if you prefer a phone app. Alongside it, a tiers page says how well to know each proof: **A** write
+it out, **B** rebuild it from the key idea, **C** just state it. The tiers are calibrated against past papers.
+After each lecture, "add cards for week 3" adds the new cards without touching your review history.
 
-### Pick a tracker
-**Use Obsidian Bases.** It's the default, and the one this template is built around. Each role becomes a note, the
-views behave like a spreadsheet (sort, filter, board), prep files sit next to each role, it needs no accounts, and
-scheduled searches run with no shell permissions at all. The other two are fallbacks:
+### Exam practice
+**"Quiz me on MA32064"** sets a question: a real past-paper question when one fits the lectured material, otherwise
+one written in the same style, with marks per part. The mark scheme is written **before** you answer and hidden from
+you. Answer by hand, **send a photo**, and it's marked like an examiner would: exact definitions, key proof steps,
+method and accuracy marks. You get a score per part, what you lost and why, and one line to remember. `practice.md`
+logs every attempt and keeps a list of weak spots that come back after 2 days, a week or 3 weeks depending on how you did. In the
+revision period, ask for a timed mock paper. It's for practice only, so it won't mark work you're submitting for credit.
 
-| Tracker | What you get | Needs |
-|---|---|---|
-| **Obsidian Bases** (default, recommended) | One note per role; `careers/Roles.base` shows *Open roles · By deadline · Applications · Board · Filtered out* as sortable, filterable tables and cards | Obsidian 1.9+ with the Bases core plugin |
-| **Markdown tables** (fallback) | `ROLES.md` + `APPLICATIONS.md`, readable anywhere | Nothing |
-| **Spreadsheet** (only if you already live in one) | Google Sheet or Excel with tabs, dropdowns and deadline colour coding, great on a phone | A tool that can **write** to your sheet (e.g. a Google Sheets skill). A read-only Drive connector isn't enough, because the search adds rows every run |
+### Weekly review
+**"Weekly review"** (or a scheduled run every Sunday evening) writes `reviews/<date>.md`: next week's calendar and
+study blocks, everything due in 14 days including predicted hand-ins, applications, tasks, flashcard chapters
+to unlock, practice weak spots due, email needing action, and **3 priorities**. It only reads your notes and connectors,
+and writes that one file.
 
-If you kept a tracker last year, `setup-careers` reads it and reuses your columns.
-
-### Scheduled runs without approval prompts
-Unattended runs stall on permission prompts, and chained shell commands only offer "Allow once". So
-`setup-careers` (with your OK) adds a **narrow** allow-list to `~/.claude/settings.json`: web search/fetch,
-reading this workspace, writing only under `careers/`, and (for a spreadsheet) the exact tracker commands, never
-a blanket shell rule. It also writes command rules into the task prompt so every step matches. Click **Run now**
-once to confirm it runs clean. Scheduled runs happen while the Claude app is open. A missed run fires the next
-time you open it.
+### Careers: grad roles, internships, placements
+**"Set up careers"** imports your CV and interviews you for a brief (role types, deal-breakers, dream employers),
+then picks job boards to check.
+- **`find-roles`** (scheduled or on demand) checks your boards (Bright Network, Prospects, TARGETjobs, Gradcracker,
+  RateMyPlacement, LinkedIn, Indeed…), your target employers' careers pages and the wider web. It reads every job
+  description, filters out roles you aren't eligible for, scores the rest against your CV, and writes a ranked
+  digest: **Apply now / Worth a look / Stretch**.
+- **`prep-application`** saves the job description, maps each requirement to evidence in your CV, drafts tailored
+  CV bullets, a cover letter and STAR answers (real experience only), and lists likely tests and interview questions.
+- Roles are notes viewed through `careers/Roles.base` (*Open roles · By deadline · Applications · Board*). A
+  Markdown or spreadsheet tracker also works.
 
 Claude never applies, fills in forms or logs in to job sites for you.
 
-## Why
-Module info is scattered across the VLE, the unit catalogue, handbooks and emails. Chat history forgets. This
-puts it all in plain Markdown files that you own, and gives Claude rules for keeping them current, so the
-files are the memory.
-
-## Setup (about 10 minutes)
-You need **Claude Code**, either the desktop app's Code tab or the terminal, plus a browser Claude can use:
-the desktop app's built-in browser or Claude in Chrome.
-
-1. **Get the workspace.** Click **Use this template** on GitHub (or fork/clone), and put it somewhere
-   permanent, e.g. `~/uni-workspace`.
-2. **Open it in Claude Code.** In the desktop app, start a Code session with this folder selected. In the
-   terminal, run `claude` inside the folder.
-3. **Say "set up my year".** Claude asks for your uni, degree and VLE, opens the VLE, and waits while **you**
-   log in. It then shows you the modules it found and builds everything once you confirm.
-
-Then delete the `EXAMPLE-…` folder.
-
-### Using Codex, Cursor or another agent?
-It's built for Claude Code, but everything is plain Markdown, so other agents work too. They read
-[`AGENTS.md`](AGENTS.md), which points them at the same rules (`CLAUDE.md`) and tells them which skill file to follow
-for each request. What's Claude-specific, and what you'll need your own tool's equivalent for:
-- a **browser you can log in through** (for Moodle and the unit catalogue)
-- **web search** (for the job search)
-- **scheduling and approvals** (for the automatic twice-weekly search)
-
-The notes, Obsidian views and templates don't care which AI wrote them.
-
-## Keeping it in sync with Moodle
-After setup, say **"refresh Moodle"** once a week (Sunday evening works well). `sync-moodle` checks every course
-page against what it saw last time and only reports what's new: changed dates first, then new deadlines,
-announcements, new files (downloaded only if you pick them) and the week's topics.
-
-Why it isn't automated:
-- **You log in yourself.** Moodle sits behind university single sign-on, usually with 2FA. Storing your password
-  for a script is unsafe, usually against IT rules, and wouldn't get past 2FA anyway.
-- **The calendar export isn't enough.** It only contains dates already set up as Moodle activities. It misses
-  assignments that are still hidden, dates written in page text or handbooks, exams, announcements and files.
-
-## Home dashboard and tasks
-Say **"task: email my supervisor about scope by Friday"** and it becomes a note in `tasks/` with a status,
-area, priority and due date. `HOME.md` is the page to open first in Obsidian: everything with a date in the next
-7 days (coursework, tasks, application deadlines) in one table, plus what you're doing now. Tasks show up in
-"what's due?" too. When a coursework brief arrives, Claude can split it into dated steps counted back from
-the deadline. `setup-year` offers this as an optional extra, or just ask for it later.
-
-## Exam practice
-Say **"quiz me on MA32064"** and `exam-practice` sets an exam-style question: a real past-paper question when one
-fits, otherwise one written in the same style on results you're expected to know, with marks per part. It writes
-the mark scheme **before** you answer (hidden, so the marking can't bend to your answer). Answer by hand under exam
-conditions, **send a photo**, and it marks you like an examiner would: exact definitions, key proof steps,
-method and accuracy marks. Each part gets a score, what you lost and why, and one line to remember.
-- `practice.md` in the module folder logs every attempt and keeps a **weak-spots** list with review dates:
-  2 days after a poor score, a week after a middling one, 3 weeks after a good one. The weekly review reminds you.
-- In the revision period, ask for a **timed mock**: the relevant questions from a past paper in one sitting.
-- It's for practice only: it won't mark work you're submitting for credit.
-
-## Weekly review
-Say **"weekly review"** (or let it run every Sunday evening as a scheduled task) and `weekly-review` writes one
-page to `reviews/<date>.md`, covering the week ahead:
-- your calendar and study timetable, including one-off blocks;
-- everything due in the next 14 days (including predicted problem-sheet dates), applications and tasks;
-- which flashcard chapters to unlock, Moodle updates, and email that needs action if a mail connector is
-  set up (read-only);
-- 3 suggested priorities, with a day attached to each.
-
-It only reads your notes and writes that one file, and never touches your calendar or mailbox.
-
-## Revising: flashcards and proof tiers
-Say **"make flashcards for MA32064"**. The `create-flashcards` skill reads that module's lecture notes and past
-papers and writes one source file, `flashcards/cards.md`, with:
-- **definitions** word for word, **fill-in-the-blank statements** for every theorem, **"name the result"** cards
-  and **worked examples**, all from your own notes;
-- a **proof card** for each proof worth learning, with a one-sentence key idea first;
-- **one subdeck per chapter**, so you only study what's been lectured.
-
-By default it builds notes for Obsidian's **Spaced Repetition** plugin, so everything stays in your vault
-(review from the Flashcards button in the sidebar). If you'd rather use a dedicated phone app, it can also
-build an **Anki deck** from the same file. Next to the deck goes a **tiers page**
-saying how well to know each proof: **A** write it out from memory, **B** rebuild it from the key idea,
-**C** just state it. It's calibrated against past papers, and worth checking with your lecturer.
-After each lecture, say **"add cards for week 3"** and the new cards are added without touching your review history.
-
-## Planning your week: study timetable
-Say **"make me a study timetable"** and share your lecture timetable (the calendar-feed link from your
-university's timetable site works best, or a screenshot). `create-study-timetable` asks a few quick questions
-(clubs, sport or a job, when you like to work, a day off, how many hours you're aiming for), then fits study
-blocks into the gaps. It weights them by credits and upcoming deadlines, and adds review time after lectures and a
-daily flashcards slot.
-- Each block is a note in `timetable/blocks/`, shown as a week view by Obsidian's **Full Calendar
-  Remastered** plugin (which can also show your uni timetable feed next to it). Drag a block to move it.
-- A clash check and a week overview (grid plus hours per module) go in `timetable/TIMETABLE.md`.
-- If you want it on your phone's calendar, it exports an `.ics` file to import into Google or Apple
-  Calendar, or adds the events through a Google Calendar connector (only after you say yes).
-- Later: "I've joined the climbing club on Wednesdays" and the plan adjusts.
-
-## Viewing it: use Obsidian (recommended)
-Everything is plain Markdown, so any editor works, but [Obsidian](https://obsidian.md) (free) is the nicest way
-to read and browse it yourself while Claude does the writing:
-
-1. Install Obsidian → **Open folder as vault** → pick this folder.
-2. That's it. `MODULE.md` tables, `DEADLINES.md` and the careers digests render cleanly, links between files are
-   clickable, and lecture PDFs and past papers open inside Obsidian. Search covers every module at once.
-
-Tips:
-- Keep Claude Code and Obsidian open on the same folder. Obsidian picks up Claude's edits live.
-- Pin `projects/DEADLINES.md` (coursework board) and `careers/Roles.base` (job tracker) in the sidebar for a
-  one-glance dashboard. Both are Obsidian Bases: every assessment and every role is a note with properties, so
-  you can sort, filter and switch to a card board.
-- Want it on your phone? Obsidian Sync or iCloud works, but your CV and course materials sync too, so keep it to
-  services you trust.
-- Obsidian hides dot-folders, so `.claude/` (the skills) stays out of the way. Your Obsidian settings
-  (`.obsidian/`) are git-ignored.
+### Scheduled runs
+The job search and weekly review can run on a schedule from the Claude desktop app (Code tab → Scheduled). Runs
+happen while the app is open, and a missed run fires the next time you open it. With your OK, the setup adds a
+**narrow** allow-list to `~/.claude/settings.json` (read the workspace, write only to its own folder, read-only
+connector tools, never a blanket shell rule), so runs don't stall on approval prompts. Click **Run now** once to
+confirm.
 
 ## Day to day
 | Say | What happens |
 |---|---|
-| "What's due?" | Next two weeks of deadlines, with progress and what to do first (`whats-due`) |
-| "Add module MA32054" / "I'm also taking Graph Theory" | Pulls the spec and adds the folder (`add-module`) |
+| "What's due?" | The next two weeks of deadlines, tasks and applications, with what to do first (`whats-due`) |
+| **"Refresh Moodle"** (weekly) | New or moved deadlines, announcements, files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
 | "Here's the CW1 brief" + file | Filed in the right `coursework/` folder and logged |
-| "I submitted the business plan" | Status updated in MODULE.md and DEADLINES.md |
-| **"Refresh Moodle"** (weekly) | New/moved deadlines → assessment notes; announcements, new files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
-| "Update semester 2 modules from Moodle" | Fills in timetables, staff and dates once pages go live |
-| "task: book a supervisor meeting by Fri" / "done with the ethics form" | Task note created / marked Done; shows on HOME and in "what's due?" |
-| "Quiz me on MA32064" → photo of your answer | Exam-style question, strict marking, weak spots logged in `practice.md` (`exam-practice`) |
-| "Weekly review" (or Sundays, scheduled) | Next week's calendar, timetable, deadlines, tasks and 3 priorities in `reviews/<date>.md` (`weekly-review`) |
-| "Make flashcards for MA32064" / "add cards for week 3" | Obsidian (or Anki) flashcards per chapter, plus proof tiers (`create-flashcards`) |
-| "Make me a study timetable" / "I've joined X on Wednesdays" | Study blocks around lectures and commitments, in Obsidian's calendar (`create-study-timetable`) |
-| "Find me new roles" | Runs the job search now (`find-roles`) |
-| "Help me apply to #2 from today's digest" | Fit map, tailored drafts and interview prep (`prep-application`) |
-| "I got through to the assessment centre at X" | Application stage updated |
+| "I submitted the business plan" | Assessment note updated |
+| "Add module MA32054" | Pulls the spec and adds the folder (`add-module`) |
+| "task: …" / "done with …" | Task note created / closed |
+| "Make me a study timetable" / "I've joined X on Wednesdays" | Timetable built / adjusted and re-checked (`create-study-timetable`) |
+| "Make flashcards for MA32064" / "add cards for week 3" | Flashcards and proof tiers (`create-flashcards`) |
+| "Quiz me on MA32064" → photo of your answer | Exam question, strict marking, weak spots logged (`exam-practice`) |
+| "Weekly review" | The week ahead on one page (`weekly-review`) |
+| "Find me new roles" / "help me apply to #2" | Job search now (`find-roles`) / application prep (`prep-application`) |
 
 ## Privacy and copyright
-- `.gitignore` keeps **your** modules, profile, deadlines, CV and applications out of git. Only the template and example are
-  tracked, so you can pull updates to this repo without leaking anything.
-- PDFs, slides, docs and zips are ignored everywhere. Lecture notes and past papers are your university's
-  copyright. Don't publish them.
-- Claude never enters your password. Logins are always done by you in the browser.
+- Your modules, profile, deadlines, tasks, timetable, reviews, CV and applications are git-ignored. Only the
+  template, skills and the fictional example are tracked.
+- PDFs, slides, documents, zips, Anki decks and calendar files are ignored everywhere. Lecture notes and past papers are
+  your university's copyright, so don't publish them.
+- Claude never enters your password: you always log in yourself. Calendar and email connectors are only read.
+- Keep the folder out of cloud-synced locations unless you trust the service with your CV and course materials.
+
+## Other agents
+It's built for Claude Code, but it's plain Markdown, so Codex, Gemini CLI or Cursor work too. They read
+[`AGENTS.md`](AGENTS.md), which points to the same rules (`CLAUDE.md`) and maps each request to a skill file.
+Your tool needs its own equivalent of a browser you can log in through (Moodle), web search (job search), and
+scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explain the project but can't set it up.
+
+> **🤖 If you're an AI assistant asked to set this up:** follow
+> [AGENTS.md → "Setting this up for someone"](AGENTS.md#setting-this-up-for-someone) before doing anything else.
 
 ## What's inside
 | Path | Purpose |
 |---|---|
-| `CLAUDE.md` | Rules Claude follows in every session (read automatically by Claude Code) |
-| `AGENTS.md` | Entry point for other agents (Codex, Cursor…): points to `CLAUDE.md` and maps requests to skill files |
-| `.claude/skills/setup-year/` | First-run setup: VLE + unit catalogue → module folders + deadlines |
-| `.claude/skills/add-module/` | Add a single module from a code, link, PDF or pasted spec |
-| `.claude/skills/sync-moodle/` | On-demand Moodle refresh: new/changed deadlines, announcements, files, weekly topics |
-| `.claude/skills/whats-due/` | Deadline summary (coursework + applications) with priorities |
-| `.claude/skills/exam-practice/` | Past-paper and exam-style questions, photo answers marked against a pre-written scheme, practice log with weak spots |
-| `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md`; optional approval-free schedule |
-| `.claude/skills/create-flashcards/` | Flashcards from a module's notes (Obsidian by default, Anki optional; one subdeck per chapter) and a proof-tiers page; build scripts in `scripts/` |
-| `.claude/skills/create-study-timetable/` | Weekly study plan as calendar notes (Full Calendar plugin), clash check and `.ics` export in `scripts/timetable.py` |
-| `.claude/skills/setup-careers/` | CV import, search brief interview, job sources, optional schedule |
-| `.claude/skills/find-roles/` | Search → read descriptions → filter → score → ranked digest |
-| `.claude/skills/prep-application/` | Per-role fit map, tailored drafts, process and interview prep |
-| `projects/_template/` | `MODULE.md`, `assessment.md`, `DEADLINES.md`, `PROFILE.md`, the `Deadlines.base` / `Modules.base` views, and the optional `HOME.md` / `Home.base` dashboard |
-| `tasks/_template/` | `TASKS.md` (rules and properties), `Tasks.base` (Today · This week · Inbox · By area · Board · Done) and `task.md` |
-| `careers/_template/` | `BRIEF.md`, `CV.md`, `SOURCES.md`; Markdown tracker (`ROLES.md`, `APPLICATIONS.md`); Obsidian tracker (`role.md`, `Roles.base`, `TRACKER.bases.md`); spreadsheet tracker (`TRACKER.sheet.md`) |
-
-Built and tested against Moodle at the University of Bath. The skills are written for any Moodle-based
-university, and other VLEs (Canvas, Blackboard) should work with minor guidance. PRs welcome.
+| `CLAUDE.md` | Rules Claude follows in every session |
+| `AGENTS.md` | Entry point for other agents: points to `CLAUDE.md` and maps requests to skills |
+| `.claude/skills/setup-year/` | First-run setup: VLE + unit catalogue → module folders, deadlines, optional extras |
+| `.claude/skills/add-module/` | Add one module from a code, link, PDF or pasted spec |
+| `.claude/skills/sync-moodle/` | Weekly Moodle refresh, including predicted recurring hand-ins |
+| `.claude/skills/whats-due/` | Deadlines, tasks and applications with priorities |
+| `.claude/skills/create-study-timetable/` | Study blocks as calendar notes; clash check and `.ics` export in `scripts/timetable.py` |
+| `.claude/skills/create-flashcards/` | Flashcards (Spaced Repetition, Anki optional) and proof tiers; builders in `scripts/` |
+| `.claude/skills/exam-practice/` | Exam-style questions, photo answers marked against a pre-written scheme, practice log |
+| `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md` |
+| `.claude/skills/setup-careers/`, `find-roles/`, `prep-application/` | Careers brief, scheduled role search, per-application prep |
+| `projects/_template/` | `MODULE.md`, `assessment.md`, `PROFILE.md`, `DEADLINES.md` + Bases, and the `HOME.md` dashboard |
+| `tasks/_template/` | `TASKS.md` rules, `Tasks.base` views and `task.md` |
+| `careers/_template/` | Brief, CV and sources templates, and the Bases, Markdown and spreadsheet trackers |
+| [`BACKLOG.md`](BACKLOG.md) | What's planned next. PRs welcome |
 
 ## Licence
 MIT

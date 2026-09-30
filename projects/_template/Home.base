@@ -2,6 +2,8 @@ filters:
   or:
     - and:
         - kind == "assessment"
+        - not:
+            - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
         - status != "Submitted"
         - status != "Marked"
     - and:
