@@ -7,21 +7,56 @@ credits: 10
 assessment: "Coursework 25% / Exam 75%"
 leader: "Dr A. Example"
 moodle: https://moodle.uni.example/course/view.php?id=12345
+cssclasses:
+  - dashboard
 ---
 
-# MA30001 – Linear Algebra (EXAMPLE)
+> [!dash-hero] MA30001 · Linear Algebra (EXAMPLE)
+> [Moodle](https://moodle.uni.example/course/view.php?id=12345) [Catalogue](https://www.uni.example/catalogues/2026-2027/ma/MA30001.html) [Deadlines](../DEADLINES.md) [Lectures](lectures/) [Coursework](coursework/) [Resources](resources/)
+> Semester 1 · 10 ECTS · Coursework 25% / Exam 75% · Dr A. Example
 
-> **This is a made-up example** showing what a filled-in module looks like after `setup-year`. The module,
-> staff, rooms and dates are fictional. Delete this folder once you've set up your own.
+> [!dash-info] This is a made-up example
+> It shows what a filled-in module looks like after `setup-year`. The module, staff, rooms and dates are fictional.
+> It's kept out of your boards, so leave it as a reference (deleting it would make `git pull` complain later).
 
-| | |
-|---|---|
-| **Term / year** | Semester 1 2026/27, Year 2 |
-| **Credits** | 10 ECTS (20 CATS), 200 study hours · FHEQ level 5 · Compulsory |
-| **Module leader** | Dr A. Example · a.example@uni.example · Room 4W 1.01 |
-| **Timetable** | Lectures Mon 10:15 (1W 2.01), Thu 12:15 (3E 1.01) · Problem class Fri 09:15 (8W 2.1) |
-| **VLE / Moodle** | https://moodle.uni.example/course/view.php?id=12345 |
-| **Unit catalogue** | https://www.uni.example/catalogues/2026-2027/ma/MA30001.html |
+> [!dash-list] At a glance
+> | | |
+> |---|---|
+> | **Term / year** | Semester 1 2026/27, Year 2 |
+> | **Credits** | 10 ECTS (20 CATS), 200 study hours · FHEQ level 5 · Compulsory |
+> | **Module leader** | Dr A. Example · a.example@uni.example · Room 4W 1.01 |
+> | **Timetable** | Lectures Mon 10:15 (1W 2.01), Thu 12:15 (3E 1.01) · Problem class Fri 09:15 (8W 2.1) |
+> | **VLE / Moodle** | https://moodle.uni.example/course/view.php?id=12345 |
+> | **Unit catalogue** | https://www.uni.example/catalogues/2026-2027/ma/MA30001.html |
+
+> [!dash-graded] Assessments
+> ```base
+> filters:
+>   and:
+>     - kind == "assessment"
+>     - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
+> views:
+>   - type: table
+>     name: Assessments
+>     order:
+>       - item
+>       - type
+>       - weight
+>       - due
+>       - due_note
+>       - status
+>       - mark
+>     sort:
+>       - property: due
+>         direction: ASC
+> ```
+> _Each assessment is a note in `assessments/`. Update status and marks there. All deadlines: [DEADLINES](../DEADLINES.md)._
+>
+> Briefs, drafts and feedback: `coursework/`.
+>
+> **Rules to remember**
+> - CW1 is **closed lane**: no GenAI use permitted.
+> - Formula book is provided in the exam. Copy in `resources/` (not committed).
 
 ## What it's about
 Vector spaces and the linear maps between them: bases, dimension, eigenvalues and diagonalisation, inner
@@ -34,35 +69,6 @@ _Source: unit catalogue 2026/27._
 2. Represent linear maps as matrices and change basis.
 3. Compute eigenvalues and eigenvectors and decide when a matrix is diagonalisable.
 4. Apply inner products, orthogonality and the spectral theorem.
-
-## Assessments
-```base
-filters:
-  and:
-    - kind == "assessment"
-    - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra")
-views:
-  - type: table
-    name: Assessments
-    order:
-      - item
-      - type
-      - weight
-      - due
-      - due_note
-      - status
-      - mark
-    sort:
-      - property: due
-        direction: ASC
-```
-_Each assessment is a note in `assessments/`. Update status and marks there. All modules: [Deadlines.base](../Deadlines.base)._
-
-Briefs, drafts and feedback: `coursework/`.
-
-**Rules to remember**
-- CW1 is **closed lane**: no GenAI use permitted.
-- Formula book is provided in the exam. Copy in `resources/` (not committed).
 
 ## Weekly plan
 | Week | Topic | Notes |

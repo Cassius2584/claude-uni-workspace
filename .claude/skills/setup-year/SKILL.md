@@ -66,7 +66,8 @@ For each module:
 2. Inside `coursework/`, create one subfolder per assessment (e.g. `cw1-business-plan/`,
    `01-proposal/`). Exam-only modules get `coursework/problem-sheets/`.
 3. Write `MODULE.md` from `projects/_template/MODULE.md`: fill the properties (`kind: module`, code, title,
-   semester, credits, assessment summary, leader, moodle) and every section you have evidence for. Set the
+   semester, credits, assessment summary, leader, moodle), the header card (title, links, subtitle; drop pills for
+   links you don't have) and every section you have evidence for. Set the
    folder path in the embedded `base` block to this module's folder. Use `_tbc_` plus a note on where to find
    the rest. Add a dated `## Log` line saying where the data came from.
 4. Create `assessments/` with **one note per dated or graded item**, from `projects/_template/assessment.md`:
@@ -74,9 +75,10 @@ For each module:
    Name each `<CODE>-<slug>.md`. Use exact property values; leave `due` blank when there's no date yet and put
    the approximate timing ("Jan 2027 exam period") in `due_note`.
 
-Then copy `projects/_template/Deadlines.base`, `Modules.base` and `DEADLINES.md` into `projects/`, and add a
-**Busy spots** line to DEADLINES.md for clusters. In Obsidian, `DEADLINES.md` shows every assessment across
-modules (Due next · Graded only · By module · Board · Done) and `Modules.base` shows all modules.
+Then copy `projects/_template/DEADLINES.md` into `projects/`: fill in the academic year, one header pill per
+module (`[CODE](<folder>/MODULE.md)`), and a
+line per cluster in its **Busy spots** card. In Obsidian, `DEADLINES.md` is a dashboard of every assessment across
+modules (Due next · Graded only · Board · Modules · By module · Done), with the tables inline, so there's nothing else to copy.
 
 ## 7. Files (optional; ask first)
 Offer to save the key course files (handbooks, lecture notes, formula books, past papers, templates) into
@@ -90,7 +92,7 @@ each module's `resources/` or `lectures/`. If the student agrees:
 ## 8. Optional extras (one question)
 Ask once, in one message, which of these the student wants now. Each can also be added later just by asking:
 - **Home dashboard + tasks** (recommended): copy `projects/_template/HOME.md` to the workspace root, and
-  `tasks/_template/TASKS.md` and `Tasks.base` into `tasks/`. Remove HOME cards for anything not set up. HOME
+  `tasks/_template/TASKS.md` into `tasks/`. Remove HOME cards for anything not set up. HOME
   shows the week's agenda, priorities, the next 14 days of deadlines, graded work, tasks and roles.
 - **Obsidian look** (recommended): run `setup-obsidian` for the plugins, theme and dashboard styling.
 - **Flashcards** for exam-heavy modules: run `create-flashcards` for each one they pick.

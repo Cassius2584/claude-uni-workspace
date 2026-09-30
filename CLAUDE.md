@@ -31,9 +31,7 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 │   └── roles/<id>/            ← per-application: job description, fit map, drafts, interview prep
 └── projects/
     ├── PROFILE.md             ← who I am: uni, degree, year, VLE link (private, git-ignored)
-    ├── DEADLINES.md           ← deadlines page: embeds Deadlines.base (private)
-    ├── Deadlines.base         ← views over all assessment notes: Due next · Graded only · By module · Board · Done
-    ├── Modules.base           ← table / cards of all modules
+    ├── DEADLINES.md           ← deadlines dashboard: every assessment + all modules, inline base views (private)
     ├── _template/             ← copied for each new module (MODULE.md, assessment.md, bases)
     └── <CODE>-<short-name>/   ← one folder per module (private), e.g. CM30001-machine-learning/
         ├── MODULE.md          ← spec (properties + outcomes, timetable, readings, log); embeds its assessments

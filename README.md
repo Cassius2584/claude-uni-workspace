@@ -10,7 +10,7 @@ plain Markdown on your own computer, so the files are the memory rather than a c
 | | Say | You get |
 |---|---|---|
 | **Modules and deadlines** | "set up my year" · "refresh Moodle" · "what's due?" | One folder per module (spec, outcomes, timetable, log), every assessment as a note, a year-wide deadline board, weekly Moodle updates |
-| **Obsidian dashboard** | "set up Obsidian" | A card-style HOME in the AnuPpuccin theme: gradient header, this week's priorities and agenda, deadlines, graded work, roles to apply to |
+| **Obsidian dashboards** | "set up Obsidian" | Card-style pages in the AnuPpuccin theme, opening in Reading view: HOME (priorities, week agenda, deadlines, graded work, roles), plus DEADLINES, TASKS, careers, the timetable and every module page |
 | **Home dashboard and tasks** | "task: email my supervisor by Fri" | A HOME page with this week's calendar, your priorities, deadlines in the next 14 days, graded work and roles to apply to, plus task notes |
 | **Study timetable** | "make me a study timetable" | Study blocks fitted around lectures and your commitments, shown in Obsidian's calendar, clash-checked |
 | **Flashcards** | "make flashcards for MA32064" | Definitions, theorem statements and proof ideas from your notes, one subdeck per chapter, plus a page saying which proofs to learn |
@@ -80,7 +80,7 @@ nothing of yours can leak. If you change a skill yourself, commit it on your own
 `setup-year` builds, for each module:
 ```
 projects/
-├── DEADLINES.md  Deadlines.base  Modules.base   ← every assessment across the year: Due next · Graded only · By module · Board · Done
+├── DEADLINES.md                                 ← dashboard of every assessment: Due next · Graded only · Board · Modules · By module · Done
 └── CM32032-reinforcement-learning/
     ├── MODULE.md          ← credits, outcomes, staff, timetable, log; embeds this module's assessments
     ├── assessments/       ← one note per assessment: due, weight, status, mark
@@ -203,8 +203,8 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 | `.claude/skills/exam-practice/` | Exam-style questions, photo answers marked against a pre-written scheme, practice log |
 | `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md` |
 | `.claude/skills/setup-careers/`, `find-roles/`, `prep-application/` | Careers brief, scheduled role search, per-application prep |
-| `projects/_template/` | `MODULE.md`, `assessment.md`, `PROFILE.md`, `DEADLINES.md` + Bases, and the `HOME.md` dashboard (tables inline) |
-| `tasks/_template/` | `TASKS.md` rules, `Tasks.base` views and `task.md` |
+| `projects/_template/` | `MODULE.md`, `assessment.md`, `PROFILE.md`, and the `DEADLINES.md` and `HOME.md` dashboards (tables inline) |
+| `tasks/_template/` | `TASKS.md` (dashboard with inline views, plus the rules) and `task.md` |
 | `careers/_template/` | Brief, CV and sources templates, and the Bases, Markdown and spreadsheet trackers |
 | [`BACKLOG.md`](BACKLOG.md) | What's planned next. PRs welcome |
 

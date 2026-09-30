@@ -64,6 +64,45 @@
 .dashboard .callout[data-callout="dash-revision"]   { --callout-color: var(--ctp-pink, 236, 72, 153);  --callout-icon: lucide-brain; }
 .dashboard .callout[data-callout="dash-money"]      { --callout-color: var(--ctp-green, 34, 197, 94);   --callout-icon: lucide-wallet; }
 
+.dashboard .callout[data-callout="dash-board"]      { --callout-color: var(--ctp-sapphire, 14, 165, 233); --callout-icon: lucide-kanban-square; }
+.dashboard .callout[data-callout="dash-inbox"]      { --callout-color: var(--ctp-yellow, 234, 179, 8);   --callout-icon: lucide-inbox; }
+.dashboard .callout[data-callout="dash-list"]       { --callout-color: var(--ctp-lavender, 99, 102, 241); --callout-icon: lucide-list; }
+.dashboard .callout[data-callout="dash-busy"]       { --callout-color: var(--ctp-peach, 245, 158, 11);   --callout-icon: lucide-flame; }
+.dashboard .callout[data-callout="dash-done"]       { --callout-color: var(--ctp-overlay1, 148, 163, 184); --callout-icon: lucide-check-circle-2; }
+.dashboard .callout[data-callout="dash-info"]       { --callout-color: var(--ctp-overlay1, 148, 163, 184); --callout-icon: lucide-info; }
+
+/* Folded reference cards (How it works, Done): quieter */
+.dashboard .callout[data-callout="dash-info"],
+.dashboard .callout[data-callout="dash-done"] {
+  background: transparent;
+  box-shadow: none;
+  border-style: dashed;
+}
+.dashboard .callout.is-collapsed {
+  padding-bottom: 6px;
+}
+.dashboard .callout[data-callout^="dash-"] .callout-fold {
+  color: rgb(var(--callout-color));
+}
+/* Tables written in Markdown inside cards (e.g. property references) */
+.dashboard .callout .callout-content table {
+  font-size: 0.9em;
+  margin: 0.4em 0 0.8em;
+}
+
+/* Plain sections on dashboard pages (module pages, timetable): match the card labels */
+.dashboard h2 {
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 2.4em 0 0.7em;
+  padding-bottom: 0.45em;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.dashboard .callout h2 { text-transform: none; letter-spacing: normal; }
+
 /* ---------- Hero header ---------- */
 .dashboard .callout[data-callout="dash-hero"] {
   --callout-icon: lucide-sparkles;

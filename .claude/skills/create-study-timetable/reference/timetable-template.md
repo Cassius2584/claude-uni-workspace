@@ -1,16 +1,37 @@
 # TIMETABLE.md template
 
-Create `timetable/TIMETABLE.md` from this. Replace `<…>`. Keep the two `week:` markers exactly as they are:
+Create `timetable/TIMETABLE.md` from this. Replace `<…>`. Keep the two `week:` markers exactly as they are, and outside any `>` card:
 `timetable.py` writes the week grid and hours between them.
 
 ```markdown
-# Study timetable
+---
+cssclasses:
+  - dashboard
+---
 
-**<Semester 1 2026/27>** · teaching <28 Sep – 11 Dec 2026> · <reading week w/c 2 Nov>
+> [!dash-hero] Study timetable
+> [Home](../HOME.md) [Deadlines](../projects/DEADLINES.md) [Tasks](../tasks/TASKS.md) [Blocks](blocks)
+> <Semester 1 2026/27> · teaching <28 Sep – 11 Dec 2026> · <reading week w/c 2 Nov>
 
-Each block is a note in [blocks/](blocks). The Full Calendar plugin shows them as a week view (calendar
-source: *Full Note*, folder `timetable/blocks`). To change the plan, drag a block in the calendar, edit its
-note, or ask Claude ("move my Friday blocks to the morning"). Claude reruns the clash check afterwards.
+> [!dash-week] This week
+> ````fc-calendar
+> defaultDate: today
+> height: 640px
+> weather: false
+> layout:
+>   orientation: horizontal
+>   views:
+>     - view: timeGridWeek
+>       width: 100%
+>       header: true
+>       weather: false
+> ````
+
+> [!dash-info]- How the timetable works
+> Each block is a note in [blocks/](blocks). The Full Calendar plugin shows them as a week view (calendar
+> source: *Full Note*, folder `timetable/blocks`), and lectures come from the university timetable's subscribe
+> link added as an *ICS* calendar. To change the plan, drag a block in the calendar, edit its note, or ask Claude
+> ("move my Friday blocks to the morning"). Claude reruns the clash check afterwards.
 
 ## Preferences
 | | |

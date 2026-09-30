@@ -143,7 +143,30 @@ cssclasses:
 > *[All roles](careers/Roles.base)*
 
 > [!dash-tasks] Tasks
-> ![[tasks/Tasks.base#Today]]
+> ```base
+> filters:
+>   and:
+>   - kind == "task"
+> views:
+> - type: table
+>   name: Today
+>   filters:
+>     and:
+>     - status != "Done"
+>     - or:
+>       - status == "Doing"
+>       - due <= today() + "1d"
+>   order:
+>   - title
+>   - area
+>   - status
+>   - priority
+>   - due
+>   - link
+>   sort:
+>   - property: due
+>     direction: ASC
+> ```
 
 > [!dash-revision] Revision
 > **Flashcards:** the Flashcards button in the sidebar. Unlock each chapter once it's been lectured.
