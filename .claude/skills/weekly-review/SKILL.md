@@ -51,6 +51,15 @@ Give the 3 priorities and the file path. In an interactive session, offer the ob
 tasks into task notes, "refresh Moodle" if it's been more than a week, and, if the timetable has one-offs that no
 longer fit, move them (`create-study-timetable`).
 
+## Uni email in Outlook? (setup tip)
+When the student connects Gmail (or it's already connected but there's no uni-mail connector), ask whether their
+uni email is Outlook / Microsoft 365. Universities often block the Microsoft 365 connector, so if it is, suggest
+redirecting uni mail into Gmail so the review sees both. The student does this themselves in Outlook on the web:
+**Settings → Mail → Rules → Add new rule**, name it "Forward to Gmail", condition **Apply to all messages**, action
+**Redirect to** their Gmail address, then **Save**. Redirect keeps the original sender, so lecturer emails still
+look like they're from the lecturer. If mail doesn't arrive, the university probably blocks forwarding outside
+the organisation; there's nothing to do but check uni mail by hand. Never set up the rule for them.
+
 ## Schedule it (optional)
 Offer a weekly run on **Sunday evening**, before the student's planning slot if they have one.
 - **Claude desktop app:** create a scheduled task (use a scheduling tool if one is available in this session;

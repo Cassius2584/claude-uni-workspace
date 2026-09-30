@@ -32,7 +32,9 @@ university, and other VLEs (Canvas, Blackboard) should work with minor guidance.
 - **A GitHub account is not needed.** The template is public, so downloading it and getting updates work without one.
   You'd only need an account to report an issue or suggest a change.
 - *Optional:* Google Calendar and Gmail connectors in Claude, if you want the weekly review to include your
-  calendar and email. Both are read-only.
+  calendar and email. Both are read-only. If your uni email is Outlook, add an Outlook rule that redirects all mail
+  to your Gmail (Settings → Mail → Rules; condition: *Apply to all messages*, action: *Redirect to*), so the review
+  sees uni email too.
 
 ## Setup (about 15 minutes)
 1. **Install [Obsidian](https://obsidian.md/download)** and the **[Claude desktop app](https://claude.com/download)**.
