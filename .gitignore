@@ -4,6 +4,12 @@ projects/*
 !projects/_template/
 !projects/EXAMPLE-*/
 
+# Your tasks and dashboard stay private
+tasks/*
+!tasks/_template/
+/HOME.md
+/Home.base
+
 # Your study timetable and calendar exports stay private
 timetable/
 *.ics

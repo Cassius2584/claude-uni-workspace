@@ -87,7 +87,15 @@ each module's `resources/` or `lectures/`. If the student agrees:
 - Never commit these files. They are the university's copyright (the repo's `.gitignore` already excludes
   module folders).
 
-## 8. Wrap up
+## 8. Optional extras (one question)
+Ask once, in one message, which of these the student wants now. Each can also be added later just by asking:
+- **Home dashboard + tasks** (recommended): copy `projects/_template/HOME.md` and `Home.base` to the workspace
+  root, and `tasks/_template/TASKS.md` and `Tasks.base` into `tasks/`. Remove HOME rows for anything not set up.
+  HOME then shows the next 7 days of coursework, tasks and application deadlines in one place.
+- **Flashcards** for exam-heavy modules: run `create-flashcards` for each one they pick.
+- **Study timetable**: run `create-study-timetable`. It needs their lecture timetable (an `.ics` export is best).
+
+## 9. Wrap up
 Say the sync step last: after setup, "refresh Moodle" (`sync-moodle`) keeps it current, ideally weekly. The
 first run records a baseline. Offer to run it once now so the baseline exists.
 

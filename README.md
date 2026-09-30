@@ -136,6 +136,13 @@ Why it isn't automated:
 - **The calendar export isn't enough.** It only contains dates already set up as Moodle activities. It misses
   assignments that are still hidden, dates written in page text or handbooks, exams, announcements and files.
 
+## Home dashboard and tasks
+Say **"task: email my supervisor about scope by Friday"** and it becomes a note in `tasks/` with a status,
+area, priority and due date. `HOME.md` is the page to open first in Obsidian: everything with a date in the next
+7 days (coursework, tasks, application deadlines) in one table, plus what you're doing now. Tasks show up in
+"what's due?" too. When a coursework brief arrives, Claude can split it into dated steps counted back from
+the deadline. `setup-year` offers this as an optional extra, or just ask for it later.
+
 ## Revising: flashcards and proof tiers
 Say **"make flashcards for MA32064"**. The `create-flashcards` skill reads that module's lecture notes and past
 papers and writes one source file, `flashcards/cards.md`, with:
@@ -191,6 +198,7 @@ Tips:
 | "I submitted the business plan" | Status updated in MODULE.md and DEADLINES.md |
 | **"Refresh Moodle"** (weekly) | New/moved deadlines → assessment notes; announcements, new files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
 | "Update semester 2 modules from Moodle" | Fills in timetables, staff and dates once pages go live |
+| "task: book a supervisor meeting by Fri" / "done with the ethics form" | Task note created / marked Done; shows on HOME and in "what's due?" |
 | "Make flashcards for MA32064" / "add cards for week 3" | Obsidian (or Anki) flashcards per chapter, plus proof tiers (`create-flashcards`) |
 | "Make me a study timetable" / "I've joined X on Wednesdays" | Study blocks around lectures and commitments, in Obsidian's calendar (`create-study-timetable`) |
 | "Find me new roles" | Runs the job search now (`find-roles`) |
@@ -218,7 +226,8 @@ Tips:
 | `.claude/skills/setup-careers/` | CV import, search brief interview, job sources, optional schedule |
 | `.claude/skills/find-roles/` | Search → read descriptions → filter → score → ranked digest |
 | `.claude/skills/prep-application/` | Per-role fit map, tailored drafts, process and interview prep |
-| `projects/_template/` | `MODULE.md`, `assessment.md`, `DEADLINES.md`, `PROFILE.md`, and the `Deadlines.base` / `Modules.base` views |
+| `projects/_template/` | `MODULE.md`, `assessment.md`, `DEADLINES.md`, `PROFILE.md`, the `Deadlines.base` / `Modules.base` views, and the optional `HOME.md` / `Home.base` dashboard |
+| `tasks/_template/` | `TASKS.md` (rules and properties), `Tasks.base` (Today · This week · Inbox · By area · Board · Done) and `task.md` |
 | `careers/_template/` | `BRIEF.md`, `CV.md`, `SOURCES.md`; Markdown tracker (`ROLES.md`, `APPLICATIONS.md`); Obsidian tracker (`role.md`, `Roles.base`, `TRACKER.bases.md`); spreadsheet tracker (`TRACKER.sheet.md`) |
 
 Built and tested against Moodle at the University of Bath. The skills are written for any Moodle-based
