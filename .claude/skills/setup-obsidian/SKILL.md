@@ -43,8 +43,9 @@ then, backing up each existing file to `<file>.bak` first:
 4. **Full Calendar:** in `.obsidian/plugins/full-calendar-remastered/data.json` (it exists once the plugin has
    been enabled), set `"weatherHide": true`. Otherwise an unconfigured weather widget fills every day header. (If
    they'd rather have forecasts, set `weatherCity` instead, e.g. "Bath".) Change nothing else.
-5. **HOME:** if `HOME.md` isn't at the workspace root, copy `projects/_template/HOME.md` there. Delete the sections for
-   features they haven't set up (the note at the bottom of the template lists them), and remove that note.
+5. **HOME:** if `HOME.md` isn't at the workspace root, copy `projects/_template/HOME.md` there. Delete the cards for
+   features they haven't set up, plus header pills pointing at pages that don't exist yet (the note at the bottom of the
+   template lists them), and remove that note.
 6. **Homepage plugin** (if installed): tell them to set it to open `HOME` in Reading view.
 
 Then ask them to **reload Obsidian**: Cmd/Ctrl+P → "Reload app without saving". Plugins read their settings at

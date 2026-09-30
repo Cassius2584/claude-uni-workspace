@@ -172,6 +172,7 @@ cssclasses:
 > **Flashcards:** the Flashcards button in the sidebar. Unlock each chapter once it's been lectured.
 > **Exam practice:** say "quiz me on <CODE>". Each module's `practice.md` has the log and weak spots.
 
-_Template note (setup removes this): delete any card whose feature isn't set up yet, and add it back later.
+_Template note (setup removes this): delete any card whose feature isn't set up yet, **and the header pills that
+point at it** (Timetable, Roles, Reviews, Moodle updates), then add them back when it is.
 No timetable → "Next 7 days"; no weekly review → "priorities"; no careers → "Apply now"; no tasks → "Tasks";
 no flashcards or practice → "Revision". Styling comes from `setup-obsidian` (the `dashboard` CSS snippet)._

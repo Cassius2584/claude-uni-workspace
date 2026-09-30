@@ -92,7 +92,8 @@ each module's `resources/` or `lectures/`. If the student agrees:
 ## 8. Optional extras (one question)
 Ask once, in one message, which of these the student wants now. Each can also be added later just by asking:
 - **Home dashboard + tasks** (recommended): copy `projects/_template/HOME.md` to the workspace root, and
-  `tasks/_template/TASKS.md` into `tasks/`. Remove HOME cards for anything not set up. HOME
+  `tasks/_template/TASKS.md` into `tasks/`. Remove HOME cards for anything not set up, and header pills (on HOME and TASKS) that
+  point at pages that don't exist yet, e.g. Timetable, Roles, Reviews or Moodle updates before the first sync. HOME
   shows the week's agenda, priorities, the next 14 days of deadlines, graded work, tasks and roles.
 - **Obsidian look** (recommended): run `setup-obsidian` for the plugins, theme and dashboard styling.
 - **Flashcards** for exam-heavy modules: run `create-flashcards` for each one they pick.
