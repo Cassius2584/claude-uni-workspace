@@ -73,7 +73,7 @@ For each module:
    `01-proposal/`). Exam-only modules get `coursework/problem-sheets/`.
 3. Write `MODULE.md` from `projects/_template/MODULE.md`: fill the properties (`kind: module`, code, title,
    semester, credits, assessment summary, leader, moodle), the header card (title, links, subtitle; drop pills for
-   links you don't have) and every section you have evidence for. Set the
+   links you don't have), and the folder path in both `base` blocks (Assessments and Files) and every section you have evidence for. Set the
    folder path in the embedded `base` block to this module's folder. Use `_tbc_` plus a note on where to find
    the rest. Add a dated `## Log` line saying where the data came from.
 4. Create `assessments/` with **one note per dated or graded item**, from `projects/_template/assessment.md`:

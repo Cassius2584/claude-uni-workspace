@@ -12,7 +12,7 @@ cssclasses:
 ---
 
 > [!dash-hero] <CODE> · <Module title>
-> [Moodle](<link>) [Catalogue](<link>) [Deadlines](../DEADLINES.md) [Lectures](lectures/) [Coursework](coursework/) [Resources](resources/)
+> [Moodle](<link>) [Catalogue](<link>) [Deadlines](../DEADLINES.md)
 > <Semester> · <credits> ECTS · <assessment> · <leader>
 
 > [!dash-list] At a glance
@@ -52,6 +52,54 @@ cssclasses:
 >
 > **Rules to remember**
 > - <GenAI policy for each assessment, group-work rules, qualifying marks, ethics approval…>
+
+> [!dash-board]- Files
+> ```base
+> properties:
+>   file.name:
+>     displayName: File
+>   file.ext:
+>     displayName: Type
+>   file.mtime:
+>     displayName: Modified
+> views:
+>   - type: table
+>     name: Lectures
+>     filters:
+>       and:
+>         - file.inFolder("projects/<CODE>-<short-name>/lectures")
+>     order:
+>       - file.name
+>       - file.ext
+>       - file.mtime
+>     sort:
+>       - property: file.name
+>         direction: ASC
+>   - type: table
+>     name: Coursework
+>     filters:
+>       and:
+>         - file.inFolder("projects/<CODE>-<short-name>/coursework")
+>     order:
+>       - file.name
+>       - file.ext
+>       - file.mtime
+>     sort:
+>       - property: file.name
+>         direction: ASC
+>   - type: table
+>     name: Resources
+>     filters:
+>       and:
+>         - file.inFolder("projects/<CODE>-<short-name>/resources")
+>     order:
+>       - file.name
+>       - file.ext
+>       - file.mtime
+>     sort:
+>       - property: file.name
+>         direction: ASC
+> ```
 
 ## What it's about
 <2–4 sentences in plain English: what the module covers and why it matters.>

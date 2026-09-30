@@ -12,7 +12,7 @@ cssclasses:
 ---
 
 > [!dash-hero] MA30001 · Linear Algebra (EXAMPLE)
-> [Moodle](https://moodle.uni.example/course/view.php?id=12345) [Catalogue](https://www.uni.example/catalogues/2026-2027/ma/MA30001.html) [Deadlines](../DEADLINES.md) [Lectures](lectures/) [Coursework](coursework/) [Resources](resources/)
+> [Moodle](https://moodle.uni.example/course/view.php?id=12345) [Catalogue](https://www.uni.example/catalogues/2026-2027/ma/MA30001.html) [Deadlines](../DEADLINES.md)
 > Semester 1 · 10 ECTS · Coursework 25% / Exam 75% · Dr A. Example
 
 > [!dash-info] This is a made-up example
@@ -57,6 +57,54 @@ cssclasses:
 > **Rules to remember**
 > - CW1 is **closed lane**: no GenAI use permitted.
 > - Formula book is provided in the exam. Copy in `resources/` (not committed).
+
+> [!dash-board]- Files
+> ```base
+> properties:
+>   file.name:
+>     displayName: File
+>   file.ext:
+>     displayName: Type
+>   file.mtime:
+>     displayName: Modified
+> views:
+>   - type: table
+>     name: Lectures
+>     filters:
+>       and:
+>         - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra/lectures")
+>     order:
+>       - file.name
+>       - file.ext
+>       - file.mtime
+>     sort:
+>       - property: file.name
+>         direction: ASC
+>   - type: table
+>     name: Coursework
+>     filters:
+>       and:
+>         - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra/coursework")
+>     order:
+>       - file.name
+>       - file.ext
+>       - file.mtime
+>     sort:
+>       - property: file.name
+>         direction: ASC
+>   - type: table
+>     name: Resources
+>     filters:
+>       and:
+>         - file.inFolder("projects/EXAMPLE-MA30001-linear-algebra/resources")
+>     order:
+>       - file.name
+>       - file.ext
+>       - file.mtime
+>     sort:
+>       - property: file.name
+>         direction: ASC
+> ```
 
 ## What it's about
 Vector spaces and the linear maps between them: bases, dimension, eigenvalues and diagonalisation, inner

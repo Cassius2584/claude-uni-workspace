@@ -4,7 +4,7 @@ cssclasses:
 ---
 
 > [!dash-hero] Careers · grad roles and internships
-> [Home](../HOME.md) [Roles](Roles.base) [Brief](BRIEF.md) [CV](CV.md) [Sources](SOURCES.md) [Digests](digests/)
+> [Home](../HOME.md) [Roles](Roles.base) [Brief](BRIEF.md) [CV](CV.md) [Sources](SOURCES.md)
 > Say "find roles" to search, and "help me apply to …" for application prep.
 
 > [!dash-careers] Open roles
@@ -18,6 +18,24 @@ cssclasses:
 
 > [!dash-board] Board
 > ![[Roles.base#Board]]
+
+> [!dash-list] Search digests
+> ```base
+> filters:
+>   and:
+>     - file.inFolder("careers/digests")
+> properties:
+>   file.name:
+>     displayName: Digest
+> views:
+>   - type: table
+>     name: Digests
+>     order:
+>       - file.name
+>     sort:
+>       - property: file.name
+>         direction: DESC
+> ```
 
 > [!dash-done]- Filtered out
 > ![[Roles.base#Filtered out]]

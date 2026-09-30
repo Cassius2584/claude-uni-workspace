@@ -79,7 +79,8 @@ materials are the university's copyright: never commit or share them.
 ## 4. Write it down
 - Update each module's `.moodle-sync.json` (`seen`, `last_synced`, `announcements_seen_until`).
 - Add one Log line to each MODULE.md that changed ("Moodle sync: 2 new files, GA1 brief released, …").
-- Write `projects/updates/<yyyy-mm-dd>.md`:
+- Write `projects/updates/<yyyy-mm-dd>.md` (on the first sync, also copy `projects/_template/MOODLE.md` to
+  `projects/updates/MOODLE.md`: the page that lists every digest, linked from HOME):
   ```markdown
   # Moodle update – <Sun 4 Oct 2026>
   ## Changed dates        ← first, because these matter most

@@ -4,7 +4,7 @@ cssclasses:
 ---
 
 > [!dash-hero] <Semester 1 · 2026/27>
-> [Deadlines](projects/DEADLINES.md) [Timetable](timetable/TIMETABLE.md) [Tasks](tasks/TASKS.md) [Roles](careers/Roles.base) [Reviews](reviews/) [Moodle](projects/updates/)
+> [Deadlines](projects/DEADLINES.md) [Timetable](timetable/TIMETABLE.md) [Tasks](tasks/TASKS.md) [Careers](careers/TRACKER.md) [Review](reviews/latest.md) [Moodle](projects/updates/MOODLE.md)
 
 > [!dash-priorities] This week's priorities
 > ![[reviews/latest#3 priorities]]
@@ -140,7 +140,7 @@ cssclasses:
 >       - property: fit
 >         direction: DESC
 > ```
-> *[All roles](careers/Roles.base)*
+> *[Careers dashboard](careers/TRACKER.md)*
 
 > [!dash-tasks] Tasks
 > ```base
@@ -173,6 +173,6 @@ cssclasses:
 > **Exam practice:** say "quiz me on <CODE>". Each module's `practice.md` has the log and weak spots.
 
 _Template note (setup removes this): delete any card whose feature isn't set up yet, **and the header pills that
-point at it** (Timetable, Roles, Reviews, Moodle updates), then add them back when it is.
+point at it** (Timetable, Careers, Review, Moodle), then add them back when it is.
 No timetable → "Next 7 days"; no weekly review → "priorities"; no careers → "Apply now"; no tasks → "Tasks";
 no flashcards or practice → "Revision". Styling comes from `setup-obsidian` (the `dashboard` CSS snippet)._
