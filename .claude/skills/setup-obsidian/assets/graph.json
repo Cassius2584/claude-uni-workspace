@@ -1,0 +1,44 @@
+{
+  "collapse-filter": true,
+  "search": "-path:timetable -path:_template -path:\"projects/updates\" -path:careers/digests -file:CLAUDE -file:AGENTS -file:README -file:HOME -file:DEADLINES -file:PROFILE",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:concepts",
+      "color": {
+        "a": 1,
+        "rgb": 41671
+      }
+    },
+    {
+      "query": "path:careers",
+      "color": {
+        "a": 1,
+        "rgb": 10584178
+      }
+    },
+    {
+      "query": "path:tasks OR path:reviews",
+      "color": {
+        "a": 1,
+        "rgb": 9145752
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": true,
+  "textFadeMultiplier": -1,
+  "nodeSizeMultiplier": 1.1,
+  "lineSizeMultiplier": 0.8,
+  "collapse-forces": true,
+  "centerStrength": 0.45,
+  "repelStrength": 14,
+  "linkStrength": 1,
+  "linkDistance": 90,
+  "scale": 1,
+  "close": false
+}

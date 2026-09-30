@@ -58,7 +58,7 @@ that task:
 | "quiz me on X", "exam practice", "mark my answer", "mock exam" | [.claude/skills/exam-practice/SKILL.md](.claude/skills/exam-practice/SKILL.md) |
 | "set up Obsidian", "make Obsidian look nice" | [.claude/skills/setup-obsidian/SKILL.md](.claude/skills/setup-obsidian/SKILL.md) |
 | "weekly review", "plan my week", "what does next week look like?" | [.claude/skills/weekly-review/SKILL.md](.claude/skills/weekly-review/SKILL.md) |
-| "make flashcards for X", "add cards for week N", "which proofs do I need?" | [.claude/skills/create-flashcards/SKILL.md](.claude/skills/create-flashcards/SKILL.md) |
+| "make flashcards for X", "add cards for week N", "which proofs do I need?", "link concepts for X" | [.claude/skills/create-flashcards/SKILL.md](.claude/skills/create-flashcards/SKILL.md) |
 | "make me a study timetable", "when should I study?", "I've joined X on Wednesdays" | [.claude/skills/create-study-timetable/SKILL.md](.claude/skills/create-study-timetable/SKILL.md) |
 | "set up careers", "help me find grad jobs" | [.claude/skills/setup-careers/SKILL.md](.claude/skills/setup-careers/SKILL.md) |
 | "find roles", "run my job search" | [.claude/skills/find-roles/SKILL.md](.claude/skills/find-roles/SKILL.md) |

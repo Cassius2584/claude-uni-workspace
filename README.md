@@ -10,10 +10,10 @@ plain Markdown on your own computer, so the files are the memory rather than a c
 | | Say | You get |
 |---|---|---|
 | **Modules and deadlines** | "set up" · "refresh Moodle" · "what's due?" | One folder per module (spec, outcomes, timetable, log), every assessment as a note, a year-wide deadline board, weekly Moodle updates |
-| **Obsidian dashboards** | "set up Obsidian" | Card-style pages in the AnuPpuccin theme, opening in Reading view: HOME (priorities, week agenda, deadlines, graded work, roles), plus DEADLINES, TASKS, careers, the timetable and every module page |
+| **Obsidian dashboards** | "set up Obsidian" | Card-style pages in the AnuPpuccin theme, opening in Reading view: HOME (priorities, week agenda, deadlines, graded work, roles), plus DEADLINES, TASKS, careers, the timetable and every module page. A colour-coded graph with a local-graph sidebar |
 | **Home dashboard and tasks** | "task: email my supervisor by Fri" | A HOME page with this week's calendar, your priorities, deadlines in the next 14 days, graded work and roles to apply to, plus task notes |
 | **Study timetable** | "make me a study timetable" | Study blocks fitted around lectures and your commitments, shown in Obsidian's calendar, clash-checked |
-| **Flashcards** | "make flashcards for MA32064" | Definitions, theorem statements and proof ideas from your notes, one subdeck per chapter, plus a page saying which proofs to learn |
+| **Flashcards** | "make flashcards for MA32064" | Definitions, theorem statements and proof ideas from your notes, one subdeck per chapter, plus a page saying which proofs to learn. Optional concept notes link ideas across modules in the graph |
 | **Exam practice** | "quiz me on MA32064" | Past-paper and exam-style questions; send a photo of your handwritten answer and it's marked like an exam |
 | **Weekly review** | "weekly review" (or every Sunday, automatically) | The week ahead on one page: calendar, study blocks, deadlines, tasks, email needing action, 3 priorities |
 | **Careers** | "set up careers" · "find roles" · "help me apply to X" | A scheduled search for grad roles, internships or placements, ranked by fit to your CV, with per-application prep |
@@ -138,6 +138,11 @@ also available if you prefer a phone app. Alongside it, a tiers page says how we
 it out, **B** rebuild it from the key idea, **C** just state it. The tiers are calibrated against past papers.
 After each lecture, "add cards for week 3" adds the new cards without touching your review history.
 
+**Concept notes** (optional, offered after the cards): one note per theorem, method or proof technique in
+`concepts/`, linked to every chapter and module it turns up in. Obsidian's graph then shows how your modules connect,
+e.g. Markov chains shared by a statistics and an RL module. Open any note and the local graph in the right sidebar
+shows its neighbours.
+
 ### Exam practice
 **"Quiz me on MA32064"** sets a question: a real past-paper question when one fits the lectured material, otherwise
 one written in the same style, with marks per part. The mark scheme is written **before** you answer and hidden from
@@ -215,9 +220,9 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 | `.claude/skills/add-module/` | Add one module from a code, link, PDF or pasted spec |
 | `.claude/skills/sync-moodle/` | Weekly Moodle refresh, including predicted recurring hand-ins |
 | `.claude/skills/whats-due/` | Deadlines, tasks and applications with priorities |
-| `.claude/skills/setup-obsidian/` | Plugins and theme checklist, plus the dashboard CSS snippet and AnuPpuccin preset (`assets/`) applied to your vault |
+| `.claude/skills/setup-obsidian/` | Plugins and theme checklist, plus the dashboard CSS snippet, AnuPpuccin preset and graph presets (`assets/`) applied to your vault |
 | `.claude/skills/create-study-timetable/` | Study blocks as calendar notes; clash check and `.ics` export in `scripts/timetable.py` |
-| `.claude/skills/create-flashcards/` | Flashcards (Spaced Repetition, Anki optional) and proof tiers; builders in `scripts/` |
+| `.claude/skills/create-flashcards/` | Flashcards (Spaced Repetition, Anki optional), proof tiers and concept notes; builders in `scripts/` |
 | `.claude/skills/exam-practice/` | Exam-style questions, photo answers marked against a pre-written scheme, practice log |
 | `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md` |
 | `.claude/skills/setup-careers/`, `find-roles/`, `prep-application/` | Careers brief, scheduled role search, per-application prep |

@@ -1,0 +1,37 @@
+{
+  "id": "c1a0de5a10ca1970",
+  "type": "leaf",
+  "state": {
+    "type": "localgraph",
+    "state": {
+      "file": "",
+      "options": {
+        "collapse-filter": true,
+        "search": "",
+        "localJumps": 2,
+        "localBacklinks": true,
+        "localForelinks": true,
+        "localInterlinks": false,
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": true,
+        "collapse-color-groups": true,
+        "colorGroups": [],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": 0,
+        "nodeSizeMultiplier": 1,
+        "lineSizeMultiplier": 1,
+        "collapse-forces": true,
+        "centerStrength": 0.5,
+        "repelStrength": 10,
+        "linkStrength": 1,
+        "linkDistance": 60,
+        "scale": 1,
+        "close": true
+      }
+    },
+    "icon": "lucide-git-fork",
+    "title": "Local graph"
+  }
+}

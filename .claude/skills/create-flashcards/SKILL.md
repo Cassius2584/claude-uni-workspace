@@ -1,6 +1,6 @@
 ---
 name: create-flashcards
-description: Build and maintain spaced-repetition flashcards for a module from its own notes, as Obsidian Spaced Repetition notes (default) and/or an Anki deck, with one subdeck per chapter, plus a tiers page saying which proofs or derivations to reproduce, reconstruct or just state. Use when the student asks for flashcards, an Anki deck, revision cards, help memorising definitions and theorems word for word, "add cards for week N / chapter N", "which proofs do I need to learn?", or to switch a module's cards between Anki and Obsidian.
+description: Build and maintain spaced-repetition flashcards for a module from its own notes, as Obsidian Spaced Repetition notes (default) and/or an Anki deck, with one subdeck per chapter, plus a tiers page saying which proofs or derivations to reproduce, reconstruct or just state. Use when the student asks for flashcards, an Anki deck, revision cards, help memorising definitions and theorems word for word, "add cards for week N / chapter N", "which proofs do I need to learn?", to switch a module's cards between Anki and Obsidian, or for concept notes that link ideas across modules ("link concepts for X", "make the graph useful").
 ---
 
 # Create flashcards
@@ -82,7 +82,21 @@ Then add a dated `## Log` line with the number of notes and chapters covered.
 - **Switching Anki ↔ Obsidian:** build the other format from the same `cards.md`. Ask before deleting the old
   files.
 
-## 6. Tell the student
+## 6. Concept notes (offer once per module)
+Concept notes make Obsidian's graph show how ideas connect within and **across** modules: one note per theorem,
+method or proof technique in `concepts/`, linked to where it appears. After building a module's cards, offer them
+("want concept notes so the graph links this module's ideas to your other modules?"). If yes, or if the student
+asks directly, follow [reference/concept-note.md](reference/concept-note.md):
+1. List the module's 10–20 main concepts from the cards and the tiers page.
+2. Read the existing `concepts/` notes first. Extend a matching note instead of creating a duplicate.
+3. Write or extend each note, with links to the chapter notes (or lecture notes), the tiers page and 2–5 related
+   concepts. Check that every link resolves.
+4. Add a Log line to MODULE.md. When cards are added later ("add cards for week 5"), add or extend the concepts
+   they introduce as well.
+
+Then suggest opening one note with the **local graph** (right sidebar, set up by `setup-obsidian`).
+
+## 7. Tell the student
 Keep it short: what was built (notes per chapter, card types), how to open it, and how to study:
 - In Obsidian, review from the **Flashcards** button in the left sidebar (or run *Spaced Repetition: Sync* if
   it's new). If they chose Anki: File → Import the `.apkg`, and turn on **FSRS** in the deck options.
@@ -94,6 +108,6 @@ Keep it short: what was built (notes per chapter, card types), how to open it, a
 
 ## Rules
 - Course materials are the university's copyright. `cards.md` and the decks stay in the module folder, which is
-  git-ignored. Never commit or share them.
+  git-ignored, and `concepts/` is git-ignored too. Never commit or share them.
 - Flashcards made from the student's own lecture notes are fine for academic integrity. If a card comes from a
   past paper, say so in the card (`(2025 exam)`) so the student knows it's exam-style.

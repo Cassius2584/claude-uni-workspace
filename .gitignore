@@ -11,6 +11,9 @@ tasks/*
 /HOME.md
 /Home.base
 
+# Concept notes are built from course materials
+concepts/
+
 # Your study timetable and calendar exports stay private
 timetable/
 *.ics

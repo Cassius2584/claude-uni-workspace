@@ -19,6 +19,8 @@ anything else.
 ├── tasks/                     ← (optional) one note per non-assessment task; TASKS.md explains (private)
 ├── reviews/                   ← (optional) weekly reviews, <date>.md, written by weekly-review (private)
 ├── .claude/skills/            ← setup-workspace (runs the other setup skills), setup-year, sync-moodle, add-module, whats-due, weekly-review, setup-obsidian, create-flashcards, exam-practice, create-study-timetable, setup-careers, find-roles, prep-application
+├── concepts/                  ← (optional) one note per idea (theorem, method, proof technique), linked to every module
+│                                 it appears in, so the graph shows how modules connect (private, git-ignored)
 ├── timetable/                 ← (optional) study timetable: TIMETABLE.md + blocks/ calendar notes (private, git-ignored)
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
@@ -58,6 +60,9 @@ anything else.
   announcements, new files and weekly topics into a digest at `projects/updates/<date>.md`. I log in myself.
 - **Revision:** "make flashcards for X" or "add cards for week N" runs `create-flashcards`. `flashcards/cards.md`
   is the source; never rename a card's `###` title (it's the card's ID and holds its review history).
+- **Concepts:** if `concepts/` exists, lecture notes and flashcard chapters link to concept notes, and a new
+  concept gets a note following `.claude/skills/create-flashcards/reference/concept-note.md`. Extend an existing
+  note rather than duplicating it.
 - **Study timetable:** `create-study-timetable` builds and updates `timetable/`. The block notes are the source of
   truth (the calendar plugin edits them), and a university calendar feed link is private: never write it into a file.
 - Mark anything unconfirmed as `_tbc_`, and say where it should come from (VLE, unit catalogue, lecturer).
