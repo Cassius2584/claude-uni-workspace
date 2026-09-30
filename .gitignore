@@ -4,7 +4,8 @@ projects/*
 !projects/_template/
 !projects/EXAMPLE-*/
 
-# Your tasks and dashboard stay private
+# Your tasks, dashboard and weekly reviews stay private
+reviews/
 tasks/*
 !tasks/_template/
 /HOME.md

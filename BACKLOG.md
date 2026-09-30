@@ -1,16 +1,15 @@
 # Backlog
 
 Done: `create-flashcards`, `create-study-timetable`, tasks + HOME dashboard (with planning back from coursework
-deadlines as a TASKS.md rule), predicted recurring hand-ins in `sync-moodle`.
+deadlines as a TASKS.md rule), predicted recurring hand-ins in `sync-moodle`,
+`weekly-review`.
 
 Ideas for the template, roughly in priority order. Keep the base template small: each new feature should be
 something `setup-year` offers as an optional step, not something every student gets by default.
 
 ## Next
 
-### `weekly-review` skill
-A Sunday review: last week's done items, next week's events, deadlines and tasks, and 3 suggested priorities.
-Calendar and email are optional inputs that it skips if they're not connected. It can also run as a scheduled task.
+Nothing queued. Pick from Later.
 
 ## Later
 - **`exam-practice` skill:** exam-style questions on Tier A/B results. The student sends a photo of a handwritten

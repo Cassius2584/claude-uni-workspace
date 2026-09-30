@@ -16,7 +16,8 @@ If `projects/PROFILE.md` doesn't exist yet, this workspace hasn't been set up. S
 ├── CLAUDE.md                  ← this file (shared rules, safe to publish)
 ├── HOME.md, Home.base         ← (optional) dashboard: next 7 days across coursework, tasks and applications (private)
 ├── tasks/                     ← (optional) one note per non-assessment task; TASKS.md explains (private)
-├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, create-flashcards, create-study-timetable, setup-careers, find-roles, prep-application
+├── reviews/                   ← (optional) weekly reviews, <date>.md, written by weekly-review (private)
+├── .claude/skills/            ← setup-year, sync-moodle, add-module, whats-due, weekly-review, create-flashcards, create-study-timetable, setup-careers, find-roles, prep-application
 ├── timetable/                 ← (optional) study timetable: TIMETABLE.md + blocks/ calendar notes (private, git-ignored)
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience

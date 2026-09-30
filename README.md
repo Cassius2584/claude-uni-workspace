@@ -143,6 +143,17 @@ area, priority and due date. `HOME.md` is the page to open first in Obsidian: ev
 "what's due?" too. When a coursework brief arrives, Claude can split it into dated steps counted back from
 the deadline. `setup-year` offers this as an optional extra, or just ask for it later.
 
+## Weekly review
+Say **"weekly review"** (or let it run every Sunday evening as a scheduled task) and `weekly-review` writes one
+page to `reviews/<date>.md`, covering the week ahead:
+- your calendar and study timetable, including one-off blocks;
+- everything due in the next 14 days (including predicted problem-sheet dates), applications and tasks;
+- which flashcard chapters to unlock, Moodle updates, and email that needs action if a mail connector is
+  set up (read-only);
+- 3 suggested priorities, with a day attached to each.
+
+It only reads your notes and writes that one file, and never touches your calendar or mailbox.
+
 ## Revising: flashcards and proof tiers
 Say **"make flashcards for MA32064"**. The `create-flashcards` skill reads that module's lecture notes and past
 papers and writes one source file, `flashcards/cards.md`, with:
@@ -199,6 +210,7 @@ Tips:
 | **"Refresh Moodle"** (weekly) | New/moved deadlines → assessment notes; announcements, new files, weekly topics → `projects/updates/<date>.md` (`sync-moodle`) |
 | "Update semester 2 modules from Moodle" | Fills in timetables, staff and dates once pages go live |
 | "task: book a supervisor meeting by Fri" / "done with the ethics form" | Task note created / marked Done; shows on HOME and in "what's due?" |
+| "Weekly review" (or Sundays, scheduled) | Next week's calendar, timetable, deadlines, tasks and 3 priorities in `reviews/<date>.md` (`weekly-review`) |
 | "Make flashcards for MA32064" / "add cards for week 3" | Obsidian (or Anki) flashcards per chapter, plus proof tiers (`create-flashcards`) |
 | "Make me a study timetable" / "I've joined X on Wednesdays" | Study blocks around lectures and commitments, in Obsidian's calendar (`create-study-timetable`) |
 | "Find me new roles" | Runs the job search now (`find-roles`) |
@@ -221,6 +233,7 @@ Tips:
 | `.claude/skills/add-module/` | Add a single module from a code, link, PDF or pasted spec |
 | `.claude/skills/sync-moodle/` | On-demand Moodle refresh: new/changed deadlines, announcements, files, weekly topics |
 | `.claude/skills/whats-due/` | Deadline summary (coursework + applications) with priorities |
+| `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md`; optional approval-free schedule |
 | `.claude/skills/create-flashcards/` | Flashcards from a module's notes (Obsidian by default, Anki optional; one subdeck per chapter) and a proof-tiers page; build scripts in `scripts/` |
 | `.claude/skills/create-study-timetable/` | Weekly study plan as calendar notes (Full Calendar plugin), clash check and `.ics` export in `scripts/timetable.py` |
 | `.claude/skills/setup-careers/` | CV import, search brief interview, job sources, optional schedule |

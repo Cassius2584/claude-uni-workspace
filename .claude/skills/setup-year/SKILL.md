@@ -94,6 +94,7 @@ Ask once, in one message, which of these the student wants now. Each can also be
   HOME then shows the next 7 days of coursework, tasks and application deadlines in one place.
 - **Flashcards** for exam-heavy modules: run `create-flashcards` for each one they pick.
 - **Study timetable**: run `create-study-timetable`. It needs their lecture timetable (an `.ics` export is best).
+- **Weekly review** every Sunday evening: follow `weekly-review`'s "Schedule it" section.
 
 ## 9. Wrap up
 Say the sync step last: after setup, "refresh Moodle" (`sync-moodle`) keeps it current, ideally weekly. The
