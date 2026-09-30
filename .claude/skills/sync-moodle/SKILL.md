@@ -50,10 +50,25 @@ Compare with `seen` and the module's assessment notes:
 | New assignment or dated activity that's graded, formative-with-deadline or admin | Create an assessment note from `projects/_template/assessment.md` in `assessments/` |
 | Due date differs from its assessment note | Update the note's `due`/`due_time`, add a Log line "Moodle moved due date from X to Y", and **flag it** in the digest |
 | Weekly ungraded activities (labs, quizzes, "should be completed" exercises) | Don't make assessment notes (they'd flood the Board). Add them to the module's `## Weekly plan` |
+| A **series** of hand-ins (Problem Sheet 1, 2 …; fortnightly quizzes) | See "Predicting recurring hand-ins" below |
 | New files | List them in the digest with links. In a live session, offer to download (see step 3) |
 | New announcements | Summarise in the digest (one line each); copy any dates or instructions into the relevant note |
 | New weekly sections/topics | Fill in the module's `## Weekly plan` |
 | Something disappeared or was renamed | Note it; don't delete anything |
+
+### Predicting recurring hand-ins
+Problem sheets and similar hand-ins usually come on a cycle, but Moodle only shows what's been released. When a
+module has a numbered series:
+- Work out the cycle from what's visible: the interval between due dates, which chapters each sheet covers
+  against the length of the notes, and any "sheets every two weeks" wording in the sheet, course page or handbook.
+  One sheet is enough for a cautious guess: its chapter coverage against the total gives the likely number and
+  spacing.
+- Create an assessment note for each **future** sheet with `item: "Problem Sheet N hand-in (predicted)"`, a blank
+  `due`, and `due_note: "Predicted ~<date> (<pattern>); tbc on Moodle"`. The blank `due` keeps guesses out of date
+  views, while the `due_note` still shows in "what's due?".
+- On each sync, when a predicted sheet appears: set `due`, drop "(predicted)", add a Log line, and flag it in the
+  digest if the real date differs from the guess (so the study timetable's one-off blocks can move).
+- Record the pattern in MODULE.md (e.g. under `## Weekly plan`), so it's visible and later syncs can check it.
 
 ## 3. Files (only if the student picks them)
 Trigger downloads in the browser: they land in the student's Downloads folder. Browsers block rapid-fire

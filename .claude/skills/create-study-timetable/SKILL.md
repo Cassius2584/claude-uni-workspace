@@ -29,15 +29,19 @@ python3 scripts/timetable.py timetable [--lectures <ics file or URL>] [--week YY
 - If `timetable/` exists, you're **updating** (section 7). Read `TIMETABLE.md` and the blocks first.
 
 ## 1. Get the university timetable
-In order of preference:
-1. **The timetable's calendar feed (iCal/ICS link).** Most university timetable systems have a "Subscribe" or
-   "Sync to calendar" button. Ask the student to paste the link. **Treat it like a password:** use it only for
-   this run (`--lectures <url>`) and never write it into any file. The student pastes it into the plugin's
-   settings themselves (section 5).
-2. **Already in their Google Calendar**, if a Google Calendar connector is available: read the week's events
-   from that calendar (read-only).
-3. **A screenshot, PDF or export:** read it, and add lectures as `Uni - …` block notes so they show and are
-   clash-checked.
+You need the **whole semester**, not one typical week. Timetables are full of one-off events (briefings,
+careers talks, extra lectures, project labs) that a weekly pattern misses. In order of preference:
+1. **A downloaded export (`.ics`)** of the student's personal timetable. Most timetable systems have an
+   "Export" or "Download" button. It's the safest input for the clash check: pass its path to `--lectures`.
+   Don't copy it into the vault. It's a snapshot, and the calendar should use the live link (section 5).
+2. **Their Google Calendar**, if a Google Calendar connector is available and the timetable is already
+   subscribed there: read the whole semester's events (read-only). This is good for the pattern, but for the clash
+   check, still ask for an export.
+3. **A screenshot or PDF:** read it, and add lectures as `Uni - …` block notes so they show and are
+   clash-checked. Ask about one-off events.
+
+The timetable's **subscribe link** (iCal/webcal) is for the plugin only (section 5). It works like a password,
+so ask the student not to paste it into chat, and never write it into a file.
 
 Also find the **teaching dates** (term start and end, reading week, bank holidays) from the university's
 calendar or the student. They become `startRecur`, `endRecur` and `skipDates`.
@@ -62,6 +66,9 @@ Record the answers in `TIMETABLE.md` under `## Preferences` (template: [referenc
 - **Split hours by credits**, then shift some towards whatever has deadlines in the next 4 weeks. Give the
   individual project steady blocks every week.
 - **After each lecture, a 30–45 minute review** within 24 hours (it can be the start of that module's block).
+- **Recurring hand-ins** (problem sheets, weekly quizzes): read the module notes and `projects/updates/` for the
+  cycle, including **predicted** assessment notes (see `sync-moodle`). Give the recurring block a note of what's due
+  when, and add one-off blocks before each sheet, marked "(predicted)" until Moodle confirms the date.
 - **Coursework crunch:** for coursework due in the next 4 weeks, add one-off blocks (`type: single`) in the 2 weeks
   before the deadline, named after the assessment.
 - **Daily flashcards**, 15–20 minutes on weekdays (if they use them), and a 15–20 minute **weekly planning** slot.
@@ -93,8 +100,14 @@ One-off blocks use `type: single` and `date: YYYY-MM-DD` instead of the recurren
 Create `timetable/TIMETABLE.md` from [reference/timetable-template.md](reference/timetable-template.md).
 
 ## 5. Check, then show it
-Run `timetable.py` with `--lectures` if you have the feed. It exits with the clashes listed, if there are any.
-Fix them and rerun until it says **No clashes**. The script then writes the week grid into `TIMETABLE.md`.
+Run `timetable.py --lectures <export>` for **every week of the plan** (loop over each Monday with `--week`), not
+just one. Fix any clashes and rerun until every week says **No clashes**. Finish with a run for the coming week, so
+`TIMETABLE.md` shows it.
+
+**Fixing a clash with a one-off event:** don't move the whole recurring block. Add that date to the block's
+`skipDates`, and create a one-off block (`type: single`) for the same work in a slack slot that week. Name it
+`<category>-<code>-moved-<date>.md` and say in its note what it was moved for. If the clash is with a contact
+session for the same module (e.g. a project lab), just skip the block. Log every move in `TIMETABLE.md`.
 
 Tell the student how to see it in Obsidian (one-time setup, done by them):
 1. Settings → Community plugins → Browse → **Full Calendar Remastered** → Install → Enable.
