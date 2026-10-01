@@ -113,12 +113,18 @@ recurring hand-ins such as fortnightly problem sheets before they're posted. It 
 sits behind single sign-on and 2FA, so you log in yourself, and Moodle's calendar export misses hidden assignments,
 dates written in page text, and announcements.
 
+![DEADLINES dashboard: busy weeks and every assessment sorted by due date](docs/deadlines.png)
+
+![A module page: credits, staff, timetable and its assessments](docs/module.png)
+
 ### Tasks and home dashboard
 "task: book a supervisor meeting by Friday" creates a note in `tasks/` (status, area, priority, due date), and
 "done with …" closes it. `HOME.md` is the page to pin in Obsidian: today's schedule next to this week's agenda (lectures and
 study blocks), this week's 3 priorities from the latest weekly review, everything due in the next 14 days, graded
 coursework and exams ahead, tasks, and the roles to apply to now. When a coursework brief arrives, Claude can split it
 into dated steps counted back from the deadline.
+
+![HOME dashboard: this week's priorities and the next 7 days](docs/home.png)
 
 ### Study timetable
 Share your lecture timetable (a downloaded `.ics` export is best) and say **"make me a study timetable"**.
@@ -128,6 +134,8 @@ lectures and extra blocks before each deadline. Every week of term is clash-chec
 including one-off events. Each block is a note in `timetable/blocks/`, so Full Calendar shows it and you can drag
 it to move it. `timetable/TIMETABLE.md` shows the week grid and hours per module. It can also export an `.ics` for
 Google or Apple Calendar, or add the events through a calendar connector (only if you say yes).
+
+![Study timetable: lectures and study blocks in a week grid](docs/timetable.png)
 
 ### Flashcards and proof tiers
 **"Make flashcards for MA32064"** turns that module's notes and past papers into one source file,
@@ -139,6 +147,8 @@ It's built into Spaced Repetition notes with one subdeck per chapter, so you onl
 also available if you prefer a phone app. Alongside it, a tiers page says how well to know each proof: **A** write
 it out, **B** rebuild it from the key idea, **C** just state it. The tiers are calibrated against past papers.
 After each lecture, "add cards for week 3" adds the new cards without touching your review history.
+
+![A flashcard in review with its answer shown](docs/flashcard.png)
 
 **Concept notes** (optional, offered after the cards): one note per theorem, method or proof technique in
 `concepts/`, linked to every chapter and module it turns up in. Obsidian's graph then shows how your modules connect,
@@ -172,6 +182,8 @@ then picks job boards to check.
   Markdown or spreadsheet tracker also works.
 
 Claude never applies, fills in forms or logs in to job sites for you.
+
+![Open roles ranked by fit, with deadlines and next steps](docs/careers-roles.png)
 
 ### Scheduled runs
 The job search and weekly review can run on a schedule from the Claude desktop app (Code tab → Scheduled). Runs
