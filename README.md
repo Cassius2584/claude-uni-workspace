@@ -6,6 +6,8 @@ deadline as a note, then keeps it all current: a study timetable around your lec
 from your own lecture notes, a weekly review of the week ahead, and a scheduled graduate job search. Everything is
 plain Markdown on your own computer, so the files are the memory rather than a chat history.
 
+![HOME dashboard: this week's priorities and the next 7 days](docs/home.png)
+
 ## What it does
 | | Say | You get |
 |---|---|---|
@@ -123,8 +125,6 @@ dates written in page text, and announcements.
 study blocks), this week's 3 priorities from the latest weekly review, everything due in the next 14 days, graded
 coursework and exams ahead, tasks, and the roles to apply to now. When a coursework brief arrives, Claude can split it
 into dated steps counted back from the deadline.
-
-![HOME dashboard: this week's priorities and the next 7 days](docs/home.png)
 
 ### Study timetable
 Share your lecture timetable (a downloaded `.ics` export is best) and say **"make me a study timetable"**.
