@@ -51,7 +51,8 @@ Open every remaining job page and extract:
   duration, location and working pattern.
 - Salary (or "not stated"), **closing date** (or "rolling"; rolling means apply early).
 - Eligibility: degree subject, minimum grade (e.g. 2:1, ABB), graduation year, right to work /
-  sponsorship, security clearance.
+  sponsorship, security clearance. For grades, note whether the role screens on the **predicted or final**
+  grade or on marks **achieved so far** (e.g. "2:1 in every year", year-by-year results asked on the form).
 - Must-have and nice-to-have skills.
 - Process: online tests (e.g. HackerRank, SHL, Watson Glaser), video interview, assessment centre. Also note
   anything unusual (cover letter required, portfolio, early-deadline warning).
@@ -67,6 +68,11 @@ with the reason, and don't go into the digest.
 "Available from" or term-time limits, keep it when it's a strong fit or a top tier. Say so plainly in the
 gap line ("Jan cohort clashes with Semester 2, so ask about a later cohort"), and make the next step about
 resolving the clash. Only filter it out if it's a weak fit anyway.
+
+**Grade screening can be a flag too.** If the brief says how to treat roles that screen on marks achieved so
+far, follow it (typically: keep the role, flag it in the gap line, lower its priority and make the next step
+"check the stated requirement"). Without such a rule, filter only on the grade the brief lists as a hard
+requirement.
 
 **Abroad:** keep only where a visa route is plausible for the student (see the brief), and name the route.
 
