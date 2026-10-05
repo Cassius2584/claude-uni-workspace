@@ -95,6 +95,20 @@ When they disagree, record both and flag it. Don't silently pick one.
 - Link between files with **relative Markdown links**, e.g. `[DEADLINES](../DEADLINES.md)` or
   `[brief](coursework/cw1/brief.pdf)`, so they're clickable in Obsidian and GitHub. No absolute paths in files.
 
+## Maths notation
+Claude's desktop app (Code tab), Obsidian and GitHub all render LaTeX, so write maths as `$…$` (inline) and
+`$$…$$` (display), in chat and in files. The Code tab leaves some inline maths as plain text:
+- Don't open inline maths with a number (`$1$`, `${12}$`, `$1, p, …$` stay as text). Write bare numbers as plain
+  text, or use display maths.
+- Inline maths that is only letters (`$pq$`, `$p q$`) stays as text. Single letters (`$p$`) and anything with
+  LaTeX syntax (`$p^a q$`, `$\cdots$`) work; write a product as `$p\,q$`.
+- Don't put a quote mark straight against a `$` (`"take out $Q$"` fails).
+- `\(…\)` and `\[…\]` don't work. Use dollars only.
+- Display maths (`$$…$$`, including `aligned` and `\boxed`) renders reliably. Prefer it for anything longer than
+  a symbol or two.
+
+The renderer is new and these rules may loosen. If something listed here starts rendering, drop the rule.
+
 ## House rules
 - Ask before deleting anything or overwriting a file I wrote.
 - Files, not chat, are the memory. Anything worth remembering goes into the relevant MODULE.md, DEADLINES.md
