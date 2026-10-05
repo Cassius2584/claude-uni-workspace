@@ -78,6 +78,9 @@ materials are the university's copyright: never commit or share them.
 
 ## 4. Write it down
 - Update each module's `.moodle-sync.json` (`seen`, `last_synced`, `announcements_seen_until`).
+- If any assessment note was added or changed, run
+  `python3 .claude/skills/create-study-timetable/scripts/sync_deadlines.py` from the workspace root, so the calendar's
+  all-day deadlines match.
 - Add one Log line to each MODULE.md that changed ("Moodle sync: 2 new files, GA1 brief released, …").
 - Write `projects/updates/<yyyy-mm-dd>.md` (on the first sync, also copy `projects/_template/MOODLE.md` to
   `projects/updates/MOODLE.md`: the page that lists every digest, linked from HOME):

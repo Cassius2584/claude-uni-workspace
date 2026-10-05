@@ -21,7 +21,7 @@ anything else.
 ├── .claude/skills/            ← setup-workspace (runs the other setup skills), setup-year, sync-moodle, add-module, whats-due, weekly-review, setup-obsidian, create-flashcards, exam-practice, create-study-timetable, setup-careers, find-roles, prep-application
 ├── concepts/                  ← (optional) one note per idea (theorem, method, proof technique), linked to every module
 │                                 it appears in, so the graph shows how modules connect (private, git-ignored)
-├── timetable/                 ← (optional) study timetable: TIMETABLE.md + blocks/ calendar notes (private, git-ignored)
+├── timetable/                 ← (optional) study timetable: TIMETABLE.md + blocks/ calendar notes + generated deadlines/ (private, git-ignored)
 ├── careers/                   ← grad roles / internships / placements (private, git-ignored)
 │   ├── CV.md, cv.pdf          ← my CV: the only source of truth for my experience
 │   ├── BRIEF.md               ← what I'm looking for: role types, titles, hard requirements, targets
@@ -55,6 +55,9 @@ anything else.
   module's `assessments/` folder, with the properties in `projects/_template/assessment.md`. These notes are the
   **only** source of truth for dates, weights, status and marks. `DEADLINES.md` and MODULE.md just show views of
   them. When something is set, moved, submitted or marked, edit that note and add a Log line.
+- **Deadlines in the calendar:** after any assessment note changes, run
+  `python3 .claude/skills/create-study-timetable/scripts/sync_deadlines.py` (from the workspace root). It rebuilds
+  `timetable/deadlines/`, generated all-day notes that Full Calendar shows in red. Never edit those by hand.
 - **What's due?** Use the `whats-due` skill (it reads the assessment notes).
 - **New on Moodle?** "Refresh Moodle" runs `sync-moodle`: new or moved deadlines go into assessment notes, and
   announcements, new files and weekly topics into a digest at `projects/updates/<date>.md`. I log in myself.

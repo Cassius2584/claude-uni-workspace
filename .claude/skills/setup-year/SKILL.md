@@ -79,6 +79,8 @@ For each module:
    graded coursework and exams, formative milestones, and admin deadlines (group registration, preference forms).
    Name each `<CODE>-<slug>.md`. Use exact property values; leave `due` blank when there's no date yet and put
    the approximate timing ("Jan 2027 exam period") in `due_note`.
+   Once every module's notes exist, run `python3 .claude/skills/create-study-timetable/scripts/sync_deadlines.py` from the
+   workspace root. It puts each dated deadline in the calendar's all-day row (shown once setup-obsidian has run).
 
 Then copy `projects/_template/DEADLINES.md` into `projects/`: fill in the academic year, one header pill per
 module (`[CODE](<folder>/MODULE.md)`), and a

@@ -64,7 +64,7 @@ What gets installed in Obsidian:
 | Install | For |
 |---|---|
 | **Spaced Repetition** (Stephen Mwangi) | Flashcards, reviewed from the Flashcards button in the sidebar |
-| **Full Calendar Remastered** (Jovi Koikkara) | The study timetable as a week view, plus HOME's agenda. You add your university timetable's subscribe link as an *ICS* calendar |
+| **Full Calendar Remastered** (Jovi Koikkara) | The study timetable as a week view, plus HOME's agenda, with every deadline in red in the all-day row. You add your university timetable's subscribe link as an *ICS* calendar |
 | **Style Settings** (mgmeyers) | Applies the theme preset |
 | **Homepage** (novov) | Opens HOME when Obsidian starts, in Reading view |
 | **AnuPpuccin** theme | The Catppuccin look: Mocha, mauve accent, card layout, rainbow folders |
@@ -235,7 +235,7 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 | `.claude/skills/sync-moodle/` | Weekly Moodle refresh, including predicted recurring hand-ins |
 | `.claude/skills/whats-due/` | Deadlines, tasks and applications with priorities |
 | `.claude/skills/setup-obsidian/` | Plugins and theme checklist, plus the dashboard and hide-template-files CSS snippets, AnuPpuccin preset and graph presets (`assets/`) applied to your vault |
-| `.claude/skills/create-study-timetable/` | Study blocks as calendar notes; clash check and `.ics` export in `scripts/timetable.py` |
+| `.claude/skills/create-study-timetable/` | Study blocks as calendar notes; clash check and `.ics` export in `scripts/timetable.py`; deadlines → all-day calendar notes in `scripts/sync_deadlines.py` |
 | `.claude/skills/create-flashcards/` | Flashcards (Spaced Repetition, Anki optional), proof tiers and concept notes; builders in `scripts/` |
 | `.claude/skills/exam-practice/` | Exam-style questions, photo answers marked against a pre-written scheme, practice log |
 | `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md` |

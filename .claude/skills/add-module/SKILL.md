@@ -19,7 +19,8 @@ description: Add one module to the uni workspace from whatever the student has, 
    naming the sources.
 5. **Create assessment notes** in `assessments/` from `projects/_template/assessment.md`, one per dated or
    graded item. Exams with no date yet: blank `due`, `due_note: "<month> exam period"`. They appear in
-   `projects/DEADLINES.md` automatically. No table to update.
+   `projects/DEADLINES.md` automatically. No table to update. Then run
+   `python3 .claude/skills/create-study-timetable/scripts/sync_deadlines.py` so the dated ones show in the calendar.
 6. **Check the credit total** for the year against PROFILE.md, and mention it if it's now complete or still
    short.
 

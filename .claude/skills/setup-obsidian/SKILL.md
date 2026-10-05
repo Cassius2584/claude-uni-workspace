@@ -67,7 +67,12 @@ then, backing up each existing file to `<file>.bak` first:
    other keys). Pages open as dashboards; Cmd/Ctrl+E switches a page to editing.
 4. **Full Calendar:** in `.obsidian/plugins/full-calendar-remastered/data.json` (it exists once the plugin has
    been enabled), set `"weatherHide": true`. Otherwise an unconfigured weather widget fills every day header. (If
-   they'd rather have forecasts, set `weatherCity` instead, e.g. "Bath".) Change nothing else.
+   they'd rather have forecasts, set `weatherCity` instead, e.g. "Bath".) Also add a **Deadlines** calendar to
+   `calendarSources` unless one already points at `timetable/deadlines`:
+   `{"type": "local", "name": "Deadlines", "color": "#ef4444", "id": "local_<next free number>", "directory":
+   "timetable/deadlines", "template": "", "taskCompletionStyle": "datetime"}`. Then run
+   `python3 .claude/skills/create-study-timetable/scripts/sync_deadlines.py` from the workspace root to fill it:
+   each dated assessment shows in red in the calendar's all-day row. Change nothing else.
 5. **HOME:** if `HOME.md` isn't at the workspace root, copy `projects/_template/HOME.md` there. Delete the cards for
    features they haven't set up, plus header pills pointing at pages that don't exist yet (the note at the bottom of the
    template lists them), and remove that note.
@@ -113,6 +118,8 @@ it appears in). Mention it.
 
 ## 3. Calendar sources (the student does this in Full Calendar's settings)
 - **Add calendar → Full Note** → folder `timetable/blocks` (once a study timetable exists).
+- The red **Deadlines** calendar (`timetable/deadlines`) is already added by step 4. It's generated from the
+  assessment notes, so students change dates there, not by dragging deadlines in the calendar.
 - **Add calendar → ICS** → their university timetable's subscribe link. It's read-only and refreshes by itself.
   The link is private, so it goes only into the plugin, never into a note or chat.
 
