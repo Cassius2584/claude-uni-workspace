@@ -77,8 +77,10 @@ that task:
   folders (the Anki builder also needs `pip install genanki`). You need a shell tool for these.
 - **Photos:** `exam-practice` marks photos of handwritten answers, so your tool must accept images. If it can't,
   ask the student to type their answer.
-- **Obsidian links:** `setup-obsidian` opens `obsidian://` install pages with the OS `open` command. Without a
-  shell, give the student the links to click. Never download plugin or theme files yourself.
+- **Obsidian plugins:** `setup-obsidian` shows the plugin list and, once the student approves the whole batch,
+  installs it with `scripts/install_plugins.py` (Obsidian's community directory only). Otherwise it opens
+  `obsidian://` install pages with the OS `open` command; without a shell, give the student the links. The student
+  always turns off Restricted mode themselves.
 - **Calendar and email** in `weekly-review` are optional, read-only connectors. Skip those sections if you don't have them.
 - **Obsidian views:** the tables are Bases views over note properties. Most are inline ```` ```base ```` blocks in
   dashboard pages (HOME, DEADLINES, TASKS, module pages); the careers views are in `careers/Roles.base`. You never

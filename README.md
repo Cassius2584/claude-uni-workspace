@@ -59,7 +59,8 @@ university, and other VLEs (Canvas, Blackboard) should work with minor guidance.
 5. **Next time**, open the `uni-workspace` folder in the Code tab and in Obsidian, and just talk ("what's due?",
    "refresh Moodle").
 
-What gets installed in Obsidian:
+What gets installed in Obsidian. Setup shows you this list with each download's source and size, and installs
+them all once you approve (or you click Install for each). Turning on community plugins stays your switch:
 
 | Install | For |
 |---|---|
@@ -67,6 +68,8 @@ What gets installed in Obsidian:
 | **Full Calendar Remastered** (Jovi Koikkara) | The study timetable as a week view, plus HOME's agenda, with every deadline in red in the all-day row. You add your university timetable's subscribe link as an *ICS* calendar |
 | **Style Settings** (mgmeyers) | Applies the theme preset |
 | **Homepage** (novov) | Opens HOME when Obsidian starts, in Reading view |
+| **Advanced URI** (Vinzent) | HOME's **Open calendar** and **Flashcards** buttons |
+| **Calendar: scroll to now** (bundled, no download) | Opens the calendar at the current time instead of 06:00 |
 | **AnuPpuccin** theme | The Catppuccin look: Mocha, mauve accent, card layout, rainbow folders |
 
 `projects/EXAMPLE-MA30001-linear-algebra/` is a fictional sample module. Setup hides it from Obsidian, along with the

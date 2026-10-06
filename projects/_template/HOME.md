@@ -4,7 +4,7 @@ cssclasses:
 ---
 
 > [!dash-hero] <Semester 1 · 2026/27>
-> [Deadlines](projects/DEADLINES.md) [Timetable](timetable/TIMETABLE.md) [Tasks](tasks/TASKS.md) [Careers](careers/TRACKER.md) [Review](reviews/latest.md) [Moodle](projects/updates/MOODLE.md)
+> [Deadlines](projects/DEADLINES.md) [Timetable](timetable/TIMETABLE.md) [Open calendar](obsidian://adv-uri?commandid=full-calendar-remastered%3Afull-calendar-open) [Flashcards](obsidian://adv-uri?commandid=obsidian-spaced-repetition%3Asrs-review-flashcards) [Tasks](tasks/TASKS.md) [Careers](careers/TRACKER.md) [Review](reviews/latest.md) [Moodle](projects/updates/MOODLE.md)
 
 > [!dash-priorities] This week's priorities
 > ![[reviews/latest#3 priorities]]
@@ -169,10 +169,10 @@ cssclasses:
 > ```
 
 > [!dash-revision] Revision
-> **Flashcards:** the Flashcards button in the sidebar. Unlock each chapter once it's been lectured.
+> **Flashcards:** the Flashcards button in the header (or the sidebar). Unlock each chapter once it's been lectured.
 > **Exam practice:** say "quiz me on <CODE>". Each module's `practice.md` has the log and weak spots.
 
 _Template note (setup removes this): delete any card whose feature isn't set up yet, **and the header pills that
-point at it** (Timetable, Careers, Review, Moodle), then add them back when it is.
+point at it** (Timetable, Open calendar, Flashcards, Careers, Review, Moodle), then add them back when it is.
 No timetable → "Next 7 days"; no weekly review → "priorities"; no careers → "Apply now"; no tasks → "Tasks";
 no flashcards or practice → "Revision". Styling comes from `setup-obsidian` (the `dashboard` CSS snippet)._

@@ -10,13 +10,13 @@ cssclasses:
 ---
 
 > [!dash-hero] Study timetable
-> [Home](../HOME.md) [Deadlines](../projects/DEADLINES.md) [Tasks](../tasks/TASKS.md)
+> [Home](../HOME.md) [Open calendar](obsidian://adv-uri?commandid=full-calendar-remastered%3Afull-calendar-open) [Deadlines](../projects/DEADLINES.md) [Tasks](../tasks/TASKS.md)
 > <Semester 1 2026/27> · teaching <28 Sep – 11 Dec 2026> · <reading week w/c 2 Nov>
 
 > [!dash-week] This week
 > ````fc-calendar
 > defaultDate: today
-> height: 640px
+> height: 900px
 > weather: false
 > layout:
 >   orientation: horizontal

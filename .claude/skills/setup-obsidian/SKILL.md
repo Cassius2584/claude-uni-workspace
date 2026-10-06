@@ -1,6 +1,6 @@
 ---
 name: setup-obsidian
-description: Set up Obsidian for this workspace so it looks and works as intended. Walks the student through installing the community plugins (Spaced Repetition, Full Calendar Remastered, Style Settings, Homepage) and the AnuPpuccin theme, then applies the dashboard styling, theme preset, calendar settings and a colour-coded graph (plus a local-graph sidebar) from this skill's assets, and makes HOME the first page. Use when the student says "set up Obsidian", "make Obsidian look nice", "style my vault", after setup-year, when HOME looks like plain callouts (pencil icons, no gradient header), or when they ask to make the graph view nicer or more useful.
+description: Set up Obsidian for this workspace so it looks and works as intended. Lists the community plugins (Spaced Repetition, Full Calendar Remastered, Style Settings, Homepage, Advanced URI) and the AnuPpuccin theme and offers to install them in one approved batch (or the student clicks Install for each), then applies the dashboard styling, theme preset, calendar settings and a colour-coded graph (plus a local-graph sidebar) from this skill's assets, and makes HOME the first page. Use when the student says "set up Obsidian", "make Obsidian look nice", "style my vault", after setup-year, when HOME looks like plain callouts (pencil icons, no gradient header), or when they ask to make the graph view nicer or more useful.
 ---
 
 # Set up Obsidian
@@ -18,38 +18,57 @@ Assets (in this skill's folder):
 - `assets/graph.json`: graph view preset: hides admin notes (timetable blocks, templates, digests, HOME and other hubs)
   and orphans, tighter layout, arrows, and colour groups for concepts, careers and tasks. Module colours are added per student.
 - `assets/local-graph-leaf.json`: a Local graph panel for the right sidebar (two links out from the open note).
+- `assets/timetable-explorer.css`: hides the generated calendar-note folders (`timetable/blocks`, `deadlines`,
+  `events`, `archive`) in the file list. The calendar still reads them.
+- `assets/plugins/calendar-scroll-to-now/`: a small local plugin from this workspace (no download). Full Calendar
+  always opens day and week views scrolled to 06:00; this centres them on the current time instead.
+- `scripts/install_plugins.py`: installs the plugins and theme from Obsidian's community directory (`plan`, then
+  `install`).
 - `assets/style-settings-anuppuccin.json`: the AnuPpuccin preset (Mocha, mauve accent, card layout, depth tabs,
   floating status bar, rainbow folders, coloured headings, styled tables, custom checkboxes).
 
-**Claude never installs plugins or themes.** The student does that in Obsidian (it downloads and runs code). Claude
-only writes settings files inside the vault's `.obsidian/` folder, after the student says yes, and backs up
-any file before changing it.
+**Installing is the student's call.** Plugins and themes are code that runs inside Obsidian with access to the
+whole vault. Claude offers to install the list below for them, but only after the student approves the **whole
+batch** with every item, its source and its size shown. Otherwise the student clicks Install for each item. Only
+install items listed in Obsidian's own community directory, and nothing outside the list without asking. Claude
+writes settings files inside `.obsidian/` only after the student says yes, and backs up any file first.
 
-## 1. Install the plugins and theme (the student clicks; one click each)
-Obsidian can't be installed into or configured by Claude directly: community plugins stay off until the student
-turns off Restricted mode, and installs go through Obsidian's own reviewed directory. **Never download plugin or
-theme files yourself.** Instead, make it one click per item:
-
+## 1. Install the plugins and theme
 1. **Obsidian installed and the vault open:** https://obsidian.md/download, then **Open folder as vault** → this
-   workspace. Obsidian should be running with this vault open before the links below.
-2. **Turn on community plugins.** It's the student's decision; explain it simply: it allows plugins from Obsidian's
-   community directory. The first install link below does this for you: while Restricted mode is on, it lands on the
-   Community plugins page with a button to turn it off. After they turn it off, open the same link again and it goes
-   straight to the plugin. (Or: Settings → Community plugins → **Turn on community plugins**.)
-3. **Open each install page.** If you can run commands on their computer, open the links one at a time (macOS
-   `open "<link>"`, Windows `start "" "<link>"`, Linux `xdg-open "<link>"`), waiting for them to press
-   **Install** then **Enable** (for the theme: **Install and use**) before the next. Otherwise give them the links to click.
+   workspace. Open it once, so the `.obsidian/` folder exists.
+2. **Turn on community plugins: the student does this, always.** Obsidian keeps Restricted mode in its own app
+   storage, not in a vault file, so Claude can't (and mustn't) switch it. Explain it simply: it allows plugins from
+   Obsidian's community directory. Settings → Community plugins → **Turn on community plugins**. (Or open
+   `obsidian://show-plugin?id=homepage`: while Restricted mode is on, it lands on that page with the button.)
+3. **Show the list and offer to install it.** The plugins and theme are:
 
-   | Item | Link | For |
+   | Item | id | For |
    |---|---|---|
-   | Spaced Repetition | `obsidian://show-plugin?id=obsidian-spaced-repetition` | flashcards (`create-flashcards`) |
-   | Full Calendar Remastered | `obsidian://show-plugin?id=full-calendar-remastered` | timetable, HOME's week agenda |
-   | Style Settings | `obsidian://show-plugin?id=obsidian-style-settings` | applies the theme preset |
-   | Homepage | `obsidian://show-plugin?id=homepage` | opens HOME on startup |
-   | AnuPpuccin (theme) | `obsidian://show-theme?name=AnuPpuccin` | the Catppuccin look |
+   | Spaced Repetition | `obsidian-spaced-repetition` | flashcards (`create-flashcards`) |
+   | Full Calendar Remastered | `full-calendar-remastered` | timetable, HOME's week agenda |
+   | Style Settings | `obsidian-style-settings` | applies the theme preset |
+   | Homepage | `homepage` | opens HOME on startup |
+   | Advanced URI | `obsidian-advanced-uri` | HOME's **Open calendar** and **Flashcards** buttons |
+   | AnuPpuccin (theme) | `AnuPpuccin` | the Catppuccin look |
+   | Calendar: scroll to now | bundled in `assets/plugins/` | calendars open at the current time, not 06:00 |
 
-   If a link doesn't open the page (older Obsidian), fall back to Settings → Community plugins → Browse, or
-   Appearance → Themes → Manage, and search by name.
+   If you can run commands, run `python3 .claude/skills/setup-obsidian/scripts/install_plugins.py plan` from the
+   workspace root. It resolves each item through Obsidian's directory and prints a table with the author, GitHub
+   source, latest version, files and sizes (about 7 MB in all), plus what's already installed. Show that table and
+   ask **once**: "Install all of these for you?" Then:
+   - **Yes:** ask them to **quit Obsidian** (it can overwrite `community-plugins.json` while it runs), then run
+     `install_plugins.py install`. It downloads exactly the listed files from each latest release, checks every
+     plugin's manifest id, copies the bundled plugin, enables everything in `.obsidian/community-plugins.json` and
+     sets the theme if none is set, backing up each file to `.bak`. Then they reopen Obsidian. If Obsidian asks
+     whether to trust the vault's plugins, they choose to trust them.
+   - **No, or they'd rather click:** open each install page (macOS `open "<link>"`, Windows `start "" "<link>"`,
+     Linux `xdg-open "<link>"`), one at a time, waiting for **Install** then **Enable** (theme: **Install and
+     use**): `obsidian://show-plugin?id=<id>` for each plugin and `obsidian://show-theme?name=AnuPpuccin`. Without a
+     shell, give them the links. If a link doesn't open the page (older Obsidian), use Settings → Community plugins
+     → Browse, or Appearance → Themes → Manage, and search by name. The bundled plugin isn't in the directory:
+     copy `assets/plugins/calendar-scroll-to-now/` to `.obsidian/plugins/`, add its id to
+     `community-plugins.json`, and they enable it under Settings → Community plugins after a reload.
+   - Never install a single item outside this list, or a newer source than Obsidian's directory points to.
 4. Check it worked: each plugin has a folder in `.obsidian/plugins/<id>/` and is listed in
    `.obsidian/community-plugins.json`, and `.obsidian/appearance.json` has `"cssTheme": "AnuPpuccin"`. Ask them to
    finish anything that's missing. They can keep another theme if they prefer: the dashboard works with any, and
@@ -73,7 +92,9 @@ then, backing up each existing file to `<file>.bak` first:
    "timetable/deadlines", "template": "", "taskCompletionStyle": "datetime"}`. Then run
    `python3 .claude/skills/create-study-timetable/scripts/sync_deadlines.py` from the workspace root to fill it:
    each dated assessment shows in red in the calendar's all-day row. Change nothing else.
-5. **HOME:** if `HOME.md` isn't at the workspace root, copy `projects/_template/HOME.md` there. Delete the cards for
+5. **HOME:** if `HOME.md` isn't at the workspace root, copy `projects/_template/HOME.md` there. Its **Open calendar**
+   and **Flashcards** pills are Advanced URI links (`obsidian://adv-uri?commandid=…`) that run Full Calendar's and
+   Spaced Repetition's commands. Remove them if those plugins aren't installed. Delete the cards for
    features they haven't set up, plus header pills pointing at pages that don't exist yet (the note at the bottom of the
    template lists them), and remove that note.
 6. **Homepage plugin** (required: without it Obsidian reopens whatever was last open, not HOME). Check it's
@@ -98,7 +119,10 @@ then, backing up each existing file to `<file>.bak` first:
    - Add them to `userIgnoreFilters` in `.obsidian/app.json` (merge, keep existing entries): `projects/_template/`,
      `tasks/_template/`, `careers/_template/`, `projects/EXAMPLE-MA30001-linear-algebra/`, `README.md`,
      `AGENTS.md`, `LICENSE`, `CLAUDE.md`. This hides them from search, the graph and link suggestions.
-   Tell the student they can see them again by turning off the snippet.
+   - Copy `assets/timetable-explorer.css` to `.obsidian/snippets/` and add `"timetable-explorer"` to
+     `enabledCssSnippets`. This hides the hundreds of generated calendar notes under `timetable/`, so the folder
+     shows just `TIMETABLE.md`.
+   Tell the student they can see them again by turning off the snippets.
 9. **Local graph sidebar:** in `.obsidian/workspace.json`, put the leaf from `assets/local-graph-leaf.json` (give it a
    fresh 16-hex-digit `id`, and copy the module colour groups into its `options.colorGroups`) first in the right
    sidebar's tab group, make it the current tab, and set `"collapsed": true`, so Obsidian opens on just HOME and the

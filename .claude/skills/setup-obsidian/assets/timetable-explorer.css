@@ -1,0 +1,8 @@
+/* Hide the generated Full Calendar note folders in the file explorer.
+   The notes stay in the vault (the calendar reads them); only the explorer rows are hidden. */
+.nav-folder:has(> .nav-folder-title[data-path="timetable/blocks"]),
+.nav-folder:has(> .nav-folder-title[data-path="timetable/deadlines"]),
+.nav-folder:has(> .nav-folder-title[data-path="timetable/events"]),
+.nav-folder:has(> .nav-folder-title[data-path="timetable/archive"]) {
+  display: none;
+}

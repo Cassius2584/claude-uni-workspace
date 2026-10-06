@@ -1,0 +1,9 @@
+{
+  "id": "calendar-scroll-to-now",
+  "name": "Calendar: scroll to now",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Opens Full Calendar's day and week views scrolled so the current time is in the middle, in the full calendar and in embedded calendars.",
+  "author": "claude-uni-workspace",
+  "isDesktopOnly": false
+}
