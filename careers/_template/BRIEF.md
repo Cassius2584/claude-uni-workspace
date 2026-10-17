@@ -63,6 +63,15 @@ it sets the "Role and field match" score.
 | Employer preference (target list, reputation, growth) | 10 |
 | Development (training, scheme structure, mentoring) | 10 |
 
+## Employer insights
+_Used by `employer-insights`. Filled in on its first run if empty._
+- **Default location:** <City>
+- **University tiers** (for comparing who gets hired; your own university's tier matters most):
+  - **Top:** <e.g. the universities employers in your field recruit from most>
+  - **Middle:** <e.g. other well-regarded universities, including yours if it fits here>
+  - **Other:** everything else
+- **Feeder programmes for my field:** <fellowships, residencies, research programmes or schemes that people in your target roles often did first>
+
 ## Search settings
 - **Region:** <UK>
 - **How often:** <daily / weekly (Mon 08:00)>

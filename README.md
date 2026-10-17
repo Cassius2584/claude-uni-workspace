@@ -181,10 +181,14 @@ then picks job boards to check.
   digest: **Apply now / Worth a look / Stretch**.
 - **`prep-application`** saves the job description, maps each requirement to evidence in your CV, drafts tailored
   CV bullets, a cover letter and STAR answers (real experience only), and lists likely tests and interview questions.
+- **`employer-insights`** (on demand, in your own signed-in browser) reads Glassdoor and Indeed reviews for your location
+  and job titles, samples LinkedIn profiles of recent hires into the same roles (university, degree level, prior
+  research, experience), and writes a company note with aggregate figures and a **Realistic / Stretch / Long shot / Unclear**
+  rating against your CV. No names or profile links are stored.
 - Roles are notes viewed through `careers/Roles.base` (*Open roles · By deadline · Applications · Board*). A
   Markdown or spreadsheet tracker also works.
 
-Claude never applies, fills in forms or logs in to job sites for you.
+Claude never applies, fills in forms or logs in to job sites for you. For `employer-insights` you sign in yourself and it only reads.
 
 ![Open roles ranked by fit, with deadlines and next steps](docs/careers-roles.png)
 
@@ -242,7 +246,7 @@ scheduling (automatic runs). A plain chat window (claude.ai, ChatGPT) can explai
 | `.claude/skills/create-flashcards/` | Flashcards (Spaced Repetition, Anki optional), proof tiers and concept notes; builders in `scripts/` |
 | `.claude/skills/exam-practice/` | Exam-style questions, photo answers marked against a pre-written scheme, practice log |
 | `.claude/skills/weekly-review/` | Sunday review of the week ahead → `reviews/<date>.md` |
-| `.claude/skills/setup-careers/`, `find-roles/`, `prep-application/` | Careers brief, scheduled role search, per-application prep |
+| `.claude/skills/setup-careers/`, `find-roles/`, `prep-application/`, `employer-insights/` | Careers brief, scheduled role search, per-application prep, who gets hired and your odds |
 | `projects/_template/` | `MODULE.md`, `assessment.md`, `PROFILE.md`, and the `DEADLINES.md` and `HOME.md` dashboards (tables inline) |
 | `tasks/_template/` | `TASKS.md` (dashboard with inline views, plus the rules) and `task.md` |
 | `careers/_template/` | Brief, CV and sources templates, and the Bases, Markdown and spreadsheet trackers |

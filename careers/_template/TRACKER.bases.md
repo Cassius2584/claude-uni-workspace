@@ -63,6 +63,7 @@ cssclasses:
 > | `salary` | number, blank if not stated |
 > | `deadline`, `next_date`, `found` | `YYYY-MM-DD`; `deadline` blank = rolling |
 > | `stage` | Not applied · Applied · Online tests · Video interview · Assessment centre · Offer · Rejected · Withdrawn · Filtered out |
+> | `reach` | Realistic · Stretch · Long shot · Unclear, set by `employer-insights` from who gets hired into this role family; blank until it has run |
 > | `reason` | why it was filtered out (only when `stage: Filtered out`) |
 >
 > ### How the skills use it
@@ -70,6 +71,7 @@ cssclasses:
 >   For each new role, write a note from the template: recommended roles get stage **Not applied** and priority from
 >   the label (Apply now → Now, Worth a look → Next, Stretch → Later). Filtered roles get a short note with stage
 >   **Filtered out** and a `reason`, so they're never re-checked.
+> - **employer-insights** (on demand, live only): writes `careers/companies/<slug>.md` (reviews, who gets hired, your odds), sets `reach` on that employer's role notes and links the company note from each.
 > - **prep-application:** create `careers/roles/<id>/`, link the prep files under the note's *Prep* heading, and set
 >   `priority: Now` with the next step and date.
 > - **whats-due:** read notes whose `deadline` or `next_date` falls in the window and whose stage isn't

@@ -6,6 +6,7 @@ role: <Role title>
 type: Grad
 fit: 82
 tier: 2
+reach:
 location: <London (hybrid)>
 start: <Sep 2027 · 2 years>
 salary: 45000

@@ -15,6 +15,7 @@ views:
       - role
       - type
       - fit
+      - reach
       - deadline
       - location
       - next_step
@@ -65,6 +66,7 @@ views:
       - role
       - stage
       - fit
+      - reach
       - deadline
     sort:
       - property: fit
