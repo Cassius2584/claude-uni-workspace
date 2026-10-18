@@ -37,7 +37,12 @@ Work out today's date and the role types, titles, sectors and region from the br
      good for discovery, but always store the **original employer link**, not an aggregator copy.
    - Programmes and fellowships (research programmes, bootcamps, graduate fellowships) run on fixed yearly
      windows. Search for them by name every run, even when not listed as a source.
-3. **Broad search:** 3–6 web searches combining titles, role type, year and region (e.g. `"2027 graduate
+3. **Early-career roles without "graduate" in the title.** Many roles that suit a strong graduate (e.g.
+   "AI Engineer", "Junior …", "… Engineer I") are never labelled graduate and won't match grad-scheme searches.
+   Each run, also search the brief's core titles **without** graduate words, on the ATS sites above and the
+   region's main boards (e.g. `site:jobs.ashbyhq.com "applied AI engineer" London`, `"junior AI engineer" London`),
+   plus generic titles such as "graduate AI role". Then apply the brief's experience rule (section 3).
+4. **Broad search:** 3–6 web searches combining titles, role type, year and region (e.g. `"2027 graduate
    scheme" machine learning UK`, `"summer internship 2027" quantitative developer London`), to catch roles
    on sites not listed.
 
@@ -73,6 +78,16 @@ resolving the clash. Only filter it out if it's a weak fit anyway.
 far, follow it (typically: keep the role, flag it in the gap line, lower its priority and make the next step
 "check the stated requirement"). Without such a rule, filter only on the grade the brief lists as a hard
 requirement.
+
+**Experience requirements.** If the brief has an experience rule, follow it. Otherwise: keep roles asking for
+"graduate", "junior", "early career" or up to the experience the student has (count a full-time placement as
+experience, internships as half), flag anything one year above that as a stretch, and filter roles that are clearly
+senior (several years more, or "senior / staff / lead"). Always quote the stated requirement in the gap line.
+Don't filter on years the posting only *prefers*.
+
+**Immediate starts are a flag too.** Non-graduate roles usually want someone within 1–3 months. If the student
+isn't available yet, keep strong early-career roles as a **watch** (lower priority, next step "re-check and apply
+about 3 months before you're available", with that date), unless the brief says otherwise.
 
 **Abroad:** keep only where a visa route is plausible for the student (see the brief), and name the route.
 

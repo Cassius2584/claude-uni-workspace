@@ -40,6 +40,8 @@ it sets the "Role and field match" score.
   Certificates of Eligibility. The search keeps abroad roles only where a visa route is plausible and says which.
 - **Degree / grades:** <e.g. predicted 2:1 in Computer Science and Maths, graduating Jun 2027>
 - **Minimum salary:** <e.g. £32,000 for grad roles; paid internships only>
+- **Experience required:** <how much relevant experience you have (e.g. "about 1 year: a 12-month placement"), and how to treat roles asking for more, e.g. "up to 2 years: keep; 3 years: keep only if a strong match, as a stretch; 4+ or senior: filter">
+- **Start date:** <when you're available; e.g. "from Jun 2027. Keep strong roles that want an immediate start as a watch, to re-check 3 months before">
 - **Other:** <e.g. no security clearance roles; must start after Jul 2027>
 
 ## Nice to have
