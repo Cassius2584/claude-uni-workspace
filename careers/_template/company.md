@@ -13,7 +13,7 @@ reach: <Stretch>
 
 # <Company>: employer insights
 
-_One note per employer, at `careers/companies/<slug>.md`, written by `employer-insights`. Figures are aggregates of a sample; no names or profile links. `reach` is the best rating across this employer's role families (Realistic · Stretch · Long shot · Unclear)._
+_One note per employer, at `careers/companies/<slug>.md`, written by `employer-insights` (<full / light> run, <date>). Figures are aggregates of a sample; no names or profile links. `reach` is the best rating across this employer's role families (Realistic · Stretch · Long shot · Unclear)._
 
 **In one line:** <what working there is like, and how people like you get in>
 
@@ -21,7 +21,7 @@ _One note per employer, at `careers/companies/<slug>.md`, written by `employer-i
 
 | Source | Rating | Reviews | Filter |
 |---|---|---|---|
-| Glassdoor | <4.1> | <120> | <all / City / "Job title"> |
+| Glassdoor | <4.1> (<84%> would recommend) | <120> | <all / City / "Job title">; themes below are from the <5> most recent visible |
 | Glassdoor interviews | <% positive / % negative · difficulty> | <n> | <all> |
 | Indeed | <3.9> | <40> | <all> |
 
@@ -48,18 +48,18 @@ _One note per employer, at `careers/companies/<slug>.md`, written by `employer-i
 ### Sample
 _<n> people who joined in the last 3 years, <location>. Shares are out of n. Rung shows where a row came from if the direct sample was thin (see the skill)._
 
-| Family | n | Top tier | Middle tier | Postgrad | PhD | Prior research | Joined ≤2 yrs after degree |
-|---|---|---|---|---|---|---|---|
-| <Family> | <14> | <11 (79%)> | <2 (14%)> | <6 (43%)> | <0> | <7 (50%)> | <3 (21%)> |
+| Family | n | Top tier | Middle tier | Postgrad | PhD | High class (1st or equivalent, where listed) | Prior research | Joined ≤2 yrs after degree |
+|---|---|---|---|---|---|---|---|---|
+| <Family> | <14> | <11 (79%)> | <2 (14%)> | <6 (43%)> | <0> | <4 of 5 listing one> | <7 (50%)> | <3 (21%)> |
 
 **Typical hire, by family:**
 - **<Family>:** <one line>. Common previous employers: <types>.
 
 <details><summary>Anonymised rows</summary>
 
-| Family | Rung | Joined | Degree | University (tier) | First degree | Prior research | ≤2 yrs after degree | Yrs work | Previous employer |
+| Family | Rung | Joined | Degree (class) | University (tier) | First degree | Prior research | ≤2 yrs after degree | Yrs work | Previous employer |
 |---|---|---|---|---|---|---|---|---|---|
-| <RE> | <direct> | <2025> | <MEng> | <Top: Imperial> | <2021> | <research programme> | <yes> | <1> | <startup> |
+| <RE> | <direct> | <2025> | <MEng (1st)> | <Top: Imperial> | <2021> | <research programme> | <yes> | <1> | <startup> |
 
 </details>
 
