@@ -108,6 +108,9 @@ Label each role:
 Create `careers/digests/<yyyy-mm-dd>.md`:
 
 ```markdown
+---
+cssclasses: [notes]
+---
 # Roles – <Mon 28 Sep 2026>
 <n> new roles checked · <k> recommended · <f> filtered out
 

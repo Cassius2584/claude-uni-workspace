@@ -85,6 +85,9 @@ materials are the university's copyright: never commit or share them.
 - Write `projects/updates/<yyyy-mm-dd>.md` (on the first sync, also copy `projects/_template/MOODLE.md` to
   `projects/updates/MOODLE.md`: the page that lists every digest, linked from HOME):
   ```markdown
+  ---
+  cssclasses: [notes]
+  ---
   # Moodle update – <Sun 4 Oct 2026>
   ## Changed dates        ← first, because these matter most
   ## New deadlines

@@ -8,6 +8,7 @@ modules: a note exists once and lists every module it appears in.
 ---
 kind: concept
 modules: [MA32064, MA32054]
+cssclasses: [notes]
 ---
 
 # Counting two ways

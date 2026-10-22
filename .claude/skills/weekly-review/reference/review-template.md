@@ -7,6 +7,7 @@ Save as `reviews/<YYYY-MM-DD>.md`. Leave out any section whose source doesn't ex
 ---
 kind: review
 week_of: <Monday YYYY-MM-DD>
+cssclasses: [notes]
 ---
 # Week of <5 Oct 2026>
 
